@@ -1,0 +1,102 @@
+
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>大規模言語モデル学習スケールのためのテレコムのケース</title>
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                    line-height: 1.6;
+                    color: #333;
+                    max-width: 800px;
+                    margin: 0 auto;
+                    padding: 20px;
+                }
+                .header {
+                    background-color: #f5f5f5;
+                    padding: 15px;
+                    border-bottom: 2px solid #ddd;
+                    margin-bottom: 20px;
+                }
+                .footer {
+                    margin-top: 30px;
+                    padding-top: 10px;
+                    border-top: 1px solid #ddd;
+                    font-size: 0.9em;
+                    color: #777;
+                }
+                h1 {
+                    color: #2c3e50;
+                }
+                h2 {
+                    color: #3498db;
+                    border-bottom: 1px solid #eee;
+                    padding-bottom: 5px;
+                }
+                h3 {
+                    color: #2980b9;
+                }
+                ul, ol {
+                    padding-left: 20px;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="header">
+                <h1>大規模言語モデル学習スケールのためのテレコムのケース</h1>
+                <p>日期: 2025年03月25日</p>
+            </div>
+            
+            <div class="content">
+                <h1>大規模言語モデル学習スケールのためのテレコムのケース</h1>
+<h2>1. 研討會主題與目標:</h2>
+<p>本次研討會主要探討電信公司如何利用分散式 GPU 資源和高效能網路 (APN) 來解決大規模語言模型 (LLM) 訓練時所面臨的 GPU 資源短缺問題，旨在驗證 GPU APN 的概念，並介紹相關的技術細節和實驗結果。核心技術包括 NVIDIA 的 Nemo 框架、Megatron 分散式學習框架，以及 GPU Direct RDMA 技術。</p>
+<h2>2. 主要技術討論點:</h2>
+<ul>
+<li><strong>GPU 需求擴大:</strong> 生成式 AI 的興起導致 GPU 需求大幅增加，單一數據中心的資源難以滿足。</li>
+<li><strong>分散式學習:</strong> 為加速模型訓練，需將大量資料分割並在多個 GPU 上並行訓練。</li>
+<li><strong>超大型模型:</strong> 越來越多的 LLM 超過單個 GPU 的記憶體容量，需要將模型分割到多個 GPU 上。</li>
+<li><strong>GPU APN 概念:</strong> 利用 APN 將分散在不同數據中心的 GPU 資源連接起來，形成虛擬 GPU 集群。</li>
+<li><strong>分散式學習框架:</strong> 選擇合適的分散式學習框架至關重要，例如 NVIDIA 的 Nemo 和 Megatron。</li>
+<li><strong>NVIDIA Nemo 和 Megatron:</strong> 介紹了 Nemo 和 Megatron 的架構、優點（支持多種模型架構、混合精度訓練、多種並行策略等）和使用方法。Nemo 提供快速部署，Megatron 則提供更大的自定義性。</li>
+<li><strong>Nemo 2.0:</strong> 著重介紹了 Nemo 從 1.0 版本到 2.0 版本的重大轉變，包括從 YAML 配置到 Python 代码配置，以及 UX 的改善。</li>
+<li><strong>自定義模型導入 Nemo:</strong> 詳細介紹了如何將自定義模型導入 Nemo 進行訓練，包括資料集準備、模型實作、參數轉換和並行策略配置。</li>
+<li><strong>GPU Direct RDMA:</strong> 透過 GPU Direct RDMA 技術和優化網路參數 (例如 Message Size 和 QP Size) 來降低長距離通訊延遲。</li>
+<li><strong>NCCL (NVIDIA Collective Communications Library):</strong> 作為多 GPU 通訊的標準，NCCL 在分散式學習中扮演重要角色，可利用 InfiniBand、Ethernet 等進行最佳路徑選擇。</li>
+<li><strong>NCCL 参数调优:</strong> 透過調整 NCCL 相關參數 (例如 NCL_IB_BUFFER_SIZE、NCL_IB_QPS_PER_CONNECTION) 來提升效能。</li>
+</ul>
+<h2>3. 決策與共識:</h2>
+<ul>
+<li><strong>GPU APN 可行性:</strong> 驗證了 GPU APN 在分散式 LLM 訓練中的可行性，可在多個數據中心之間高效利用 GPU 資源。</li>
+<li><strong>Nemo 框架的選擇:</strong> 推薦使用 Nemo 2.0，因其易用性、靈活性和對多種模型架構的支援。</li>
+<li><strong>長距離通訊優化:</strong> 共識是必須通過調整 NCCL 的參數，例如 buffer 大小和 QP size，才能在長距離 RDMA 中達到可接受的效能。</li>
+</ul>
+<h2>4. 時間規劃與里程碑:</h2>
+<ul>
+<li><strong>APN 已上線:</strong> ION APN 服務已於去年 3 月開始提供。</li>
+<li><strong>綠色資料中心建設中:</strong> 綠色資料中心正在建設中，未來將與 ION APN 結合提供更完整的服務。</li>
+<li><strong>Nemo 版本遷移:</strong> 需要注意 Nemo 版本從 1.0 到 2.0 的轉變，建議使用 2.0 版本。</li>
+</ul>
+<h2>5. 未解決的技術挑戰:</h2>
+<ul>
+<li><strong>具體模型的最佳化:</strong>  雖然驗證了 GPU APN 的可行性，但針對不同模型結構和資料集的最佳化策略仍需進一步研究。</li>
+<li><strong>自動化調優:</strong>  RDMA 參數和 NCCL 參數的手動調整較為繁瑣，需要探索自動化的調優方法。</li>
+<li><strong>异构 GPU 环境的支持:</strong> 實驗主要集中在同種類型的 GPU 上，對於异构 GPU 環境的支持和優化需要進一步研究。</li>
+</ul>
+<h2>6. 後續行動計劃:</h2>
+<ul>
+<li><strong>持續優化網路參數:</strong> 繼續探索最佳網路參數配置，以進一步降低分散式訓練的延遲。</li>
+<li><strong>開發自動化部署工具:</strong> 開發自動化工具，簡化 GPU APN 環境的部署和配置。</li>
+<li><strong>探索更多分散式學習策略:</strong> 研究更多先進的分散式學習策略，例如混合並行和梯度累積，以提升訓練效率。</li>
+<li><strong>測試不同規模的模型:</strong> 在 GPU APN 環境中測試不同規模的模型，評估其效能和可擴展性。</li>
+<li><strong>將成果應用於實際專案:</strong> 將 GPU APN 應用於實際的 AI 專案，驗證其商業價值和可行性。</li>
+</ul>
+            </div>
+            
+            <div class="footer">
+                <p>此摘要由 AI 輔助生成，如有任何問題或需要更多詳細資訊，請聯繫會議組織者。</p>
+            </div>
+        </body>
+        </html>
+        
