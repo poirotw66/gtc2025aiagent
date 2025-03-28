@@ -8,6 +8,7 @@ import argparse
 import time
 from pathlib import Path
 from src.transcript_summarizer import TranscriptSummarizer
+import time
 
 def process_directory(input_dir, output_dir, output_format="json", delay=1):
     """
@@ -40,6 +41,7 @@ def process_directory(input_dir, output_dir, output_format="json", delay=1):
     
     # 處理每個文件
     for i, file_path in enumerate(transcript_files):
+        start_time = time.time()
         print(f"處理 ({i+1}/{len(transcript_files)}): {file_path.name}")
         
         # 讀取逐字稿
@@ -51,11 +53,17 @@ def process_directory(input_dir, output_dir, output_format="json", delay=1):
             continue
         
         # 生成總結
-        summary = summarizer.summarize(transcript_text)
+        summary = summarizer.summarize(transcript_text, file_path.name[:-4])
         
         # 創建輸出文件名
         output_filename = file_path.stem + f"_summary.{output_format}"
-        output_path = os.path.join(output_dir, output_filename)
+        
+        # 為不同格式創建子資料夾
+        format_dir = os.path.join(output_dir, output_format)
+        os.makedirs(format_dir, exist_ok=True)
+        
+        # 設定對應格式的輸出路徑
+        output_path = os.path.join(format_dir, output_filename)
         
         # 保存總結
         try:
@@ -66,9 +74,19 @@ def process_directory(input_dir, output_dir, output_format="json", delay=1):
                 with open(output_path, 'w', encoding='utf-8') as f:
                     f.write(summary["summary"])
                 print(f"總結已保存到: {output_path}")
-                html_output_path = output_path.rsplit('.', 1)[0] + '.html'
-                summarizer.save_email_html(summary, html_output_path)
-                print(f"Email HTML 已保存到: {html_output_path}")
+                
+                # 為HTML格式創建子資料夾
+                html_dir = os.path.join(output_dir, "html")
+                os.makedirs(html_dir, exist_ok=True)
+                
+                # 設定HTML輸出路徑
+                html_output_path = os.path.join(html_dir, file_path.stem + "_summary.html")
+                # 傳遞文件名作為會議標題
+                meeting_title = file_path.stem.replace("_", " ").title()
+                summarizer.save_email_html(summary, html_output_path, meeting_title)
+                print(f"HTML格式總結已保存到: {html_output_path}")
+                end_time = time.time()
+                print(f"總耗時: {end_time - start_time:.2f} 秒")
         except Exception as e:
             print(f"保存總結 {output_path} 時出錯: {e}")
         
@@ -77,6 +95,8 @@ def process_directory(input_dir, output_dir, output_format="json", delay=1):
             time.sleep(delay)
     
     print(f"批量處理完成。總結文件保存在: {output_dir}")
+    
+    
 
 def main():
     parser = argparse.ArgumentParser(description="批量處理會議逐字稿並生成總結")
