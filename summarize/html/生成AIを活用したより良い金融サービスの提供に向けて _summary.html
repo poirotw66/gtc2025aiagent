@@ -1,0 +1,230 @@
+
+        <!DOCTYPE html>
+        <html lang="zh-TW">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>生成Aiを活用したより良い金融サービスの提供に向けて </title>
+            <style>
+                body {
+                    font-family: 'Roboto', 'Microsoft JhengHei', sans-serif;
+                    background-color: #f8f9fa;
+                    color: #333;
+                    margin: 0;
+                    padding: 0;
+                    line-height: 1.6;
+                }
+                header {
+                    text-align: center;
+                    padding: 30px 20px;
+                    background: linear-gradient(135deg, #4b6cb7, #182848);
+                    color: #fff;
+                    position: relative;
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                    border-radius: 10px 10px 0 0;
+                }
+                .video-link {
+                    display: inline-block;
+                    margin: 10px 0;
+                    padding: 8px 15px;
+                    background-color: rgba(255, 255, 255, 0.2);
+                    color: #fff;
+                    text-decoration: none;
+                    border-radius: 5px;
+                    font-weight: 500;
+                    transition: all 0.3s ease;
+                    border: 1px solid rgba(255, 255, 255, 0.3);
+                }
+                .video-link:hover {
+                    background-color: rgba(255, 255, 255, 0.3);
+                    transform: translateY(-2px);
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                }
+                .video-link i {
+                    margin-right: 5px;
+                }
+                header h1 {
+                    font-size: 2.2rem;
+                    margin: 0 0 10px 0;
+                    letter-spacing: 0.5px;
+                }
+                header p {
+                    font-size: 1.1rem;
+                    margin: 0;
+                    opacity: 0.9;
+                }
+                header img {
+                    max-width: 35%;
+                    height: auto;
+                    margin-bottom: 15px;
+                }
+                main {
+                    max-width: 900px;
+                    margin: 30px auto;
+                    padding: 0 20px;
+                }
+                .content-container {
+                    background-color: #fff;
+                    border-radius: 10px;
+                    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+                    padding: 30px;
+                    margin-bottom: 30px;
+                }
+                .section-block {
+                    background-color: #fff;
+                    padding: 25px;
+                    border-radius: 8px;
+                    margin-bottom: 25px;
+                    border-left: 5px solid #4b6cb7;
+                    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+                    transition: transform 0.2s ease, box-shadow 0.2s ease;
+                }
+                .section-block:hover {
+                    transform: translateY(-3px);
+                    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                }
+                /* 為不同段落設置不同的邊框顏色和背景 */
+                .section-block.conclusion {
+                    border-left-color: #e74c3c;
+                    background-color: #fff9f9;
+                }
+                .section-block.meeting-topic {
+                    border-left-color: #3498db;
+                    background-color: #f7fbff;
+                }
+                .section-block.tech-points {
+                    border-left-color: #2ecc71;
+                    background-color: #f7fff9;
+                }
+                .section-block.decisions {
+                    border-left-color: #f39c12;
+                    background-color: #fffaf5;
+                }
+                .section-block.timeline {
+                    border-left-color: #9b59b6;
+                    background-color: #faf5ff;
+                }
+                .section-block.challenges {
+                    border-left-color: #e67e22;
+                    background-color: #fff8f2;
+                }
+                .section-block.action-plan {
+                    border-left-color: #1abc9c;
+                    background-color: #f5fffc;
+                }
+                .section-title {
+                    font-size: 1.5rem;
+                    margin-top: 0;
+                    margin-bottom: 20px;
+                    padding-bottom: 10px;
+                    border-bottom: 2px solid #4b6cb7;
+                    display: inline-block;
+                }
+                /* 為不同段落標題設置對應的顏色 */
+                .section-block.conclusion .section-title {
+                    color: #e74c3c;
+                    border-bottom-color: #e74c3c;
+                }
+                .section-block.meeting-topic .section-title {
+                    color: #3498db;
+                    border-bottom-color: #3498db;
+                }
+                .section-block.tech-points .section-title {
+                    color: #2ecc71;
+                    border-bottom-color: #2ecc71;
+                }
+                .section-block.decisions .section-title {
+                    color: #f39c12;
+                    border-bottom-color: #f39c12;
+                }
+                .section-block.timeline .section-title {
+                    color: #9b59b6;
+                    border-bottom-color: #9b59b6;
+                }
+                .section-block.challenges .section-title {
+                    color: #e67e22;
+                    border-bottom-color: #e67e22;
+                }
+                .section-block.action-plan .section-title {
+                    color: #1abc9c;
+                    border-bottom-color: #1abc9c;
+                }
+                .content-container ul {
+                    padding-left: 20px;
+                }
+                .content-container li {
+                    margin-bottom: 10px;
+                    position: relative;
+                    list-style-type: none;
+                    padding-left: 25px;
+                }
+                .content-container li::before {
+                    content: "•";
+                    position: absolute;
+                    left: 0;
+                    color: #4b6cb7;
+                    font-size: 1.2rem;
+                    font-weight: bold;
+                }
+                .section-block.conclusion li::before { color: #e74c3c; }
+                .section-block.meeting-topic li::before { color: #3498db; }
+                .section-block.tech-points li::before { color: #2ecc71; }
+                .section-block.decisions li::before { color: #f39c12; }
+                .section-block.timeline li::before { color: #9b59b6; }
+                .section-block.challenges li::before { color: #e67e22; }
+                .section-block.action-plan li::before { color: #1abc9c; }
+                
+                .content-container p {
+                    margin-bottom: 15px;
+                    line-height: 1.7;
+                }
+                .content-container strong {
+                    color: #2c3e50;
+                    font-weight: bold;
+                }
+                footer {
+                    text-align: center;
+                    padding: 25px 20px;
+                    background-color: #f0f2f5;
+                    color: #666;
+                    border-radius: 0 0 10px 10px;
+                    border-top: 1px solid #e0e0e0;
+                }
+                footer img {
+                    max-width: 35%;
+                    height: auto;
+                    margin-bottom: 15px;
+                }
+                footer p {
+                    margin: 5px 0;
+                    font-size: 0.95rem;
+                }
+                footer a {
+                    color: #4b6cb7;
+                    text-decoration: none;
+                    font-weight: bold;
+                }
+                footer a:hover {
+                    text-decoration: underline;
+                }
+            </style>
+        </head>
+        <body>
+            <header>
+                <img src="https://i.imgur.com/0LXUWvj.png" alt="會議摘要圖示">
+                <h1>生成Aiを活用したより良い金融サービスの提供に向けて </h1>
+                <a href="https://www.nvidia.com/gtc/session-catalog/?search=%E7%94%9F%E6%88%90AI%E3%82%92%E6%B4%BB%E7%94%A8%E3%81%97%E3%81%9F%E3%82%88%E3%82%8A&search=%E7%94%9F%E6%88%90AI%E3%82%92%E6%B4%BB%E7%94%A8%E3%81%97%E3%81%9F%E3%82%88%E3%82%8A&tab.catalogallsessionstab=16566177511100015Kus#/session/1733485819383001uvuj" class="video-link" target="_blank"><i>▶</i> 會議影片超連結</a>
+            </header>
+            <main>
+                <div class="content-container">
+                    <div class="section-block default"><h1>為了提供更好的金融服務，活用生成式AI</h1></div><div class="section-block conclusion"><h2 class="section-title">Key Takeaways</h2><p>大和證券集團正在積極探索生成式AI在金融服務中的應用。本次演講介紹了大和證券集團的數位戰略、生成式AI的應用案例、以及在應用過程中遇到的挑戰，並探討了如何利用NVIDIA的技術來解決這些挑戰。</p><h3>重點摘要：</h3><ul><li>大和證券集團的數位轉型歷程，從DX1.0到DX3.0，以及各階段的重點。</li><li>生成式AI在公司內部的應用，包括全體員工的使用、社內應用程式開發、以及在客戶服務方面的應用（AI客服）。</li><li>生成式AI應用所帶來的效益，例如業務效率提升、客戶服務改善等。</li><li>生成式AI應用所面臨的挑戰，例如雲端服務費用增加、模型版本升級帶來的影響等。</li><li>利用NVIDIA的技術，例如NVIDIA NIM，來構建自有的LLM環境，以解決上述挑戰。</li></ul><h3>Topic: AI在金融服務的應用</h3></div><div class="section-block meeting-topic"><h2 class="section-title">會議主題</h2><p>會議主要探討如何利用生成式AI技術，為客戶提供更好的金融服務，並介紹了大和證券集團在生成式AI應用方面的實踐經驗。</p></div><div class="section-block tech-points"><h2 class="section-title">主要技術點</h2><ul><li><strong>全體員工導入生成式AI：</strong> 讓全體員工使用生成式AI工具，以激發創新思維和提高工作效率。</li><li><strong>社內應用程式開發：</strong> 開發基於生成式AI的社內應用程式，例如摘要工具、會議記錄工具等，以提高內部協作效率。</li><li><strong>AI客服：</strong> 利用生成式AI技術構建AI客服，以提供24小時不間斷的客戶服務，並解決客戶的常見問題。</li><li><strong>AI治理：</strong> 建立AI治理委員會，制定AI使用規範，以確保AI的安全性、公平性和可靠性。</li><li><strong>開源LLM的應用：</strong> 探討開源LLM在金融領域的應用，以及如何利用NVIDIA NIM等工具來構建自有的LLM環境。</li><li><strong>RAG（Retrieval-Augmented Generation）架構：</strong> 探討如何利用RAG架構來提高生成式AI的回答準確性，並減少幻覺現象。</li></ul></div><div class="section-block decisions"><h2 class="section-title">決策與共識</h2><ul><li>積極推進生成式AI在金融服務中的應用，以提高客戶服務品質和業務效率。</li><li>建立完善的AI治理體系，以確保AI的安全性、公平性和可靠性。</li><li>利用NVIDIA的技術，構建自有的LLM環境，以降低雲端服務費用，並提高數據安全性。</li><li>採用RAG架構，提高生成式AI的回答準確性，並減少幻覺現象。</li></ul></div><div class="section-block timeline"><h2 class="section-title">時間規劃與里程碑</h2><ul><li>2023年4月：全體員工開始使用生成式AI。</li><li>2023年10月：成立數位推進部，負責推動生成式AI的應用。</li><li>2024年10月：推出AI客服服務。</li><li>未來：持續探索生成式AI在金融服務中的應用，並不斷完善AI治理體系。</li></ul></div><div class="section-block challenges"><h2 class="section-title">未解決的技術挑戰</h2><ul><li>雲端服務費用持續增加，需要尋找更經濟的解決方案。</li><li>模型版本升級可能影響AI客服的回答品質，需要建立完善的測試和驗證機制。</li><li>如何確保AI的公平性，避免歧視特定群體。</li></ul></div><div class="section-block action-plan"><h2 class="section-title">後續行動計劃</h2><ul><li>利用NVIDIA NIM等工具，構建自有的LLM環境。</li><li>持續優化AI客服的回答品質，並擴大服務範圍。</li><li>加強AI治理，確保AI的安全性、公平性和可靠性。</li><li>與NVIDIA、伊藤忠科技等公司合作，共同推動生成式AI在金融服務中的應用。</li></ul></div>
+                </div>
+            </main>
+            <footer>
+                <img src="https://i.imgur.com/0LXUWvj.png" alt="會議摘要圖示">
+                <p>此摘要由 AI 輔助生成</p>
+                <p>如有任何問題或需要更多詳細資訊，請聯繫 ITR 小組</p>
+            </footer>
+        </body>
+        </html>
+        

@@ -1,0 +1,230 @@
+
+        <!DOCTYPE html>
+        <html lang="zh-TW">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Pioneering Construction Innovation With Omniverse</title>
+            <style>
+                body {
+                    font-family: 'Roboto', 'Microsoft JhengHei', sans-serif;
+                    background-color: #f8f9fa;
+                    color: #333;
+                    margin: 0;
+                    padding: 0;
+                    line-height: 1.6;
+                }
+                header {
+                    text-align: center;
+                    padding: 30px 20px;
+                    background: linear-gradient(135deg, #4b6cb7, #182848);
+                    color: #fff;
+                    position: relative;
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                    border-radius: 10px 10px 0 0;
+                }
+                .video-link {
+                    display: inline-block;
+                    margin: 10px 0;
+                    padding: 8px 15px;
+                    background-color: rgba(255, 255, 255, 0.2);
+                    color: #fff;
+                    text-decoration: none;
+                    border-radius: 5px;
+                    font-weight: 500;
+                    transition: all 0.3s ease;
+                    border: 1px solid rgba(255, 255, 255, 0.3);
+                }
+                .video-link:hover {
+                    background-color: rgba(255, 255, 255, 0.3);
+                    transform: translateY(-2px);
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                }
+                .video-link i {
+                    margin-right: 5px;
+                }
+                header h1 {
+                    font-size: 2.2rem;
+                    margin: 0 0 10px 0;
+                    letter-spacing: 0.5px;
+                }
+                header p {
+                    font-size: 1.1rem;
+                    margin: 0;
+                    opacity: 0.9;
+                }
+                header img {
+                    max-width: 35%;
+                    height: auto;
+                    margin-bottom: 15px;
+                }
+                main {
+                    max-width: 900px;
+                    margin: 30px auto;
+                    padding: 0 20px;
+                }
+                .content-container {
+                    background-color: #fff;
+                    border-radius: 10px;
+                    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+                    padding: 30px;
+                    margin-bottom: 30px;
+                }
+                .section-block {
+                    background-color: #fff;
+                    padding: 25px;
+                    border-radius: 8px;
+                    margin-bottom: 25px;
+                    border-left: 5px solid #4b6cb7;
+                    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+                    transition: transform 0.2s ease, box-shadow 0.2s ease;
+                }
+                .section-block:hover {
+                    transform: translateY(-3px);
+                    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                }
+                /* 為不同段落設置不同的邊框顏色和背景 */
+                .section-block.conclusion {
+                    border-left-color: #e74c3c;
+                    background-color: #fff9f9;
+                }
+                .section-block.meeting-topic {
+                    border-left-color: #3498db;
+                    background-color: #f7fbff;
+                }
+                .section-block.tech-points {
+                    border-left-color: #2ecc71;
+                    background-color: #f7fff9;
+                }
+                .section-block.decisions {
+                    border-left-color: #f39c12;
+                    background-color: #fffaf5;
+                }
+                .section-block.timeline {
+                    border-left-color: #9b59b6;
+                    background-color: #faf5ff;
+                }
+                .section-block.challenges {
+                    border-left-color: #e67e22;
+                    background-color: #fff8f2;
+                }
+                .section-block.action-plan {
+                    border-left-color: #1abc9c;
+                    background-color: #f5fffc;
+                }
+                .section-title {
+                    font-size: 1.5rem;
+                    margin-top: 0;
+                    margin-bottom: 20px;
+                    padding-bottom: 10px;
+                    border-bottom: 2px solid #4b6cb7;
+                    display: inline-block;
+                }
+                /* 為不同段落標題設置對應的顏色 */
+                .section-block.conclusion .section-title {
+                    color: #e74c3c;
+                    border-bottom-color: #e74c3c;
+                }
+                .section-block.meeting-topic .section-title {
+                    color: #3498db;
+                    border-bottom-color: #3498db;
+                }
+                .section-block.tech-points .section-title {
+                    color: #2ecc71;
+                    border-bottom-color: #2ecc71;
+                }
+                .section-block.decisions .section-title {
+                    color: #f39c12;
+                    border-bottom-color: #f39c12;
+                }
+                .section-block.timeline .section-title {
+                    color: #9b59b6;
+                    border-bottom-color: #9b59b6;
+                }
+                .section-block.challenges .section-title {
+                    color: #e67e22;
+                    border-bottom-color: #e67e22;
+                }
+                .section-block.action-plan .section-title {
+                    color: #1abc9c;
+                    border-bottom-color: #1abc9c;
+                }
+                .content-container ul {
+                    padding-left: 20px;
+                }
+                .content-container li {
+                    margin-bottom: 10px;
+                    position: relative;
+                    list-style-type: none;
+                    padding-left: 25px;
+                }
+                .content-container li::before {
+                    content: "•";
+                    position: absolute;
+                    left: 0;
+                    color: #4b6cb7;
+                    font-size: 1.2rem;
+                    font-weight: bold;
+                }
+                .section-block.conclusion li::before { color: #e74c3c; }
+                .section-block.meeting-topic li::before { color: #3498db; }
+                .section-block.tech-points li::before { color: #2ecc71; }
+                .section-block.decisions li::before { color: #f39c12; }
+                .section-block.timeline li::before { color: #9b59b6; }
+                .section-block.challenges li::before { color: #e67e22; }
+                .section-block.action-plan li::before { color: #1abc9c; }
+                
+                .content-container p {
+                    margin-bottom: 15px;
+                    line-height: 1.7;
+                }
+                .content-container strong {
+                    color: #2c3e50;
+                    font-weight: bold;
+                }
+                footer {
+                    text-align: center;
+                    padding: 25px 20px;
+                    background-color: #f0f2f5;
+                    color: #666;
+                    border-radius: 0 0 10px 10px;
+                    border-top: 1px solid #e0e0e0;
+                }
+                footer img {
+                    max-width: 35%;
+                    height: auto;
+                    margin-bottom: 15px;
+                }
+                footer p {
+                    margin: 5px 0;
+                    font-size: 0.95rem;
+                }
+                footer a {
+                    color: #4b6cb7;
+                    text-decoration: none;
+                    font-weight: bold;
+                }
+                footer a:hover {
+                    text-decoration: underline;
+                }
+            </style>
+        </head>
+        <body>
+            <header>
+                <img src="https://i.imgur.com/0LXUWvj.png" alt="會議摘要圖示">
+                <h1>Pioneering Construction Innovation With Omniverse</h1>
+                <a href="https://www.nvidia.com/gtc/session-catalog/?search=Pioneering%20Construction%20Innovation%20with%20Omniverse&tab.catalogallsessionstab=16566177511100015Kus#/session/1732628201071001kCqK" class="video-link" target="_blank"><i>▶</i> 會議影片超連結</a>
+            </header>
+            <main>
+                <div class="content-container">
+                    <div class="section-block default"><h1>利用 Omniverse 引領建築創新</h1></div><div class="section-block conclusion"><h2 class="section-title">Key Takeaways</h2><p>本次會議介紹了 Bouygues Construction 如何利用 NVIDIA Omniverse 引領建築創新。重點在於透過 Omniverse 建立虛擬施工現場，以提高安全性、效率和協作。</p><h3>重點摘要：</h3><ul><li>Bouygues Construction 是第一家探索 NVIDIA Omniverse 在設計和施工領域應用的總承包商。</li><li>Omniverse 能夠整合來自不同軟體的 3D 數據，實現實時協作和模擬。</li><li>利用合成數據加速 AI 模型的訓練，提高安全性和效率。</li></ul><h3>Topic:</h3><ul><li>Omniverse 在建築行業的應用</li><li>虛擬施工現場</li><li>合成數據生成</li></ul></div><div class="section-block meeting-topic"><h2 class="section-title">會議主題</h2><p>會議主要探討了 NVIDIA Omniverse 如何應用於建築行業，特別是透過建立虛擬施工現場，整合不同來源的 3D 數據，進行實時協作和模擬，並利用合成數據加速 AI 模型的訓練，從而提高建築安全性和效率。</p></div><div class="section-block tech-points"><h2 class="section-title">主要技術點</h2><ul><li><strong>OpenUSD (Universal Scene Description):</strong> 支援將來自不同軟體的 3D 資產整合到單一場景中，例如 Revit、Solidworks 和 Cesium。</li><li><strong>RTX Rendering:</strong> 提供高品質的圖形渲染，改善視覺體驗。</li><li><strong>物理引擎:</strong> 允許精確模擬小型和大型設備的操作，有助於找到最佳解決方案。</li><li><strong>動態數據連接:</strong> 透過 MQTT 協議追蹤塔式起重機的實時位置，實現對施工現場的實時監控。</li><li><strong>合成數據生成:</strong> 利用 Omniverse Replicator 生成用於訓練 AI 模型的合成數據，加速模型訓練，降低成本，並解決隱私和安全問題。</li><li><strong>Excel 擴展和 MQTT 協議:</strong> 將 3D 元素與 Excel 表格或實時感測器數據連接，實現數據可視化和互動。</li></ul></div><div class="section-block decisions"><h2 class="section-title">決策與共識</h2><ul><li>Omniverse 能夠整合多個數據來源，提供單一生態系統，用於模擬、協作和優化專案的各個方面。</li><li>利用虛擬施工現場，可以更早地發現風險，找到更好的解決方案，並提高安全性。</li><li>合成數據是訓練 AI 模型的重要工具，可以加速模型訓練，降低成本，並解決隱私和安全問題。</li></ul></div><div class="section-block timeline"><h2 class="section-title">時間規劃與里程碑</h2><ul><li>已建立虛擬施工現場，用於開發和測試特定於建築的應用程式。</li><li>正在探索使用感測器連接，以實現對施工現場的實時追蹤。</li><li>計劃繼續使用 Omniverse 和合成數據，以提高建築安全性和效率。</li></ul></div><div class="section-block challenges"><h2 class="section-title">未解決的技術挑戰</h2><ul><li>如何有效地管理和整合來自不同來源的大量數據。</li><li>如何確保虛擬施工現場的準確性和真實性。</li><li>如何將 AI 模型應用於實際施工現場，並實現預期的效果。</li></ul></div><div class="section-block action-plan"><h2 class="section-title">後續行動計劃</h2><ul><li>繼續開發和測試基於 Omniverse 的建築應用程式。</li><li>探索使用更多感測器和數據來源，以提高虛擬施工現場的準確性。</li><li>與 StingTwin 等公司合作，開發更多創新的解決方案。</li><li>將 Omniverse 和合成數據應用於更多建築專案，並分享經驗和最佳實踐。</li></ul></div>
+                </div>
+            </main>
+            <footer>
+                <img src="https://i.imgur.com/0LXUWvj.png" alt="會議摘要圖示">
+                <p>此摘要由 AI 輔助生成</p>
+                <p>如有任何問題或需要更多詳細資訊，請聯繫 ITR 小組</p>
+            </footer>
+        </body>
+        </html>
+        

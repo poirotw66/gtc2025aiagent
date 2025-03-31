@@ -1,0 +1,230 @@
+
+        <!DOCTYPE html>
+        <html lang="zh-TW">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Isaac PerceptorとAutowareを組み合わせたNova Carterの自動運転 [S73870]</title>
+            <style>
+                body {
+                    font-family: 'Roboto', 'Microsoft JhengHei', sans-serif;
+                    background-color: #f8f9fa;
+                    color: #333;
+                    margin: 0;
+                    padding: 0;
+                    line-height: 1.6;
+                }
+                header {
+                    text-align: center;
+                    padding: 30px 20px;
+                    background: linear-gradient(135deg, #4b6cb7, #182848);
+                    color: #fff;
+                    position: relative;
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                    border-radius: 10px 10px 0 0;
+                }
+                .video-link {
+                    display: inline-block;
+                    margin: 10px 0;
+                    padding: 8px 15px;
+                    background-color: rgba(255, 255, 255, 0.2);
+                    color: #fff;
+                    text-decoration: none;
+                    border-radius: 5px;
+                    font-weight: 500;
+                    transition: all 0.3s ease;
+                    border: 1px solid rgba(255, 255, 255, 0.3);
+                }
+                .video-link:hover {
+                    background-color: rgba(255, 255, 255, 0.3);
+                    transform: translateY(-2px);
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                }
+                .video-link i {
+                    margin-right: 5px;
+                }
+                header h1 {
+                    font-size: 2.2rem;
+                    margin: 0 0 10px 0;
+                    letter-spacing: 0.5px;
+                }
+                header p {
+                    font-size: 1.1rem;
+                    margin: 0;
+                    opacity: 0.9;
+                }
+                header img {
+                    max-width: 35%;
+                    height: auto;
+                    margin-bottom: 15px;
+                }
+                main {
+                    max-width: 900px;
+                    margin: 30px auto;
+                    padding: 0 20px;
+                }
+                .content-container {
+                    background-color: #fff;
+                    border-radius: 10px;
+                    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+                    padding: 30px;
+                    margin-bottom: 30px;
+                }
+                .section-block {
+                    background-color: #fff;
+                    padding: 25px;
+                    border-radius: 8px;
+                    margin-bottom: 25px;
+                    border-left: 5px solid #4b6cb7;
+                    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+                    transition: transform 0.2s ease, box-shadow 0.2s ease;
+                }
+                .section-block:hover {
+                    transform: translateY(-3px);
+                    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                }
+                /* 為不同段落設置不同的邊框顏色和背景 */
+                .section-block.conclusion {
+                    border-left-color: #e74c3c;
+                    background-color: #fff9f9;
+                }
+                .section-block.meeting-topic {
+                    border-left-color: #3498db;
+                    background-color: #f7fbff;
+                }
+                .section-block.tech-points {
+                    border-left-color: #2ecc71;
+                    background-color: #f7fff9;
+                }
+                .section-block.decisions {
+                    border-left-color: #f39c12;
+                    background-color: #fffaf5;
+                }
+                .section-block.timeline {
+                    border-left-color: #9b59b6;
+                    background-color: #faf5ff;
+                }
+                .section-block.challenges {
+                    border-left-color: #e67e22;
+                    background-color: #fff8f2;
+                }
+                .section-block.action-plan {
+                    border-left-color: #1abc9c;
+                    background-color: #f5fffc;
+                }
+                .section-title {
+                    font-size: 1.5rem;
+                    margin-top: 0;
+                    margin-bottom: 20px;
+                    padding-bottom: 10px;
+                    border-bottom: 2px solid #4b6cb7;
+                    display: inline-block;
+                }
+                /* 為不同段落標題設置對應的顏色 */
+                .section-block.conclusion .section-title {
+                    color: #e74c3c;
+                    border-bottom-color: #e74c3c;
+                }
+                .section-block.meeting-topic .section-title {
+                    color: #3498db;
+                    border-bottom-color: #3498db;
+                }
+                .section-block.tech-points .section-title {
+                    color: #2ecc71;
+                    border-bottom-color: #2ecc71;
+                }
+                .section-block.decisions .section-title {
+                    color: #f39c12;
+                    border-bottom-color: #f39c12;
+                }
+                .section-block.timeline .section-title {
+                    color: #9b59b6;
+                    border-bottom-color: #9b59b6;
+                }
+                .section-block.challenges .section-title {
+                    color: #e67e22;
+                    border-bottom-color: #e67e22;
+                }
+                .section-block.action-plan .section-title {
+                    color: #1abc9c;
+                    border-bottom-color: #1abc9c;
+                }
+                .content-container ul {
+                    padding-left: 20px;
+                }
+                .content-container li {
+                    margin-bottom: 10px;
+                    position: relative;
+                    list-style-type: none;
+                    padding-left: 25px;
+                }
+                .content-container li::before {
+                    content: "•";
+                    position: absolute;
+                    left: 0;
+                    color: #4b6cb7;
+                    font-size: 1.2rem;
+                    font-weight: bold;
+                }
+                .section-block.conclusion li::before { color: #e74c3c; }
+                .section-block.meeting-topic li::before { color: #3498db; }
+                .section-block.tech-points li::before { color: #2ecc71; }
+                .section-block.decisions li::before { color: #f39c12; }
+                .section-block.timeline li::before { color: #9b59b6; }
+                .section-block.challenges li::before { color: #e67e22; }
+                .section-block.action-plan li::before { color: #1abc9c; }
+                
+                .content-container p {
+                    margin-bottom: 15px;
+                    line-height: 1.7;
+                }
+                .content-container strong {
+                    color: #2c3e50;
+                    font-weight: bold;
+                }
+                footer {
+                    text-align: center;
+                    padding: 25px 20px;
+                    background-color: #f0f2f5;
+                    color: #666;
+                    border-radius: 0 0 10px 10px;
+                    border-top: 1px solid #e0e0e0;
+                }
+                footer img {
+                    max-width: 35%;
+                    height: auto;
+                    margin-bottom: 15px;
+                }
+                footer p {
+                    margin: 5px 0;
+                    font-size: 0.95rem;
+                }
+                footer a {
+                    color: #4b6cb7;
+                    text-decoration: none;
+                    font-weight: bold;
+                }
+                footer a:hover {
+                    text-decoration: underline;
+                }
+            </style>
+        </head>
+        <body>
+            <header>
+                <img src="https://i.imgur.com/0LXUWvj.png" alt="會議摘要圖示">
+                <h1>Isaac PerceptorとAutowareを組み合わせたNova Carterの自動運転 [S73870]</h1>
+                <a href="https://www.nvidia.com/gtc/session-catalog/?search=Isaac%20Perceptor%E3%81%A8Autoware%E3%82%92%E7%B5%84%E3%81%BF%E5%90%88%E3%82%8F%E3%81%9B%E3%81%9FNova%20Carter%E3%81%AE%E8%87%AA%E5%8B%95%E9%81%8B%E8%BB%A2%20%5BS73870%5D&tab.catalogallsessionstab=16566177511100015Kus#/session/1733321064657001yMQJ" class="video-link" target="_blank"><i>▶</i> 會議影片超連結</a>
+            </header>
+            <main>
+                <div class="content-container">
+                    <div class="section-block default"><h1>Isaac Perceptor與Autoware結合的Nova Carter自動駕駛 [S73870]</h1></div><div class="section-block conclusion"><h2 class="section-title">Key Takeaways</h2><p>本次會議介紹了Tier4公司如何將NVIDIA Isaac Perceptor與Autoware自動駕駛軟體整合到NVIDIA Nova Carter自立移動機器人平台上，並展示了在實際場景中的應用。</p><h3>重點摘要：</h3><ul><li>Tier4公司介紹及其在自動駕駛領域的貢獻，包括開源自動駕駛軟體Autoware。</li><li>NVIDIA Isaac Perceptor的介紹，特別是其在感知方面的能力，以及如何應用於自立移動機器人。</li><li>NVIDIA Nova Carter自立移動機器人平台的介紹，包括其硬體配置和軟體支援。</li><li>Autoware與Nova Carter的整合，展示了在室內環境中，Nova Carter如何使用Autoware進行自主導航和避障。</li></ul><h3>Topic: 自動駕駛、機器人、感知、Autoware、Isaac Perceptor、Nova Carter</h3></div><div class="section-block meeting-topic"><h2 class="section-title">會議主題</h2><p>會議主要探討了如何將NVIDIA Isaac Perceptor的感知能力與Autoware自動駕駛軟體整合到NVIDIA Nova Carter自立移動機器人平台上，實現自主導航和避障。</p></div><div class="section-block tech-points"><h2 class="section-title">主要技術點</h2><ul><li><strong>Autoware架構：</strong> 基於Linux和ROS2的開源自動駕駛軟體，提供完整的自動駕駛功能，包括感知、定位、規劃和控制。</li><li><strong>NVIDIA Isaac Perceptor：</strong> 基於CUDA加速的ROS封裝，提供各種感知功能，包括深度學習推理、三維重建和視覺SLAM。</li><li><strong>NVIDIA Nova Carter：</strong> 自立移動機器人平台，配備多種感測器，包括立體相機、魚眼相機和雷射雷達，並支援Isaac Perceptor。</li><li><strong>立體視覺：</strong> 使用立體相機進行視差估計和三維重建，用於動態障礙物檢測和地圖構建。</li><li><strong>佔用柵格地圖：</strong> 使用立體相機資訊建立佔用柵格地圖，用於導航和避障。</li><li><strong>車輛模型：</strong> 定義車輛的控制輸入和幾何資訊，以便Autoware能夠控制Nova Carter。</li><li><strong>感測器模型：</strong> 定義感測器的安裝位置、測量範圍和視野角，以便Autoware能夠使用感測器資訊。</li></ul></div><div class="section-block decisions"><h2 class="section-title">決策與共識</h2><ul><li>使用NVIDIA Isaac Perceptor進行感知，以提高性能和效率。</li><li>使用Autoware作為自動駕駛軟體，以利用其成熟的功能和開源生態系統。</li><li>使用NVIDIA Nova Carter作為自立移動機器人平台，以簡化開發和部署。</li><li>將立體視覺作為主要的感知方式，以減少對雷射雷達的依賴。</li></ul></div><div class="section-block timeline"><h2 class="section-title">時間規劃與里程碑</h2><ul><li>一個月的時間完成了Autoware與Nova Carter的整合。</li><li>成功在室內環境中演示了Nova Carter的自主導航和避障。</li><li>計畫未來改進立體匹配的深度學習模型，並使用更多的立體相機。</li><li>計畫將視覺里程計整合到Autoware中，並在室外環境中進行實驗。</li></ul></div><div class="section-block challenges"><h2 class="section-title">未解決的技術挑戰</h2><ul><li>立體匹配的深度學習模型需要改進，以減少對地面附近障礙物的誤檢測。</li><li>視覺里程計尚未整合到Autoware中。</li><li>需要在室外環境中進行實驗，以驗證系統的魯棒性。</li></ul></div><div class="section-block action-plan"><h2 class="section-title">後續行動計劃</h2><ul><li>改進立體匹配的深度學習模型。</li><li>將視覺里程計整合到Autoware中。</li><li>使用四個立體相機建立佔用柵格地圖。</li><li>完善文件和範例，以便其他開發者可以輕鬆地將Autoware整合到Nova Carter中。</li><li>在Isaac Sim中建立模擬環境，並在室外環境中進行實驗。</li></ul></div>
+                </div>
+            </main>
+            <footer>
+                <img src="https://i.imgur.com/0LXUWvj.png" alt="會議摘要圖示">
+                <p>此摘要由 AI 輔助生成</p>
+                <p>如有任何問題或需要更多詳細資訊，請聯繫 ITR 小組</p>
+            </footer>
+        </body>
+        </html>
+        

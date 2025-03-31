@@ -1,0 +1,230 @@
+
+        <!DOCTYPE html>
+        <html lang="zh-TW">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Bridging Performance And Flexibility In Network Architecture [S73339]</title>
+            <style>
+                body {
+                    font-family: 'Roboto', 'Microsoft JhengHei', sans-serif;
+                    background-color: #f8f9fa;
+                    color: #333;
+                    margin: 0;
+                    padding: 0;
+                    line-height: 1.6;
+                }
+                header {
+                    text-align: center;
+                    padding: 30px 20px;
+                    background: linear-gradient(135deg, #4b6cb7, #182848);
+                    color: #fff;
+                    position: relative;
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                    border-radius: 10px 10px 0 0;
+                }
+                .video-link {
+                    display: inline-block;
+                    margin: 10px 0;
+                    padding: 8px 15px;
+                    background-color: rgba(255, 255, 255, 0.2);
+                    color: #fff;
+                    text-decoration: none;
+                    border-radius: 5px;
+                    font-weight: 500;
+                    transition: all 0.3s ease;
+                    border: 1px solid rgba(255, 255, 255, 0.3);
+                }
+                .video-link:hover {
+                    background-color: rgba(255, 255, 255, 0.3);
+                    transform: translateY(-2px);
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                }
+                .video-link i {
+                    margin-right: 5px;
+                }
+                header h1 {
+                    font-size: 2.2rem;
+                    margin: 0 0 10px 0;
+                    letter-spacing: 0.5px;
+                }
+                header p {
+                    font-size: 1.1rem;
+                    margin: 0;
+                    opacity: 0.9;
+                }
+                header img {
+                    max-width: 35%;
+                    height: auto;
+                    margin-bottom: 15px;
+                }
+                main {
+                    max-width: 900px;
+                    margin: 30px auto;
+                    padding: 0 20px;
+                }
+                .content-container {
+                    background-color: #fff;
+                    border-radius: 10px;
+                    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+                    padding: 30px;
+                    margin-bottom: 30px;
+                }
+                .section-block {
+                    background-color: #fff;
+                    padding: 25px;
+                    border-radius: 8px;
+                    margin-bottom: 25px;
+                    border-left: 5px solid #4b6cb7;
+                    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+                    transition: transform 0.2s ease, box-shadow 0.2s ease;
+                }
+                .section-block:hover {
+                    transform: translateY(-3px);
+                    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                }
+                /* 為不同段落設置不同的邊框顏色和背景 */
+                .section-block.conclusion {
+                    border-left-color: #e74c3c;
+                    background-color: #fff9f9;
+                }
+                .section-block.meeting-topic {
+                    border-left-color: #3498db;
+                    background-color: #f7fbff;
+                }
+                .section-block.tech-points {
+                    border-left-color: #2ecc71;
+                    background-color: #f7fff9;
+                }
+                .section-block.decisions {
+                    border-left-color: #f39c12;
+                    background-color: #fffaf5;
+                }
+                .section-block.timeline {
+                    border-left-color: #9b59b6;
+                    background-color: #faf5ff;
+                }
+                .section-block.challenges {
+                    border-left-color: #e67e22;
+                    background-color: #fff8f2;
+                }
+                .section-block.action-plan {
+                    border-left-color: #1abc9c;
+                    background-color: #f5fffc;
+                }
+                .section-title {
+                    font-size: 1.5rem;
+                    margin-top: 0;
+                    margin-bottom: 20px;
+                    padding-bottom: 10px;
+                    border-bottom: 2px solid #4b6cb7;
+                    display: inline-block;
+                }
+                /* 為不同段落標題設置對應的顏色 */
+                .section-block.conclusion .section-title {
+                    color: #e74c3c;
+                    border-bottom-color: #e74c3c;
+                }
+                .section-block.meeting-topic .section-title {
+                    color: #3498db;
+                    border-bottom-color: #3498db;
+                }
+                .section-block.tech-points .section-title {
+                    color: #2ecc71;
+                    border-bottom-color: #2ecc71;
+                }
+                .section-block.decisions .section-title {
+                    color: #f39c12;
+                    border-bottom-color: #f39c12;
+                }
+                .section-block.timeline .section-title {
+                    color: #9b59b6;
+                    border-bottom-color: #9b59b6;
+                }
+                .section-block.challenges .section-title {
+                    color: #e67e22;
+                    border-bottom-color: #e67e22;
+                }
+                .section-block.action-plan .section-title {
+                    color: #1abc9c;
+                    border-bottom-color: #1abc9c;
+                }
+                .content-container ul {
+                    padding-left: 20px;
+                }
+                .content-container li {
+                    margin-bottom: 10px;
+                    position: relative;
+                    list-style-type: none;
+                    padding-left: 25px;
+                }
+                .content-container li::before {
+                    content: "•";
+                    position: absolute;
+                    left: 0;
+                    color: #4b6cb7;
+                    font-size: 1.2rem;
+                    font-weight: bold;
+                }
+                .section-block.conclusion li::before { color: #e74c3c; }
+                .section-block.meeting-topic li::before { color: #3498db; }
+                .section-block.tech-points li::before { color: #2ecc71; }
+                .section-block.decisions li::before { color: #f39c12; }
+                .section-block.timeline li::before { color: #9b59b6; }
+                .section-block.challenges li::before { color: #e67e22; }
+                .section-block.action-plan li::before { color: #1abc9c; }
+                
+                .content-container p {
+                    margin-bottom: 15px;
+                    line-height: 1.7;
+                }
+                .content-container strong {
+                    color: #2c3e50;
+                    font-weight: bold;
+                }
+                footer {
+                    text-align: center;
+                    padding: 25px 20px;
+                    background-color: #f0f2f5;
+                    color: #666;
+                    border-radius: 0 0 10px 10px;
+                    border-top: 1px solid #e0e0e0;
+                }
+                footer img {
+                    max-width: 35%;
+                    height: auto;
+                    margin-bottom: 15px;
+                }
+                footer p {
+                    margin: 5px 0;
+                    font-size: 0.95rem;
+                }
+                footer a {
+                    color: #4b6cb7;
+                    text-decoration: none;
+                    font-weight: bold;
+                }
+                footer a:hover {
+                    text-decoration: underline;
+                }
+            </style>
+        </head>
+        <body>
+            <header>
+                <img src="https://i.imgur.com/0LXUWvj.png" alt="會議摘要圖示">
+                <h1>Bridging Performance And Flexibility In Network Architecture [S73339]</h1>
+                <a href="https://www.nvidia.com/gtc/session-catalog/?search=Bridging%20Performance%20and%20Flexibility%20in%20Network%20Architecture%20%5BS73339%5D&tab.catalogallsessionstab=16566177511100015Kus#/session/1728666597339001ToiC" class="video-link" target="_blank"><i>▶</i> 會議影片超連結</a>
+            </header>
+            <main>
+                <div class="content-container">
+                    <div class="section-block default"><h1>橋接網路架構中的效能與彈性 [S73339]</h1></div><div class="section-block conclusion"><h2 class="section-title">Key Takeaways</h2><p>本次會議主要介紹 Scaleway 在 GPU 叢集網路部署方面的經驗，特別是 SpectrumX 技術的應用。重點涵蓋 Scaleway 的公司背景、GPU 超級叢集的技術細節、InfiniBand 與 SpectrumX 的比較，以及部署過程中遇到的挑戰與解決方案。</p><h3>重點摘要：</h3><ul><li>Scaleway 作為歐洲雲端供應商，專注於 AI 領域，部署了大量的 NVIDIA GPU 叢集。</li><li>GPU 叢集網路技術的演進，從 InfiniBand 到 SpectrumX 的轉變，以及 SpectrumX 在多租戶環境下的優勢。</li><li>SpectrumX 技術的原理、架構，以及如何克服在部署過程中遇到的複雜性與挑戰。</li><li>Scaleway 如何利用 SpectrumX 實現 GPU 叢集的彈性擴展、多租戶隔離，以及與現有雲端生態系統的整合。</li></ul><h3>Topic:</h3><p>Networking, GPU Clusters, SpectrumX, Multi-tenancy</p></div><div class="section-block meeting-topic"><h2 class="section-title">會議主題</h2><p>會議主要探討了在 GPU 叢集中使用 SpectrumX 技術，以實現更高的效能、彈性與多租戶支援。重點包括 SpectrumX 的技術原理、部署挑戰、以及相較於 InfiniBand 的優勢。</p></div><div class="section-block tech-points"><h2 class="section-title">主要技術點</h2><ul><li><strong>GPU 叢集網路架構：</strong> 東西向網路（GPU 間互連）、南北向網路（對外連接）、帶外網路（管理）和儲存網路。</li><li><strong>InfiniBand 與 SpectrumX 的比較：</strong> InfiniBand 在高效能計算領域的傳統地位，以及 SpectrumX 作為基於 Ethernet 的新興技術，在彈性、多租戶和易用性方面的優勢。</li><li><strong>SpectrumX 技術原理：</strong> 基於 RoCE (RDMA over Converged Ethernet) 的技術，通過自適應路由和受控尾部延遲，實現類似 InfiniBand 的效能。</li><li><strong>流量路由與擁塞控制：</strong> SpectrumX 如何通過動態路由和擁塞控制，避免傳統 Ethernet 網路中的擁塞問題，確保 GPU 間的高效通信。</li><li><strong>多租戶隔離：</strong> 如何利用 VRF (Virtual Routing and Forwarding) 技術，在 SpectrumX 叢集中實現租戶間的網路隔離，確保資料安全。</li><li><strong>QoS (Quality of Service)：</strong> 如何通過優先順序控制、PFC (Priority Flow Control) 和 ECN (Explicit Congestion Notification) 等機制，實現 SpectrumX 網路的 QoS 保證。</li></ul></div><div class="section-block decisions"><h2 class="section-title">決策與共識</h2><ul><li>Scaleway 決定採用 SpectrumX 技術，以實現 GPU 叢集的彈性擴展、多租戶支援，以及與現有雲端生態系統的整合。</li><li>SpectrumX 在多租戶環境下，相較於 InfiniBand 具有優勢，可以更好地滿足不同規模使用者的需求。</li><li>雖然 SpectrumX 的部署複雜度較高，但通過與合作夥伴的合作，以及不斷的優化，可以克服這些挑戰。</li></ul></div><div class="section-block timeline"><h2 class="section-title">時間規劃與里程碑</h2><ul><li>已成功部署基於 SpectrumX 的 GPU 叢集。</li><li>持續優化 SpectrumX 叢集的效能、穩定性和易用性。</li><li>未來將繼續擴展 SpectrumX 叢集的規模，以滿足不斷增長的 AI 計算需求。</li></ul></div><div class="section-block challenges"><h2 class="section-title">未解決的技術挑戰</h2><ul><li>SpectrumX 的部署複雜度較高，需要專業的知識和經驗。</li><li>客戶對 SpectrumX 的認知度較低，需要加強宣傳和推廣。</li><li>需要不斷優化 SpectrumX 叢集的管理工具，以提高易用性。</li></ul></div><div class="section-block action-plan"><h2 class="section-title">後續行動計劃</h2><ul><li>繼續與合作夥伴合作，優化 SpectrumX 叢集的部署和管理流程。</li><li>加強對 SpectrumX 技術的宣傳和推廣，提高客戶的認知度。</li><li>開發更完善的 SpectrumX 叢集管理工具，簡化管理操作。</li><li>探索 SpectrumX 在更多 AI 應用場景下的應用，例如推論即服務。</li></ul></div>
+                </div>
+            </main>
+            <footer>
+                <img src="https://i.imgur.com/0LXUWvj.png" alt="會議摘要圖示">
+                <p>此摘要由 AI 輔助生成</p>
+                <p>如有任何問題或需要更多詳細資訊，請聯繫 ITR 小組</p>
+            </footer>
+        </body>
+        </html>
+        

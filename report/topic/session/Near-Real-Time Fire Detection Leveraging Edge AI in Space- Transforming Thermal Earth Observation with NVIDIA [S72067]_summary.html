@@ -1,0 +1,230 @@
+
+        <!DOCTYPE html>
+        <html lang="zh-TW">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Near-Real-Time Fire Detection Leveraging Edge Ai In Space- Transforming Thermal Earth Observation With Nvidia [S72067]</title>
+            <style>
+                body {
+                    font-family: 'Roboto', 'Microsoft JhengHei', sans-serif;
+                    background-color: #f8f9fa;
+                    color: #333;
+                    margin: 0;
+                    padding: 0;
+                    line-height: 1.6;
+                }
+                header {
+                    text-align: center;
+                    padding: 30px 20px;
+                    background: linear-gradient(135deg, #4b6cb7, #182848);
+                    color: #fff;
+                    position: relative;
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                    border-radius: 10px 10px 0 0;
+                }
+                .video-link {
+                    display: inline-block;
+                    margin: 10px 0;
+                    padding: 8px 15px;
+                    background-color: rgba(255, 255, 255, 0.2);
+                    color: #fff;
+                    text-decoration: none;
+                    border-radius: 5px;
+                    font-weight: 500;
+                    transition: all 0.3s ease;
+                    border: 1px solid rgba(255, 255, 255, 0.3);
+                }
+                .video-link:hover {
+                    background-color: rgba(255, 255, 255, 0.3);
+                    transform: translateY(-2px);
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                }
+                .video-link i {
+                    margin-right: 5px;
+                }
+                header h1 {
+                    font-size: 2.2rem;
+                    margin: 0 0 10px 0;
+                    letter-spacing: 0.5px;
+                }
+                header p {
+                    font-size: 1.1rem;
+                    margin: 0;
+                    opacity: 0.9;
+                }
+                header img {
+                    max-width: 35%;
+                    height: auto;
+                    margin-bottom: 15px;
+                }
+                main {
+                    max-width: 900px;
+                    margin: 30px auto;
+                    padding: 0 20px;
+                }
+                .content-container {
+                    background-color: #fff;
+                    border-radius: 10px;
+                    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+                    padding: 30px;
+                    margin-bottom: 30px;
+                }
+                .section-block {
+                    background-color: #fff;
+                    padding: 25px;
+                    border-radius: 8px;
+                    margin-bottom: 25px;
+                    border-left: 5px solid #4b6cb7;
+                    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+                    transition: transform 0.2s ease, box-shadow 0.2s ease;
+                }
+                .section-block:hover {
+                    transform: translateY(-3px);
+                    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                }
+                /* 為不同段落設置不同的邊框顏色和背景 */
+                .section-block.conclusion {
+                    border-left-color: #e74c3c;
+                    background-color: #fff9f9;
+                }
+                .section-block.meeting-topic {
+                    border-left-color: #3498db;
+                    background-color: #f7fbff;
+                }
+                .section-block.tech-points {
+                    border-left-color: #2ecc71;
+                    background-color: #f7fff9;
+                }
+                .section-block.decisions {
+                    border-left-color: #f39c12;
+                    background-color: #fffaf5;
+                }
+                .section-block.timeline {
+                    border-left-color: #9b59b6;
+                    background-color: #faf5ff;
+                }
+                .section-block.challenges {
+                    border-left-color: #e67e22;
+                    background-color: #fff8f2;
+                }
+                .section-block.action-plan {
+                    border-left-color: #1abc9c;
+                    background-color: #f5fffc;
+                }
+                .section-title {
+                    font-size: 1.5rem;
+                    margin-top: 0;
+                    margin-bottom: 20px;
+                    padding-bottom: 10px;
+                    border-bottom: 2px solid #4b6cb7;
+                    display: inline-block;
+                }
+                /* 為不同段落標題設置對應的顏色 */
+                .section-block.conclusion .section-title {
+                    color: #e74c3c;
+                    border-bottom-color: #e74c3c;
+                }
+                .section-block.meeting-topic .section-title {
+                    color: #3498db;
+                    border-bottom-color: #3498db;
+                }
+                .section-block.tech-points .section-title {
+                    color: #2ecc71;
+                    border-bottom-color: #2ecc71;
+                }
+                .section-block.decisions .section-title {
+                    color: #f39c12;
+                    border-bottom-color: #f39c12;
+                }
+                .section-block.timeline .section-title {
+                    color: #9b59b6;
+                    border-bottom-color: #9b59b6;
+                }
+                .section-block.challenges .section-title {
+                    color: #e67e22;
+                    border-bottom-color: #e67e22;
+                }
+                .section-block.action-plan .section-title {
+                    color: #1abc9c;
+                    border-bottom-color: #1abc9c;
+                }
+                .content-container ul {
+                    padding-left: 20px;
+                }
+                .content-container li {
+                    margin-bottom: 10px;
+                    position: relative;
+                    list-style-type: none;
+                    padding-left: 25px;
+                }
+                .content-container li::before {
+                    content: "•";
+                    position: absolute;
+                    left: 0;
+                    color: #4b6cb7;
+                    font-size: 1.2rem;
+                    font-weight: bold;
+                }
+                .section-block.conclusion li::before { color: #e74c3c; }
+                .section-block.meeting-topic li::before { color: #3498db; }
+                .section-block.tech-points li::before { color: #2ecc71; }
+                .section-block.decisions li::before { color: #f39c12; }
+                .section-block.timeline li::before { color: #9b59b6; }
+                .section-block.challenges li::before { color: #e67e22; }
+                .section-block.action-plan li::before { color: #1abc9c; }
+                
+                .content-container p {
+                    margin-bottom: 15px;
+                    line-height: 1.7;
+                }
+                .content-container strong {
+                    color: #2c3e50;
+                    font-weight: bold;
+                }
+                footer {
+                    text-align: center;
+                    padding: 25px 20px;
+                    background-color: #f0f2f5;
+                    color: #666;
+                    border-radius: 0 0 10px 10px;
+                    border-top: 1px solid #e0e0e0;
+                }
+                footer img {
+                    max-width: 35%;
+                    height: auto;
+                    margin-bottom: 15px;
+                }
+                footer p {
+                    margin: 5px 0;
+                    font-size: 0.95rem;
+                }
+                footer a {
+                    color: #4b6cb7;
+                    text-decoration: none;
+                    font-weight: bold;
+                }
+                footer a:hover {
+                    text-decoration: underline;
+                }
+            </style>
+        </head>
+        <body>
+            <header>
+                <img src="https://i.imgur.com/0LXUWvj.png" alt="會議摘要圖示">
+                <h1>Near-Real-Time Fire Detection Leveraging Edge Ai In Space- Transforming Thermal Earth Observation With Nvidia [S72067]</h1>
+                <a href="https://www.nvidia.com/gtc/session-catalog/?search=Near-Real-Time%20Fire%20Detection%20Leveraging%20Edge%20AI%20in%20Space-%20Transforming%20Thermal%20Earth%20Observation%20with%20NVIDIA%20%5BS72067%5D&tab.catalogallsessionstab=16566177511100015Kus#/session/1726168884646001trrQ" class="video-link" target="_blank"><i>▶</i> 會議影片超連結</a>
+            </header>
+            <main>
+                <div class="content-container">
+                    <div class="section-block default"><h1>利用太空邊緣AI實現近乎即時的火災偵測 - 使用NVIDIA轉變熱能地球觀測 [S72067]</h1></div><div class="section-block conclusion"><h2 class="section-title">Key Takeaways</h2><p>本次會議由 Dorotek 的資料科學與 AI 負責人 Julia Gottfriedzen 主講，並由資深軟體開發人員 Fabian Schöttl 共同參與，介紹了 Dorotek 在太空邊緣 AI 領域的技術創新和主要成就，重點在於利用 NVIDIA 技術進行近乎即時的火災偵測，並轉變熱能地球觀測的方式。</p><h3>重點摘要：</h3><ul><li>Dorotek 公司概況：成立於 2018 年，全球擁有超過 130 名員工，並有超過 300 個用戶遍布 20 個國家。</li><li>衛星星座：目前有兩顆衛星在軌運行，並計劃發射更多衛星以提高重訪率，特別是在火災高發的下午時段。</li><li>技術應用：利用熱像儀和 AI 支援的分析技術，透過可視化平台或 API 提供數據服務，協助用戶監測和預測野火蔓延。</li><li>商業進展：近期獲得了來自希臘政府的 2000 萬美元合約，以及來自加拿大政府的 7200 萬加元合約，用於構建野火偵測監測衛星星座。</li><li>與歐洲太空總署合作：成為 Copernicus 數據提供者，參與其貢獻任務計畫。</li></ul><h3>Topic: 邊緣運算、AI、地球觀測、野火偵測</h3></div><div class="section-block meeting-topic"><h2 class="section-title">會議主題</h2><p>會議主要探討了 Dorotek 如何利用其衛星星座和搭載 NVIDIA GPU 的邊緣運算能力，實現近乎即時的野火偵測，並提供土地表面溫度等相關數據產品，以協助用戶更好地管理和預測火災，並應用於城市規劃等其他領域。</p></div><div class="section-block tech-points"><h2 class="section-title">主要技術點</h2><ul><li><strong>熱像儀技術：</strong> Dorotek 的核心技術在於其熱像儀，能夠偵測中波紅外和長波紅外波段的熱輻射，用於識別火災熱點和測量地表溫度。</li><li><strong>衛星星座設計：</strong> 透過多顆衛星在軌飛行，提高對地球表面的重訪率，特別是在野火高發的下午時段，以彌補現有衛星數據的不足。</li><li><strong>邊緣運算：</strong> 在衛星上搭載 NVIDIA GPU（Jetson Xavier），進行即時的影像處理和火災偵測，大幅降低數據延遲，使用戶能在 10 分鐘內收到火災警報。</li><li><strong>機器學習演算法：</strong> 使用基於 Transformer 的架構進行火災偵測，並與 CNN 模型進行比較，結果顯示 Transformer 架構在 F1 分數上表現更佳。</li><li><strong>雲層偵測：</strong> 開發雲層偵測演算法，以過濾雲層干擾，提高火災偵測的準確性，並減少需要下傳的數據量。</li><li><strong>數據融合：</strong> 將來自不同衛星來源的數據進行整合，並結合風向、天氣、土地覆蓋等資訊，提供更全面的火災資訊。</li><li><strong>火災蔓延預測：</strong> 開發基於物理和機器學習混合模型的火災蔓延預測系統，結合燃料特性和風向預測，提供短期的火災風險預測。</li><li><strong>土地表面溫度測量：</strong> 利用衛星數據測量土地表面溫度，並應用於城市熱島效應研究、灌溉管理等領域。</li><li><strong>超解析度技術：</strong> 使用機器學習演算法提高衛星影像的解析度，從 200 米提升到 30 米，以提供更精細的農業監測數據。</li></ul></div><div class="section-block decisions"><h2 class="section-title">決策與共識</h2><ul><li>自建衛星星座以彌補現有衛星數據的不足，提高火災偵測的時效性。</li><li>在衛星上搭載 NVIDIA GPU 進行邊緣運算，以降低數據延遲。</li><li>採用基於 Transformer 的架構進行火災偵測，以提高準確性。</li><li>整合多個數據來源，提供更全面的火災資訊。</li></ul></div><div class="section-block timeline"><h2 class="section-title">時間規劃與里程碑</h2><ul><li>2023 年 6 月：發射 FOREST 2 衛星。</li><li>近期：發射 FOREST 3 衛星。</li><li>今年：計劃發射 16 個有效載荷，以提高重訪率。</li><li>2025 年：實現每天兩次重訪。</li><li>今年：發布 ActiFIRE 數據產品。</li></ul></div><div class="section-block challenges"><h2 class="section-title">未解決的技術挑戰</h2><ul><li>如何在有限的衛星資源下，平衡計算效能和功耗。</li><li>如何進一步提高火災偵測和雲層偵測的準確性。</li><li>如何更有效地融合多個數據來源，提供更可靠的火災資訊。</li></ul></div><div class="section-block action-plan"><h2 class="section-title">後續行動計劃</h2><ul><li>持續發射衛星，擴大衛星星座規模。</li><li>優化邊緣運算演算法，提高計算效能和效率。</li><li>收集更多數據，訓練更精準的機器學習模型。</li><li>開發更多基於衛星數據的應用，例如灌溉管理、城市規劃等。</li></ul></div>
+                </div>
+            </main>
+            <footer>
+                <img src="https://i.imgur.com/0LXUWvj.png" alt="會議摘要圖示">
+                <p>此摘要由 AI 輔助生成</p>
+                <p>如有任何問題或需要更多詳細資訊，請聯繫 ITR 小組</p>
+            </footer>
+        </body>
+        </html>
+        

@@ -87,7 +87,10 @@ class TranscriptSummarizer:
             * 基於IOWN APN（全光網絡）和RDMA（遠端直接記憶體存取），採用地理上三層分散的處理模型（客戶端邊緣、邊緣雲和公有雲）的AI分析平台概述。
             * 充分利用nvJPEG、CV-CUDA、Rivermax和GPUDirect RDMA等先進的卸載技術，打造用於AI推論的高速數據管道。
             * 利用Kubernetes和CDI（可組合分解式基礎架構）對高速數據管道進行擴展，優化硬體資源利用率，大幅降低能源消耗。通過RDMA基於的數據管道串聯，支援將多個AI模型的結果結合起來，實現附加價值更高的複雜AI應用情境。
-            ### Topic: AI Platforms / Deployment - AI Inference / Inference Microservices
+            ### Topic: 
+            * AI Platforms
+            * Deployment - AI Inference
+            * Inference Microservices
 
             ## 會議主題
             會議主要探討了如何利用 NTT 的 ION 技術，特別是 DCI（Data Centric Infrastructure）架構和 APN（All-Photonics Network）網路，構建一個低功耗、高效能、即時的 AI 分析平台，並將其應用於大阪萬博的相關服務中。
@@ -128,9 +131,18 @@ class TranscriptSummarizer:
             generation_config = genai.GenerationConfig(temperature=0.1)
             # response = self.model.generate_content(contents=prompt)
             response = self.model.generate_content(contents=prompt, generation_config=generation_config)
+            summary_text = response.text
+            
+            # 提取 Key Takeaways 部分
+            key_takeaways = self._extract_key_takeaways(summary_text)
+            
+            # 將 Key Takeaways 存入 Excel 檔案
+            self._save_key_takeaways_to_excel(meeting_title, key_takeaways)
+            
             return {
-                "summary": response.text,
-                "status": "success"
+                "summary": summary_text,
+                "status": "success",
+                "key_takeaways": key_takeaways
             }
         except Exception as e:
             return {
@@ -138,6 +150,85 @@ class TranscriptSummarizer:
                 "status": "error",
                 "error_message": str(e)
             }
+    
+    def _extract_key_takeaways(self, summary_text):
+        """
+        從摘要文本中提取 Key Takeaways 部分
+        
+        Args:
+            summary_text (str): 摘要文本
+            
+        Returns:
+            str: Key Takeaways 內容
+        """
+        lines = summary_text.strip().split('\n')
+        key_takeaways = ""
+        in_key_takeaways = False
+        
+        for i, line in enumerate(lines):
+            if line.startswith('## Key Takeaways'):
+                in_key_takeaways = True
+                continue
+            
+            if in_key_takeaways:
+                # 如果遇到下一個段落標題，結束提取
+                if line.startswith('## ') and not line.startswith('## Key Takeaways'):
+                    break
+                key_takeaways += line + '\n'
+        
+        return key_takeaways.strip()
+    
+    def _save_key_takeaways_to_excel(self, meeting_title, key_takeaways):
+        """
+        將 Key Takeaways 存入 Excel 檔案
+        
+        Args:
+            meeting_title (str): 會議標題
+            key_takeaways (str): Key Takeaways 內容
+        """
+        try:
+            import pandas as pd
+            from pathlib import Path
+            
+            # Excel 檔案路徑
+            excel_path = Path.home() / "Github" / "gtc2025aiagent" / "研討會會議清單.xlsx"
+            
+            # 檢查檔案是否存在
+            if not excel_path.exists():
+                print(f"警告: 找不到 Excel 檔案 {excel_path}")
+                return
+            
+            # 讀取 Excel 檔案
+            df = pd.read_excel(excel_path)
+            
+            # 檢查是否有 'Meeting' 欄位
+            if 'Meeting' not in df.columns:
+                print("警告: Excel 檔案中沒有 'Meeting' 欄位")
+                return
+            
+            # 檢查是否有 'Key' 欄位，如果沒有則新增
+            if 'Key' not in df.columns:
+                df['Key'] = ""
+            
+            # 尋找對應的會議標題並更新 Key 欄位
+            found = False
+            for i, row in df.iterrows():
+                if str(row['Meeting']) == meeting_title:
+                    df.at[i, 'Key'] = key_takeaways
+                    found = True
+                    break
+            
+            if not found:
+                print(f"警告: 在 Excel 檔案中找不到會議標題 '{meeting_title}'")
+                return
+            
+            # 保存 Excel 檔案
+            df.to_excel(excel_path, index=False)
+            print(meeting_title)
+            print(f"已將 Key Takeaways 存入 Excel 檔案: {excel_path}")
+            
+        except Exception as e:
+            print(f"存入 Excel 檔案時發生錯誤: {e}")
     
     def save_summary(self, summary, output_path):
         """
@@ -321,7 +412,7 @@ class TranscriptSummarizer:
                     opacity: 0.9;
                 }}
                 header img {{
-                    max-width: 120px;
+                    max-width: 35%;
                     height: auto;
                     margin-bottom: 15px;
                 }}
@@ -458,7 +549,7 @@ class TranscriptSummarizer:
                     border-top: 1px solid #e0e0e0;
                 }}
                 footer img {{
-                    max-width: 100px;
+                    max-width: 35%;
                     height: auto;
                     margin-bottom: 15px;
                 }}
@@ -481,7 +572,6 @@ class TranscriptSummarizer:
                 <img src="https://i.imgur.com/0LXUWvj.png" alt="會議摘要圖示">
                 <h1>{meeting_title}</h1>
                 {f'<a href="{url}" class="video-link" target="_blank"><i>▶</i> 會議影片超連結</a>' if url else ''}
-                <p>{current_date} 會議摘要</p>
             </header>
             <main>
                 <div class="content-container">

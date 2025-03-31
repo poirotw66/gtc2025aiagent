@@ -1,0 +1,230 @@
+
+        <!DOCTYPE html>
+        <html lang="zh-TW">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Unlocking The Potential Of Multilingual Language Models</title>
+            <style>
+                body {
+                    font-family: 'Roboto', 'Microsoft JhengHei', sans-serif;
+                    background-color: #f8f9fa;
+                    color: #333;
+                    margin: 0;
+                    padding: 0;
+                    line-height: 1.6;
+                }
+                header {
+                    text-align: center;
+                    padding: 30px 20px;
+                    background: linear-gradient(135deg, #4b6cb7, #182848);
+                    color: #fff;
+                    position: relative;
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                    border-radius: 10px 10px 0 0;
+                }
+                .video-link {
+                    display: inline-block;
+                    margin: 10px 0;
+                    padding: 8px 15px;
+                    background-color: rgba(255, 255, 255, 0.2);
+                    color: #fff;
+                    text-decoration: none;
+                    border-radius: 5px;
+                    font-weight: 500;
+                    transition: all 0.3s ease;
+                    border: 1px solid rgba(255, 255, 255, 0.3);
+                }
+                .video-link:hover {
+                    background-color: rgba(255, 255, 255, 0.3);
+                    transform: translateY(-2px);
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                }
+                .video-link i {
+                    margin-right: 5px;
+                }
+                header h1 {
+                    font-size: 2.2rem;
+                    margin: 0 0 10px 0;
+                    letter-spacing: 0.5px;
+                }
+                header p {
+                    font-size: 1.1rem;
+                    margin: 0;
+                    opacity: 0.9;
+                }
+                header img {
+                    max-width: 35%;
+                    height: auto;
+                    margin-bottom: 15px;
+                }
+                main {
+                    max-width: 900px;
+                    margin: 30px auto;
+                    padding: 0 20px;
+                }
+                .content-container {
+                    background-color: #fff;
+                    border-radius: 10px;
+                    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+                    padding: 30px;
+                    margin-bottom: 30px;
+                }
+                .section-block {
+                    background-color: #fff;
+                    padding: 25px;
+                    border-radius: 8px;
+                    margin-bottom: 25px;
+                    border-left: 5px solid #4b6cb7;
+                    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+                    transition: transform 0.2s ease, box-shadow 0.2s ease;
+                }
+                .section-block:hover {
+                    transform: translateY(-3px);
+                    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                }
+                /* 為不同段落設置不同的邊框顏色和背景 */
+                .section-block.conclusion {
+                    border-left-color: #e74c3c;
+                    background-color: #fff9f9;
+                }
+                .section-block.meeting-topic {
+                    border-left-color: #3498db;
+                    background-color: #f7fbff;
+                }
+                .section-block.tech-points {
+                    border-left-color: #2ecc71;
+                    background-color: #f7fff9;
+                }
+                .section-block.decisions {
+                    border-left-color: #f39c12;
+                    background-color: #fffaf5;
+                }
+                .section-block.timeline {
+                    border-left-color: #9b59b6;
+                    background-color: #faf5ff;
+                }
+                .section-block.challenges {
+                    border-left-color: #e67e22;
+                    background-color: #fff8f2;
+                }
+                .section-block.action-plan {
+                    border-left-color: #1abc9c;
+                    background-color: #f5fffc;
+                }
+                .section-title {
+                    font-size: 1.5rem;
+                    margin-top: 0;
+                    margin-bottom: 20px;
+                    padding-bottom: 10px;
+                    border-bottom: 2px solid #4b6cb7;
+                    display: inline-block;
+                }
+                /* 為不同段落標題設置對應的顏色 */
+                .section-block.conclusion .section-title {
+                    color: #e74c3c;
+                    border-bottom-color: #e74c3c;
+                }
+                .section-block.meeting-topic .section-title {
+                    color: #3498db;
+                    border-bottom-color: #3498db;
+                }
+                .section-block.tech-points .section-title {
+                    color: #2ecc71;
+                    border-bottom-color: #2ecc71;
+                }
+                .section-block.decisions .section-title {
+                    color: #f39c12;
+                    border-bottom-color: #f39c12;
+                }
+                .section-block.timeline .section-title {
+                    color: #9b59b6;
+                    border-bottom-color: #9b59b6;
+                }
+                .section-block.challenges .section-title {
+                    color: #e67e22;
+                    border-bottom-color: #e67e22;
+                }
+                .section-block.action-plan .section-title {
+                    color: #1abc9c;
+                    border-bottom-color: #1abc9c;
+                }
+                .content-container ul {
+                    padding-left: 20px;
+                }
+                .content-container li {
+                    margin-bottom: 10px;
+                    position: relative;
+                    list-style-type: none;
+                    padding-left: 25px;
+                }
+                .content-container li::before {
+                    content: "•";
+                    position: absolute;
+                    left: 0;
+                    color: #4b6cb7;
+                    font-size: 1.2rem;
+                    font-weight: bold;
+                }
+                .section-block.conclusion li::before { color: #e74c3c; }
+                .section-block.meeting-topic li::before { color: #3498db; }
+                .section-block.tech-points li::before { color: #2ecc71; }
+                .section-block.decisions li::before { color: #f39c12; }
+                .section-block.timeline li::before { color: #9b59b6; }
+                .section-block.challenges li::before { color: #e67e22; }
+                .section-block.action-plan li::before { color: #1abc9c; }
+                
+                .content-container p {
+                    margin-bottom: 15px;
+                    line-height: 1.7;
+                }
+                .content-container strong {
+                    color: #2c3e50;
+                    font-weight: bold;
+                }
+                footer {
+                    text-align: center;
+                    padding: 25px 20px;
+                    background-color: #f0f2f5;
+                    color: #666;
+                    border-radius: 0 0 10px 10px;
+                    border-top: 1px solid #e0e0e0;
+                }
+                footer img {
+                    max-width: 35%;
+                    height: auto;
+                    margin-bottom: 15px;
+                }
+                footer p {
+                    margin: 5px 0;
+                    font-size: 0.95rem;
+                }
+                footer a {
+                    color: #4b6cb7;
+                    text-decoration: none;
+                    font-weight: bold;
+                }
+                footer a:hover {
+                    text-decoration: underline;
+                }
+            </style>
+        </head>
+        <body>
+            <header>
+                <img src="https://i.imgur.com/0LXUWvj.png" alt="會議摘要圖示">
+                <h1>Unlocking The Potential Of Multilingual Language Models</h1>
+                <a href="https://www.nvidia.com/gtc/session-catalog/?search=Unlocking%20the%20Potential%20of%20Multilingual%20Language%20Models&tab.catalogallsessionstab=16566177511100015Kus#/session/1733321676608001ncz4" class="video-link" target="_blank"><i>▶</i> 會議影片超連結</a>
+            </header>
+            <main>
+                <div class="content-container">
+                    <div class="section-block default"><h1>釋放多語言模型的力量</h1></div><div class="section-block conclusion"><h2 class="section-title">Key Takeaways</h2><p>介紹了 Salamandra，西班牙第一個也是最大的國家語言模型，它在賦予西班牙乃至整個歐盟的人工智慧主權方面發揮著關鍵作用。Salamandra 系列包括具有 20 億、70 億和 140 億參數的模型，所有模型都經過多達 13 兆個 tokens 的訓練。這項成就得益於與 NVIDIA 的合作，共同將 NEMO 塑造成為如今強大的框架，該框架是 Salamandra 的支柱。Salamandra 的一個關鍵方面是其對開放性的承諾，不僅提供模型權重，還共享配置檔案和執行腳本。這種透明度確保了研究人員和開發人員可以自由訪問和利用我們的模型，從而促進了人工智慧社群的創新。此外，得益於與負責人工智慧監督的西班牙機構 AESIA 的密切合作，Salamandra 完全符合歐洲人工智慧法規。這種合作夥伴關係確保我們遵守最高的道德人工智慧實踐標準。我們已做出重大努力，以確保該模型不包含或生成有偏見的內容，並與歐洲標準和文化保持一致。這種承諾加強了我們對開發負責任的人工智慧的奉獻。此外，雖然我們尚未發布數據集，但我們保證對數據的合法訪問。我們已仔細描述了包含所有必要細節的數據集，確保監管機構可以完全審核它。這種透明度進一步加強了我們對負責任的人工智慧開發的承諾。所有這些旨在使行業能夠使用 Salamandra，並提供模型符合法規的法律保證。Salamandra 模型系列由巴塞隆納超級計算中心語言技術實驗室的語言建模團隊訓練。該團隊在最近幾個月中取得了顯著增長，現在包括實驗室 60 名成員中的 24 名。訓練如此規模的語言模型需要資金。在 Salamandra 模型的情況下，資金完全來自公共資金，來自加泰隆尼亞政府的 ILENIA 專案，以及來自數位化和人工智慧國務秘書處的 ALIA 專案。此外，它還得到了 ILENIA 的支持，這是一個協調專案，支持區域倡議，其中包括聖地牙哥大學、巴斯克大學的 ITS 中心、阿利坎特的 Zenith 以及哈恩大學。因此，Salamandra 模型是該國領先機構共同努力的結果。</p><h3>Topic:</h3><ul><li>多語言模型</li><li>AI 主權</li><li>開放原始碼</li><li>歐洲 AI 法規</li><li>模型訓練</li></ul></div><div class="section-block meeting-topic"><h2 class="section-title">會議主題</h2><p>會議主要探討了 Salamandra，西班牙第一個也是最大的國家語言模型，以及其在推動 AI 主權、遵守歐洲 AI 法規、開放原始碼和多語言能力方面的作用。</p></div><div class="section-block tech-points"><h2 class="section-title">主要技術點</h2><ul><li><strong>模型架構：</strong> Salamandra 模型基於 Lama 2 架構，並進行了多項改進，包括使用多頭注意力機制（multi-hat attention）和群組查詢注意力機制（group query attention）。</li><li><strong>訓練數據：</strong> 模型使用高達 13 兆個 tokens 進行訓練，數據來自各種來源，包括網路來源和非網路來源，例如 SCELO、DIALNET、Radio Televisión Española 和加泰隆尼亞和瓦倫西亞議會。</li><li><strong>Tokenization：</strong> 使用統一分佈訓練 tokenizer，詞彙量為 256,000 個 tokens，旨在提高語料庫中語言的 fertility。</li><li><strong>訓練基礎設施：</strong> 模型在巴塞隆納超級計算中心的 Marnestrom 5 超級電腦上進行訓練，該電腦配備了 4,418 個 H100 GPU。</li><li><strong>模型評估：</strong> 模型在各種任務上進行了評估，包括生成任務、翻譯任務和問答任務，並在伊比利亞半島語言方面表現出色。</li><li><strong>偏見和安全：</strong> 評估了模型中的偏見，並使用 DPO 和 PKU 安全數據集進行了對齊測試，以提高模型對抗攻擊的抵抗力。</li><li><strong>多模態能力：</strong> 正在開發多模態版本，可以處理圖像和影片等其他模態。</li></ul></div><div class="section-block decisions"><h2 class="section-title">決策與共識</h2><ul><li>Salamandra 模型將以開放原始碼形式發布，以促進 AI 社群的創新。</li><li>模型將完全符合歐洲 AI 法規，並努力消除偏見。</li><li>將繼續擴大模型規模，並發布具有改進功能的新模型。</li><li>將開發多模態版本，以支援更多應用場景。</li></ul></div><div class="section-block timeline"><h2 class="section-title">時間規劃與里程碑</h2><ul><li>已發布 Salamandra 模型的基本版本、指令調整版本和量化版本。</li><li>計劃在 3 月底之前發布包含語料庫中所有語言的擴展模型。</li><li>計劃在年底之前發布包含對齊階段的最終模型。</li><li>正在開發多模態版本，並計劃在未來發布。</li></ul></div><div class="section-block challenges"><h2 class="section-title">未解決的技術挑戰</h2><ul><li>數據稀缺，特別是在某些語言和領域。</li><li>需要解決語言和領域覆蓋範圍、許可限制和多語言語料庫中的偏見等問題。</li><li>數學推理能力仍然較弱。</li></ul></div><div class="section-block action-plan"><h2 class="section-title">後續行動計劃</h2><ul><li>繼續收集和生成具有許可證的指令數據集。</li><li>開發自己的審核模型，以替代 LAMAGARD。</li><li>繼續進行對齊測試，以提高模型對抗攻擊的抵抗力。</li><li>探索聯邦學習，以利用歐洲 HPC 網路的計算能力。</li><li>將 Salamandra 模型應用於更多行業，並為中小企業提供法律保證。</li></ul></div>
+                </div>
+            </main>
+            <footer>
+                <img src="https://i.imgur.com/0LXUWvj.png" alt="會議摘要圖示">
+                <p>此摘要由 AI 輔助生成</p>
+                <p>如有任何問題或需要更多詳細資訊，請聯繫 ITR 小組</p>
+            </footer>
+        </body>
+        </html>
+        

@@ -1,0 +1,230 @@
+
+        <!DOCTYPE html>
+        <html lang="zh-TW">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Glake：大模型训练和推理的显存优化探索</title>
+            <style>
+                body {
+                    font-family: 'Roboto', 'Microsoft JhengHei', sans-serif;
+                    background-color: #f8f9fa;
+                    color: #333;
+                    margin: 0;
+                    padding: 0;
+                    line-height: 1.6;
+                }
+                header {
+                    text-align: center;
+                    padding: 30px 20px;
+                    background: linear-gradient(135deg, #4b6cb7, #182848);
+                    color: #fff;
+                    position: relative;
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                    border-radius: 10px 10px 0 0;
+                }
+                .video-link {
+                    display: inline-block;
+                    margin: 10px 0;
+                    padding: 8px 15px;
+                    background-color: rgba(255, 255, 255, 0.2);
+                    color: #fff;
+                    text-decoration: none;
+                    border-radius: 5px;
+                    font-weight: 500;
+                    transition: all 0.3s ease;
+                    border: 1px solid rgba(255, 255, 255, 0.3);
+                }
+                .video-link:hover {
+                    background-color: rgba(255, 255, 255, 0.3);
+                    transform: translateY(-2px);
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                }
+                .video-link i {
+                    margin-right: 5px;
+                }
+                header h1 {
+                    font-size: 2.2rem;
+                    margin: 0 0 10px 0;
+                    letter-spacing: 0.5px;
+                }
+                header p {
+                    font-size: 1.1rem;
+                    margin: 0;
+                    opacity: 0.9;
+                }
+                header img {
+                    max-width: 35%;
+                    height: auto;
+                    margin-bottom: 15px;
+                }
+                main {
+                    max-width: 900px;
+                    margin: 30px auto;
+                    padding: 0 20px;
+                }
+                .content-container {
+                    background-color: #fff;
+                    border-radius: 10px;
+                    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+                    padding: 30px;
+                    margin-bottom: 30px;
+                }
+                .section-block {
+                    background-color: #fff;
+                    padding: 25px;
+                    border-radius: 8px;
+                    margin-bottom: 25px;
+                    border-left: 5px solid #4b6cb7;
+                    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+                    transition: transform 0.2s ease, box-shadow 0.2s ease;
+                }
+                .section-block:hover {
+                    transform: translateY(-3px);
+                    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                }
+                /* 為不同段落設置不同的邊框顏色和背景 */
+                .section-block.conclusion {
+                    border-left-color: #e74c3c;
+                    background-color: #fff9f9;
+                }
+                .section-block.meeting-topic {
+                    border-left-color: #3498db;
+                    background-color: #f7fbff;
+                }
+                .section-block.tech-points {
+                    border-left-color: #2ecc71;
+                    background-color: #f7fff9;
+                }
+                .section-block.decisions {
+                    border-left-color: #f39c12;
+                    background-color: #fffaf5;
+                }
+                .section-block.timeline {
+                    border-left-color: #9b59b6;
+                    background-color: #faf5ff;
+                }
+                .section-block.challenges {
+                    border-left-color: #e67e22;
+                    background-color: #fff8f2;
+                }
+                .section-block.action-plan {
+                    border-left-color: #1abc9c;
+                    background-color: #f5fffc;
+                }
+                .section-title {
+                    font-size: 1.5rem;
+                    margin-top: 0;
+                    margin-bottom: 20px;
+                    padding-bottom: 10px;
+                    border-bottom: 2px solid #4b6cb7;
+                    display: inline-block;
+                }
+                /* 為不同段落標題設置對應的顏色 */
+                .section-block.conclusion .section-title {
+                    color: #e74c3c;
+                    border-bottom-color: #e74c3c;
+                }
+                .section-block.meeting-topic .section-title {
+                    color: #3498db;
+                    border-bottom-color: #3498db;
+                }
+                .section-block.tech-points .section-title {
+                    color: #2ecc71;
+                    border-bottom-color: #2ecc71;
+                }
+                .section-block.decisions .section-title {
+                    color: #f39c12;
+                    border-bottom-color: #f39c12;
+                }
+                .section-block.timeline .section-title {
+                    color: #9b59b6;
+                    border-bottom-color: #9b59b6;
+                }
+                .section-block.challenges .section-title {
+                    color: #e67e22;
+                    border-bottom-color: #e67e22;
+                }
+                .section-block.action-plan .section-title {
+                    color: #1abc9c;
+                    border-bottom-color: #1abc9c;
+                }
+                .content-container ul {
+                    padding-left: 20px;
+                }
+                .content-container li {
+                    margin-bottom: 10px;
+                    position: relative;
+                    list-style-type: none;
+                    padding-left: 25px;
+                }
+                .content-container li::before {
+                    content: "•";
+                    position: absolute;
+                    left: 0;
+                    color: #4b6cb7;
+                    font-size: 1.2rem;
+                    font-weight: bold;
+                }
+                .section-block.conclusion li::before { color: #e74c3c; }
+                .section-block.meeting-topic li::before { color: #3498db; }
+                .section-block.tech-points li::before { color: #2ecc71; }
+                .section-block.decisions li::before { color: #f39c12; }
+                .section-block.timeline li::before { color: #9b59b6; }
+                .section-block.challenges li::before { color: #e67e22; }
+                .section-block.action-plan li::before { color: #1abc9c; }
+                
+                .content-container p {
+                    margin-bottom: 15px;
+                    line-height: 1.7;
+                }
+                .content-container strong {
+                    color: #2c3e50;
+                    font-weight: bold;
+                }
+                footer {
+                    text-align: center;
+                    padding: 25px 20px;
+                    background-color: #f0f2f5;
+                    color: #666;
+                    border-radius: 0 0 10px 10px;
+                    border-top: 1px solid #e0e0e0;
+                }
+                footer img {
+                    max-width: 35%;
+                    height: auto;
+                    margin-bottom: 15px;
+                }
+                footer p {
+                    margin: 5px 0;
+                    font-size: 0.95rem;
+                }
+                footer a {
+                    color: #4b6cb7;
+                    text-decoration: none;
+                    font-weight: bold;
+                }
+                footer a:hover {
+                    text-decoration: underline;
+                }
+            </style>
+        </head>
+        <body>
+            <header>
+                <img src="https://i.imgur.com/0LXUWvj.png" alt="會議摘要圖示">
+                <h1>Glake：大模型训练和推理的显存优化探索</h1>
+                <a href="https://www.nvidia.com/gtc/session-catalog/?search=GLake%EF%BC%9A%E5%A4%A7%E6%A8%A1%E5%9E%8B%E8%AE%AD%E7%BB%83%E5%92%8C%E6%8E%A8%E7%90%86%E7%9A%84%E6%98%BE%E5%AD%98%E4%BC%98%E5%8C%96%E6%8E%A2%E7%B4%A2&tab.catalogallsessionstab=16566177511100015Kus#/session/1727157704835001TEfI" class="video-link" target="_blank"><i>▶</i> 會議影片超連結</a>
+            </header>
+            <main>
+                <div class="content-container">
+                    <div class="section-block default"><h1>GLake：大模型訓練和推理的顯存優化探索</h1></div><div class="section-block conclusion"><h2 class="section-title">Key Takeaways</h2><p>本次會議主要介紹了螞蟻 AI Infra 推理引擎團隊在過去兩年時間裡，針對大模型訓練和推理所做的一些顯存優化工作，包括訓練階段的 GM-Lake 和推理階段的 VTensor 及 LayerKV。</p><h3>重點摘要：</h3><ul><li><strong>GM-Lake:</strong> 解決大規模訓練過程中的顯存碎片問題，已發表在 S Plus 24 上。</li><li><strong>VTensor:</strong> 提供 Pageless 的 Tensor 管理框架，提供更大的靈活性。</li><li><strong>LayerKV:</strong> 通過 LayerWise 的 KVCatch 管理來優化首次延遲，並在滿足特定 SLO 情況下提升整體吞吐。</li></ul><h3>Topic: 顯存優化、大模型訓練、大模型推理</h3></div><div class="section-block meeting-topic"><h2 class="section-title">會議主題</h2><p>會議主要探討了如何通過優化顯存管理，提升大模型訓練和推理的效率，包括解決顯存碎片問題、提供更靈活的 Tensor 管理框架以及優化首次延遲等。</p></div><div class="section-block tech-points"><h2 class="section-title">主要技術點</h2><ul><li><strong>GM-Lake:</strong><ul><li><strong>Background and Motivation:</strong> 模型規模增長速度遠超 GPU 顯存增長速度，導致嚴重的內存牆。Recomputing 技術雖然可以提升顯存使用效率，但會導致顯存分配不規律，產生大量碎片。</li><li><strong>Stitch API:</strong> 利用 CUDA VMM API，將虛擬顯存和物理顯存的管理拆分開，先創建物理顯存，再根據需要分配虛擬顯存，並映射物理顯存到虛擬顯存上。</li><li><strong>多級顯存池:</strong> 根據請求大小在多級顯存池中尋找最匹配的 Block，並通過 Stitch 操作拼接 Block，高效服用物理顯存。</li></ul></li><li><strong>VTensor:</strong><ul><li><strong>Pageless Tensor 管理框架:</strong> 解決 PageTableTension 將顯存管理和 Attention Kernel 實現緊密耦合的問題，以及提前映射大量顯存導致資源浪費的問題。</li><li><strong>VTensorManager:</strong> 高效顯存管理，解決碎片的核心組件，包含 VTensorScheduler、VTensorPort 和 VTensorOperation。</li><li><strong>Layer 維度 KVCatch 管理:</strong> 將 Layer 維度加入到 KVCatch 管理中，減少每個請求每層最後一個兩兆幣的浪費。</li></ul></li><li><strong>LayerKV:</strong><ul><li><strong>LayerWise KVCatch 管理:</strong> 支持分層申請 KVCatch 的顯存，減少整體顯存的依賴，並在 Prefill 階段支持分層將產生的 KVCatch 臨時傳輸到 CPU 上。</li><li><strong>Scheduler 調度策略:</strong> 基於顯存壓力和對列的請求長度動態決定是否激活 LayerKV。</li></ul></li></ul></div><div class="section-block decisions"><h2 class="section-title">決策與共識</h2><ul><li>通過 GM-Lake 解決訓練過程中的顯存碎片問題，提升顯存利用率。</li><li>通過 VTensor 提供更靈活的 Tensor 管理框架，解耦顯存管理和 Attention Kernel 實現。</li><li>通過 LayerKV 優化首次延遲，並在滿足特定 SLO 情況下提升整體吞吐。</li></ul></div><div class="section-block timeline"><h2 class="section-title">時間規劃與里程碑</h2><ul><li>GM-Lake 已發表在 S Plus 24 上。</li><li>VTensor 和 LayerKV 已在螞蟻 AI Infra 推理引擎團隊內部使用。</li></ul></div><div class="section-block challenges"><h2 class="section-title">未解決的技術挑戰</h2><ul><li>VMM 接口中提供的最小的物理塊的力度是兩兆幣，如果按照 VMM 中每層 layer 使用不同的 Tensor 來存放每層不同的 KVCatch，會導致每個請求每層最後的一個兩兆幣的物理塊可能有比較大的浪費。</li></ul></div><div class="section-block action-plan"><h2 class="section-title">後續行動計劃</h2><ul><li>繼續優化 GM-Lake，提升顯存利用率和訓練效率。</li><li>繼續優化 VTensor 和 LayerKV，提升推理效率和吞吐。</li><li>將 GM-Lake、VTensor 和 LayerKV 應用於更多的大模型訓練和推理場景。</li></ul></div>
+                </div>
+            </main>
+            <footer>
+                <img src="https://i.imgur.com/0LXUWvj.png" alt="會議摘要圖示">
+                <p>此摘要由 AI 輔助生成</p>
+                <p>如有任何問題或需要更多詳細資訊，請聯繫 ITR 小組</p>
+            </footer>
+        </body>
+        </html>
+        

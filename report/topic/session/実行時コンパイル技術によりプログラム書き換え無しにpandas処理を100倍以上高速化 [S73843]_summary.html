@@ -1,0 +1,230 @@
+
+        <!DOCTYPE html>
+        <html lang="zh-TW">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>実行時コンパイル技術によりプログラム書き換え無しにPandas処理を100倍以上高速化 [S73843]</title>
+            <style>
+                body {
+                    font-family: 'Roboto', 'Microsoft JhengHei', sans-serif;
+                    background-color: #f8f9fa;
+                    color: #333;
+                    margin: 0;
+                    padding: 0;
+                    line-height: 1.6;
+                }
+                header {
+                    text-align: center;
+                    padding: 30px 20px;
+                    background: linear-gradient(135deg, #4b6cb7, #182848);
+                    color: #fff;
+                    position: relative;
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                    border-radius: 10px 10px 0 0;
+                }
+                .video-link {
+                    display: inline-block;
+                    margin: 10px 0;
+                    padding: 8px 15px;
+                    background-color: rgba(255, 255, 255, 0.2);
+                    color: #fff;
+                    text-decoration: none;
+                    border-radius: 5px;
+                    font-weight: 500;
+                    transition: all 0.3s ease;
+                    border: 1px solid rgba(255, 255, 255, 0.3);
+                }
+                .video-link:hover {
+                    background-color: rgba(255, 255, 255, 0.3);
+                    transform: translateY(-2px);
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                }
+                .video-link i {
+                    margin-right: 5px;
+                }
+                header h1 {
+                    font-size: 2.2rem;
+                    margin: 0 0 10px 0;
+                    letter-spacing: 0.5px;
+                }
+                header p {
+                    font-size: 1.1rem;
+                    margin: 0;
+                    opacity: 0.9;
+                }
+                header img {
+                    max-width: 35%;
+                    height: auto;
+                    margin-bottom: 15px;
+                }
+                main {
+                    max-width: 900px;
+                    margin: 30px auto;
+                    padding: 0 20px;
+                }
+                .content-container {
+                    background-color: #fff;
+                    border-radius: 10px;
+                    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+                    padding: 30px;
+                    margin-bottom: 30px;
+                }
+                .section-block {
+                    background-color: #fff;
+                    padding: 25px;
+                    border-radius: 8px;
+                    margin-bottom: 25px;
+                    border-left: 5px solid #4b6cb7;
+                    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+                    transition: transform 0.2s ease, box-shadow 0.2s ease;
+                }
+                .section-block:hover {
+                    transform: translateY(-3px);
+                    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                }
+                /* 為不同段落設置不同的邊框顏色和背景 */
+                .section-block.conclusion {
+                    border-left-color: #e74c3c;
+                    background-color: #fff9f9;
+                }
+                .section-block.meeting-topic {
+                    border-left-color: #3498db;
+                    background-color: #f7fbff;
+                }
+                .section-block.tech-points {
+                    border-left-color: #2ecc71;
+                    background-color: #f7fff9;
+                }
+                .section-block.decisions {
+                    border-left-color: #f39c12;
+                    background-color: #fffaf5;
+                }
+                .section-block.timeline {
+                    border-left-color: #9b59b6;
+                    background-color: #faf5ff;
+                }
+                .section-block.challenges {
+                    border-left-color: #e67e22;
+                    background-color: #fff8f2;
+                }
+                .section-block.action-plan {
+                    border-left-color: #1abc9c;
+                    background-color: #f5fffc;
+                }
+                .section-title {
+                    font-size: 1.5rem;
+                    margin-top: 0;
+                    margin-bottom: 20px;
+                    padding-bottom: 10px;
+                    border-bottom: 2px solid #4b6cb7;
+                    display: inline-block;
+                }
+                /* 為不同段落標題設置對應的顏色 */
+                .section-block.conclusion .section-title {
+                    color: #e74c3c;
+                    border-bottom-color: #e74c3c;
+                }
+                .section-block.meeting-topic .section-title {
+                    color: #3498db;
+                    border-bottom-color: #3498db;
+                }
+                .section-block.tech-points .section-title {
+                    color: #2ecc71;
+                    border-bottom-color: #2ecc71;
+                }
+                .section-block.decisions .section-title {
+                    color: #f39c12;
+                    border-bottom-color: #f39c12;
+                }
+                .section-block.timeline .section-title {
+                    color: #9b59b6;
+                    border-bottom-color: #9b59b6;
+                }
+                .section-block.challenges .section-title {
+                    color: #e67e22;
+                    border-bottom-color: #e67e22;
+                }
+                .section-block.action-plan .section-title {
+                    color: #1abc9c;
+                    border-bottom-color: #1abc9c;
+                }
+                .content-container ul {
+                    padding-left: 20px;
+                }
+                .content-container li {
+                    margin-bottom: 10px;
+                    position: relative;
+                    list-style-type: none;
+                    padding-left: 25px;
+                }
+                .content-container li::before {
+                    content: "•";
+                    position: absolute;
+                    left: 0;
+                    color: #4b6cb7;
+                    font-size: 1.2rem;
+                    font-weight: bold;
+                }
+                .section-block.conclusion li::before { color: #e74c3c; }
+                .section-block.meeting-topic li::before { color: #3498db; }
+                .section-block.tech-points li::before { color: #2ecc71; }
+                .section-block.decisions li::before { color: #f39c12; }
+                .section-block.timeline li::before { color: #9b59b6; }
+                .section-block.challenges li::before { color: #e67e22; }
+                .section-block.action-plan li::before { color: #1abc9c; }
+                
+                .content-container p {
+                    margin-bottom: 15px;
+                    line-height: 1.7;
+                }
+                .content-container strong {
+                    color: #2c3e50;
+                    font-weight: bold;
+                }
+                footer {
+                    text-align: center;
+                    padding: 25px 20px;
+                    background-color: #f0f2f5;
+                    color: #666;
+                    border-radius: 0 0 10px 10px;
+                    border-top: 1px solid #e0e0e0;
+                }
+                footer img {
+                    max-width: 35%;
+                    height: auto;
+                    margin-bottom: 15px;
+                }
+                footer p {
+                    margin: 5px 0;
+                    font-size: 0.95rem;
+                }
+                footer a {
+                    color: #4b6cb7;
+                    text-decoration: none;
+                    font-weight: bold;
+                }
+                footer a:hover {
+                    text-decoration: underline;
+                }
+            </style>
+        </head>
+        <body>
+            <header>
+                <img src="https://i.imgur.com/0LXUWvj.png" alt="會議摘要圖示">
+                <h1>実行時コンパイル技術によりプログラム書き換え無しにPandas処理を100倍以上高速化 [S73843]</h1>
+                <a href="https://www.nvidia.com/gtc/session-catalog/?search=%E5%AE%9F%E8%A1%8C%E6%99%82%E3%82%B3%E3%83%B3%E3%83%8F%E3%82%9A%E3%82%A4%E3%83%AB%E6%8A%80%E8%A1%93%E3%81%AB%E3%82%88%E3%82%8A%E3%83%95%E3%82%9A%E3%83%AD%E3%82%AF%E3%82%99%E3%83%A9%E3%83%A0%E6%9B%B8%E3%81%8D%E6%8F%9B%E3%81%88%E7%84%A1%E3%81%97%E3%81%ABpandas%E5%87%A6%E7%90%86%E3%82%92100%E5%80%8D%E4%BB%A5%E4%B8%8A%E9%AB%98%E9%80%9F%E5%8C%96%20%5BS73843%5D&tab.catalogallsessionstab=16566177511100015Kus#/session/1733124364226001p5E3" class="video-link" target="_blank"><i>▶</i> 會議影片超連結</a>
+            </header>
+            <main>
+                <div class="content-container">
+                    <div class="section-block default"><h1>透過執行時編譯技術，無需修改程式碼即可將 Pandas 處理速度提高 100 倍以上 [S73843]</h1></div><div class="section-block conclusion"><h2 class="section-title">Key Takeaways</h2><p>本次演講介紹了 NEC 開發的 FireDux 函式庫，該函式庫透過執行時編譯技術，在不改變 Pandas API 的情況下，大幅提升 Pandas 程式的執行速度。FireDux 利用 NVIDIA 的 QDF 函式庫，在 GPU 上執行 Pandas 運算，並透過多種最佳化策略，進一步提升效能。</p><h3>重點摘要：</h3><ul><li>FireDux 是一個高速資料框架函式庫，旨在加速 Pandas 程式的執行。</li><li>FireDux 透過執行時編譯器和 GPU 加速，實現顯著的效能提升。</li><li>FireDux 與 Pandas API 相容，使用者只需修改 import 語句即可使用。</li><li>FireDux 採用多種最佳化策略，包括投影下推、模式最佳化等。</li><li>FireDux 的 GPU 後端基於 NVIDIA 的 QDF 函式庫。</li></ul><h3>Topic: 資料科學、GPU 加速、執行時編譯</h3></div><div class="section-block meeting-topic"><h2 class="section-title">會議主題</h2><p>會議主要介紹了 FireDux 函式庫的架構、最佳化策略和效能評估，展示了如何利用 FireDux 在 GPU 上高速執行 Pandas 程式。</p></div><div class="section-block tech-points"><h2 class="section-title">主要技術點</h2><ul><li><strong>執行時編譯 (JIT Compilation):</strong> FireDux 使用執行時編譯器，在程式執行時對 Pandas 程式碼進行最佳化，並編譯成高效能的 GPU 程式碼。</li><li><strong>資料框架中間語言 (IR):</strong> FireDux 使用一種專為資料框架操作設計的中間語言，方便進行各種最佳化。</li><li><strong>投影下推 (Projection Pushdown):</strong> 一種最佳化策略，將欄位選擇操作提前到資料讀取階段，減少不必要的資料處理。</li><li><strong>模式最佳化 (Pattern Optimization):</strong> 一種最佳化策略，將常見的 Pandas 程式碼模式替換為更高效的實現方式。</li><li><strong>GPU 後端:</strong> FireDux 利用 NVIDIA 的 QDF 函式庫，在 GPU 上執行資料框架操作，實現高度並行化和加速。</li><li><strong>Define-by-Run 方式:</strong> FireDux 使用 Define-by-Run 方式生成中間語言，即在程式執行過程中逐步構建中間語言表示。</li><li><strong>Fallback 機制:</strong> FireDux 具有 Fallback 機制，當遇到不支援的 Pandas 功能時，會自動切換回 Pandas 執行，保證程式的相容性。</li></ul></div><div class="section-block decisions"><h2 class="section-title">決策與共識</h2><ul><li>採用執行時編譯和 GPU 加速，以提升 Pandas 程式的執行速度。</li><li>使用資料框架中間語言，方便進行各種最佳化。</li><li>利用 NVIDIA 的 QDF 函式庫，在 GPU 上執行資料框架操作。</li><li>提供 Fallback 機制，保證程式的相容性。</li></ul></div><div class="section-block timeline"><h2 class="section-title">時間規劃與里程碑</h2><ul><li>2025 年中發布 FireDux。</li><li>CPU 版本已在 PyPI 上發布。</li></ul></div><div class="section-block challenges"><h2 class="section-title">未解決的技術挑戰</h2><ul><li>QDF 函式庫與 Pandas 的行為存在細微差異，需要進行調整以保證相容性。</li><li>需要不斷擴充 FireDux 的支援功能，減少 Fallback 的使用。</li></ul></div><div class="section-block action-plan"><h2 class="section-title">後續行動計劃</h2><ul><li>繼續開發和最佳化 FireDux 函式庫。</li><li>擴充 FireDux 的支援功能，減少 Fallback 的使用。</li><li>與 NVIDIA 合作，提升 QDF 函式庫的效能和相容性。</li><li>發布 FireDux，供使用者使用和回饋。</li></ul></div>
+                </div>
+            </main>
+            <footer>
+                <img src="https://i.imgur.com/0LXUWvj.png" alt="會議摘要圖示">
+                <p>此摘要由 AI 輔助生成</p>
+                <p>如有任何問題或需要更多詳細資訊，請聯繫 ITR 小組</p>
+            </footer>
+        </body>
+        </html>
+        

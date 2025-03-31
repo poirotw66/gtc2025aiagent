@@ -1,0 +1,230 @@
+
+        <!DOCTYPE html>
+        <html lang="zh-TW">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>アジアをリードするスピーチAi基盤モデルの革新 [S72426]</title>
+            <style>
+                body {
+                    font-family: 'Roboto', 'Microsoft JhengHei', sans-serif;
+                    background-color: #f8f9fa;
+                    color: #333;
+                    margin: 0;
+                    padding: 0;
+                    line-height: 1.6;
+                }
+                header {
+                    text-align: center;
+                    padding: 30px 20px;
+                    background: linear-gradient(135deg, #4b6cb7, #182848);
+                    color: #fff;
+                    position: relative;
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                    border-radius: 10px 10px 0 0;
+                }
+                .video-link {
+                    display: inline-block;
+                    margin: 10px 0;
+                    padding: 8px 15px;
+                    background-color: rgba(255, 255, 255, 0.2);
+                    color: #fff;
+                    text-decoration: none;
+                    border-radius: 5px;
+                    font-weight: 500;
+                    transition: all 0.3s ease;
+                    border: 1px solid rgba(255, 255, 255, 0.3);
+                }
+                .video-link:hover {
+                    background-color: rgba(255, 255, 255, 0.3);
+                    transform: translateY(-2px);
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                }
+                .video-link i {
+                    margin-right: 5px;
+                }
+                header h1 {
+                    font-size: 2.2rem;
+                    margin: 0 0 10px 0;
+                    letter-spacing: 0.5px;
+                }
+                header p {
+                    font-size: 1.1rem;
+                    margin: 0;
+                    opacity: 0.9;
+                }
+                header img {
+                    max-width: 35%;
+                    height: auto;
+                    margin-bottom: 15px;
+                }
+                main {
+                    max-width: 900px;
+                    margin: 30px auto;
+                    padding: 0 20px;
+                }
+                .content-container {
+                    background-color: #fff;
+                    border-radius: 10px;
+                    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+                    padding: 30px;
+                    margin-bottom: 30px;
+                }
+                .section-block {
+                    background-color: #fff;
+                    padding: 25px;
+                    border-radius: 8px;
+                    margin-bottom: 25px;
+                    border-left: 5px solid #4b6cb7;
+                    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+                    transition: transform 0.2s ease, box-shadow 0.2s ease;
+                }
+                .section-block:hover {
+                    transform: translateY(-3px);
+                    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                }
+                /* 為不同段落設置不同的邊框顏色和背景 */
+                .section-block.conclusion {
+                    border-left-color: #e74c3c;
+                    background-color: #fff9f9;
+                }
+                .section-block.meeting-topic {
+                    border-left-color: #3498db;
+                    background-color: #f7fbff;
+                }
+                .section-block.tech-points {
+                    border-left-color: #2ecc71;
+                    background-color: #f7fff9;
+                }
+                .section-block.decisions {
+                    border-left-color: #f39c12;
+                    background-color: #fffaf5;
+                }
+                .section-block.timeline {
+                    border-left-color: #9b59b6;
+                    background-color: #faf5ff;
+                }
+                .section-block.challenges {
+                    border-left-color: #e67e22;
+                    background-color: #fff8f2;
+                }
+                .section-block.action-plan {
+                    border-left-color: #1abc9c;
+                    background-color: #f5fffc;
+                }
+                .section-title {
+                    font-size: 1.5rem;
+                    margin-top: 0;
+                    margin-bottom: 20px;
+                    padding-bottom: 10px;
+                    border-bottom: 2px solid #4b6cb7;
+                    display: inline-block;
+                }
+                /* 為不同段落標題設置對應的顏色 */
+                .section-block.conclusion .section-title {
+                    color: #e74c3c;
+                    border-bottom-color: #e74c3c;
+                }
+                .section-block.meeting-topic .section-title {
+                    color: #3498db;
+                    border-bottom-color: #3498db;
+                }
+                .section-block.tech-points .section-title {
+                    color: #2ecc71;
+                    border-bottom-color: #2ecc71;
+                }
+                .section-block.decisions .section-title {
+                    color: #f39c12;
+                    border-bottom-color: #f39c12;
+                }
+                .section-block.timeline .section-title {
+                    color: #9b59b6;
+                    border-bottom-color: #9b59b6;
+                }
+                .section-block.challenges .section-title {
+                    color: #e67e22;
+                    border-bottom-color: #e67e22;
+                }
+                .section-block.action-plan .section-title {
+                    color: #1abc9c;
+                    border-bottom-color: #1abc9c;
+                }
+                .content-container ul {
+                    padding-left: 20px;
+                }
+                .content-container li {
+                    margin-bottom: 10px;
+                    position: relative;
+                    list-style-type: none;
+                    padding-left: 25px;
+                }
+                .content-container li::before {
+                    content: "•";
+                    position: absolute;
+                    left: 0;
+                    color: #4b6cb7;
+                    font-size: 1.2rem;
+                    font-weight: bold;
+                }
+                .section-block.conclusion li::before { color: #e74c3c; }
+                .section-block.meeting-topic li::before { color: #3498db; }
+                .section-block.tech-points li::before { color: #2ecc71; }
+                .section-block.decisions li::before { color: #f39c12; }
+                .section-block.timeline li::before { color: #9b59b6; }
+                .section-block.challenges li::before { color: #e67e22; }
+                .section-block.action-plan li::before { color: #1abc9c; }
+                
+                .content-container p {
+                    margin-bottom: 15px;
+                    line-height: 1.7;
+                }
+                .content-container strong {
+                    color: #2c3e50;
+                    font-weight: bold;
+                }
+                footer {
+                    text-align: center;
+                    padding: 25px 20px;
+                    background-color: #f0f2f5;
+                    color: #666;
+                    border-radius: 0 0 10px 10px;
+                    border-top: 1px solid #e0e0e0;
+                }
+                footer img {
+                    max-width: 35%;
+                    height: auto;
+                    margin-bottom: 15px;
+                }
+                footer p {
+                    margin: 5px 0;
+                    font-size: 0.95rem;
+                }
+                footer a {
+                    color: #4b6cb7;
+                    text-decoration: none;
+                    font-weight: bold;
+                }
+                footer a:hover {
+                    text-decoration: underline;
+                }
+            </style>
+        </head>
+        <body>
+            <header>
+                <img src="https://i.imgur.com/0LXUWvj.png" alt="會議摘要圖示">
+                <h1>アジアをリードするスピーチAi基盤モデルの革新 [S72426]</h1>
+                <a href="https://www.nvidia.com/gtc/session-catalog/?search=%E3%82%A2%E3%82%B7%E3%82%99%E3%82%A2%E3%82%92%E3%83%AA%E3%83%BC%E3%83%88%E3%82%99%E3%81%99%E3%82%8B%E3%82%B9%E3%83%92%E3%82%9A%E3%83%BC%E3%83%81AI%E5%9F%BA%E7%9B%A4%E3%83%A2%E3%83%86%E3%82%99%E3%83%AB%E3%81%AE%E9%9D%A9%E6%96%B0%20%5BS72426%5D&tab.catalogallsessionstab=16566177511100015Kus#/session/1727061162642001LR0l" class="video-link" target="_blank"><i>▶</i> 會議影片超連結</a>
+            </header>
+            <main>
+                <div class="content-container">
+                    <div class="section-block default"><h1>引領亞洲的語音AI基礎模型的創新 [S72426]</h1></div><div class="section-block conclusion"><h2 class="section-title">Key Takeaways</h2><p>本次演講介紹了言葉テクノロジーズ在語音AI基礎模型上的創新，特別是在AI同步翻譯方面的應用。重點展示了他們如何利用大規模GPU資源和端到端模型，實現低延遲、高精度的多語言同步翻譯。</p><h3>重點摘要：</h3><ul><li>言葉テクノロジーズ是一家致力於利用語音生成AI打破語言壁壘的公司，專注於AI同步翻譯技術的研發。</li><li>該公司採用端到端的方法，直接將語音輸入模型，並輸出翻譯後的語音，減少了傳統流水線方法的延遲。</li><li>他們利用NVIDIA的GPU資源，特別是H100 GPU，大規模訓練語音AI模型，並在多語言語音生成和同步翻譯方面取得了顯著成果。</li><li>展示了AI同步翻譯的Demo，包括日語到英語、韓語等多種語言的即時翻譯，以及聲音模仿和情感控制等功能。</li></ul><h3>Topic: AI Platforms / Deployment - AI Inference / Inference Microservices</h3></div><div class="section-block meeting-topic"><h2 class="section-title">會議主題</h2><p>會議主要探討了言葉テクノロジーズ如何通過大規模GPU資源和端到端模型，實現低延遲、高精度的多語言同步翻譯，以及他們在語音AI基礎模型上的技術創新。</p></div><div class="section-block tech-points"><h2 class="section-title">主要技術點</h2><ul><li><strong>端到端模型 (End-to-End)：</strong> 直接將語音輸入模型，並輸出翻譯後的語音，減少了傳統流水線方法的延遲，更易於擴展。</li><li><strong>自迴歸Transformer (Autoregressive Transformer)：</strong> 類似於文本LLM，但應用於語音領域，通過Token化將語音轉換為Token序列，然後進行學習和生成。</li><li><strong>語音Token化和壓縮：</strong> 通過Token化將語音轉換為Token序列，並進行壓縮，以減少計算量和提高效率。</li><li><strong>大規模GPU訓練：</strong> 利用NVIDIA的GPU資源，特別是H100 GPU，大規模訓練語音AI模型，提高模型的性能和泛化能力。</li><li><strong>多語言語音生成：</strong> 通過大規模數據訓練，實現多語言語音生成，並可以模仿特定人的聲音和情感。</li><li><strong>AI同步翻譯：</strong> 利用端到端模型和大規模GPU訓練，實現低延遲、高精度的多語言同步翻譯。</li></ul></div><div class="section-block decisions"><h2 class="section-title">決策與共識</h2><ul><li>採用端到端模型，以實現低延遲和高擴展性的語音AI系統。</li><li>利用NVIDIA的GPU資源，大規模訓練語音AI模型，提高模型的性能。</li><li>專注於AI同步翻譯技術的研發，並將其應用於iOS應用和API服務中。</li><li>將持續優化用戶體驗，提高同步翻譯的精度和情感表達能力。</li></ul></div><div class="section-block timeline"><h2 class="section-title">時間規劃與里程碑</h2><ul><li>2023年7月公司成立。</li><li>已在AI模型共享平台Hugging Face上開源部分模型，累計下載超過50萬次。</li><li>計劃在iOS應用和API服務中推出AI同步翻譯功能。</li><li>將持續進行技術研發，提高同步翻譯的精度和情感表達能力。</li></ul></div><div class="section-block challenges"><h2 class="section-title">未解決的技術挑戰</h2><ul><li>如何進一步提高同步翻譯的精度和情感表達能力，使其更接近人類翻譯的水平。</li><li>如何在不同行業和場景下，定制和優化AI同步翻譯模型，以滿足不同用戶的需求。</li><li>如何在保證安全和隱私的前提下，實現數據中心和邊緣設備的協同工作，以提高AI模型的性能和效率。</li></ul></div><div class="section-block action-plan"><h2 class="section-title">後續行動計劃</h2><ul><li>繼續擴大GPU資源的投入，大規模訓練語音AI模型。</li><li>持續優化端到端模型和Token化技術，提高模型的性能和效率。</li><li>加強與NVIDIA等公司的合作，共同推動語音AI技術的發展。</li><li>將AI同步翻譯技術應用於更多領域，如Web會議、呼叫中心、遊戲直播等。</li></ul></div>
+                </div>
+            </main>
+            <footer>
+                <img src="https://i.imgur.com/0LXUWvj.png" alt="會議摘要圖示">
+                <p>此摘要由 AI 輔助生成</p>
+                <p>如有任何問題或需要更多詳細資訊，請聯繫 ITR 小組</p>
+            </footer>
+        </body>
+        </html>
+        

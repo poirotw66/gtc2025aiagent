@@ -1,0 +1,230 @@
+
+        <!DOCTYPE html>
+        <html lang="zh-TW">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Ai 如何加速赋能汽车工业设计</title>
+            <style>
+                body {
+                    font-family: 'Roboto', 'Microsoft JhengHei', sans-serif;
+                    background-color: #f8f9fa;
+                    color: #333;
+                    margin: 0;
+                    padding: 0;
+                    line-height: 1.6;
+                }
+                header {
+                    text-align: center;
+                    padding: 30px 20px;
+                    background: linear-gradient(135deg, #4b6cb7, #182848);
+                    color: #fff;
+                    position: relative;
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                    border-radius: 10px 10px 0 0;
+                }
+                .video-link {
+                    display: inline-block;
+                    margin: 10px 0;
+                    padding: 8px 15px;
+                    background-color: rgba(255, 255, 255, 0.2);
+                    color: #fff;
+                    text-decoration: none;
+                    border-radius: 5px;
+                    font-weight: 500;
+                    transition: all 0.3s ease;
+                    border: 1px solid rgba(255, 255, 255, 0.3);
+                }
+                .video-link:hover {
+                    background-color: rgba(255, 255, 255, 0.3);
+                    transform: translateY(-2px);
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                }
+                .video-link i {
+                    margin-right: 5px;
+                }
+                header h1 {
+                    font-size: 2.2rem;
+                    margin: 0 0 10px 0;
+                    letter-spacing: 0.5px;
+                }
+                header p {
+                    font-size: 1.1rem;
+                    margin: 0;
+                    opacity: 0.9;
+                }
+                header img {
+                    max-width: 35%;
+                    height: auto;
+                    margin-bottom: 15px;
+                }
+                main {
+                    max-width: 900px;
+                    margin: 30px auto;
+                    padding: 0 20px;
+                }
+                .content-container {
+                    background-color: #fff;
+                    border-radius: 10px;
+                    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+                    padding: 30px;
+                    margin-bottom: 30px;
+                }
+                .section-block {
+                    background-color: #fff;
+                    padding: 25px;
+                    border-radius: 8px;
+                    margin-bottom: 25px;
+                    border-left: 5px solid #4b6cb7;
+                    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+                    transition: transform 0.2s ease, box-shadow 0.2s ease;
+                }
+                .section-block:hover {
+                    transform: translateY(-3px);
+                    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                }
+                /* 為不同段落設置不同的邊框顏色和背景 */
+                .section-block.conclusion {
+                    border-left-color: #e74c3c;
+                    background-color: #fff9f9;
+                }
+                .section-block.meeting-topic {
+                    border-left-color: #3498db;
+                    background-color: #f7fbff;
+                }
+                .section-block.tech-points {
+                    border-left-color: #2ecc71;
+                    background-color: #f7fff9;
+                }
+                .section-block.decisions {
+                    border-left-color: #f39c12;
+                    background-color: #fffaf5;
+                }
+                .section-block.timeline {
+                    border-left-color: #9b59b6;
+                    background-color: #faf5ff;
+                }
+                .section-block.challenges {
+                    border-left-color: #e67e22;
+                    background-color: #fff8f2;
+                }
+                .section-block.action-plan {
+                    border-left-color: #1abc9c;
+                    background-color: #f5fffc;
+                }
+                .section-title {
+                    font-size: 1.5rem;
+                    margin-top: 0;
+                    margin-bottom: 20px;
+                    padding-bottom: 10px;
+                    border-bottom: 2px solid #4b6cb7;
+                    display: inline-block;
+                }
+                /* 為不同段落標題設置對應的顏色 */
+                .section-block.conclusion .section-title {
+                    color: #e74c3c;
+                    border-bottom-color: #e74c3c;
+                }
+                .section-block.meeting-topic .section-title {
+                    color: #3498db;
+                    border-bottom-color: #3498db;
+                }
+                .section-block.tech-points .section-title {
+                    color: #2ecc71;
+                    border-bottom-color: #2ecc71;
+                }
+                .section-block.decisions .section-title {
+                    color: #f39c12;
+                    border-bottom-color: #f39c12;
+                }
+                .section-block.timeline .section-title {
+                    color: #9b59b6;
+                    border-bottom-color: #9b59b6;
+                }
+                .section-block.challenges .section-title {
+                    color: #e67e22;
+                    border-bottom-color: #e67e22;
+                }
+                .section-block.action-plan .section-title {
+                    color: #1abc9c;
+                    border-bottom-color: #1abc9c;
+                }
+                .content-container ul {
+                    padding-left: 20px;
+                }
+                .content-container li {
+                    margin-bottom: 10px;
+                    position: relative;
+                    list-style-type: none;
+                    padding-left: 25px;
+                }
+                .content-container li::before {
+                    content: "•";
+                    position: absolute;
+                    left: 0;
+                    color: #4b6cb7;
+                    font-size: 1.2rem;
+                    font-weight: bold;
+                }
+                .section-block.conclusion li::before { color: #e74c3c; }
+                .section-block.meeting-topic li::before { color: #3498db; }
+                .section-block.tech-points li::before { color: #2ecc71; }
+                .section-block.decisions li::before { color: #f39c12; }
+                .section-block.timeline li::before { color: #9b59b6; }
+                .section-block.challenges li::before { color: #e67e22; }
+                .section-block.action-plan li::before { color: #1abc9c; }
+                
+                .content-container p {
+                    margin-bottom: 15px;
+                    line-height: 1.7;
+                }
+                .content-container strong {
+                    color: #2c3e50;
+                    font-weight: bold;
+                }
+                footer {
+                    text-align: center;
+                    padding: 25px 20px;
+                    background-color: #f0f2f5;
+                    color: #666;
+                    border-radius: 0 0 10px 10px;
+                    border-top: 1px solid #e0e0e0;
+                }
+                footer img {
+                    max-width: 35%;
+                    height: auto;
+                    margin-bottom: 15px;
+                }
+                footer p {
+                    margin: 5px 0;
+                    font-size: 0.95rem;
+                }
+                footer a {
+                    color: #4b6cb7;
+                    text-decoration: none;
+                    font-weight: bold;
+                }
+                footer a:hover {
+                    text-decoration: underline;
+                }
+            </style>
+        </head>
+        <body>
+            <header>
+                <img src="https://i.imgur.com/0LXUWvj.png" alt="會議摘要圖示">
+                <h1>Ai 如何加速赋能汽车工业设计</h1>
+                <a href="https://www.nvidia.com/gtc/session-catalog/?search=AI%20%E5%A6%82%E4%BD%95%E5%8A%A0%E9%80%9F%E8%B5%8B%E8%83%BD%E6%B1%BD%E8%BD%A6%E5%B7%A5%E4%B8%9A%E8%AE%BE%E8%AE%A1&tab.catalogallsessionstab=16566177511100015Kus#/session/1726046551505001OVCZ" class="video-link" target="_blank"><i>▶</i> 會議影片超連結</a>
+            </header>
+            <main>
+                <div class="content-container">
+                    <div class="section-block default"><h1>AI 如何加速賦能汽車工業設計</h1></div><div class="section-block conclusion"><h2 class="section-title">Key Takeaways</h2><p>本次會議主要介紹阿爾特汽車在 AI 加速賦能汽車工業設計領域的探索和積累，涵蓋 3D 資產管理、AI 輔助汽車造型創意、以及 AI 在 CAD/CFD 等領域的應用。重點在於如何利用 AI 技術提高汽車設計的效率、創新性和性能。</p><h3>重點摘要：</h3><ul><li><strong>3D 資產管理：</strong> 透過 Nucleus 和 OpenUSD 實現海量 3D 資產的高效管理和跨平台協作。</li><li><strong>AI 輔助造型設計：</strong> 利用 AI 圖像生成模型和 NVIDIA GPU 算力，加速汽車造型和內飾設計的創意迭代。</li><li><strong>AI 在 CAD/CFD 應用：</strong> 結合 AI 與物理模擬大模型，提升零部件智能生成和風阻預測的效率。</li><li><strong>AI 項目助理和調研筆記助手：</strong> 開發基於大模型的應用，輔助項目管理和用戶研究，提升工作效率。</li></ul><h3>Topic: AI 輔助汽車設計、3D 資產管理、AI 在 CAD/CFD 應用</h3></div><div class="section-block meeting-topic"><h2 class="section-title">會議主題</h2><p>會議主要探討如何利用 AI 技術，包括 3D 資產管理平台、AI 圖像生成模型、以及 AI 輔助的 CAD/CFD 工具，來加速和優化汽車工業設計流程，從而提高設計效率、創新能力和產品性能。</p></div><div class="section-block tech-points"><h2 class="section-title">主要技術點</h2><ul><li><strong>Nucleus 和 OpenUSD：</strong> 作為核心資產庫和統一的三維場景數據格式，實現 3D 資產的安全、可追溯和高效管理，打破不同工業軟體之間的壁壘。</li><li><strong>Omniverse 平台：</strong> 利用 Omniverse Composer 進行 3D 資產的可視化和動態演示，支援路徑追蹤和實時渲染，提升設計審閱和營銷展示的效果。</li><li><strong>工作流協同和軟體數據流協同：</strong> 透過 Omniverse 平台提供的連接器技術，實現與主流汽車設計工業軟體的高效聯動，提升跨部門協作效率。</li><li><strong>REG 技術和問答模型：</strong> 結合 REG 技術和問答模型，對企業多年累積的數據庫進行智能檢索和排序，幫助員工快速找到最佳答案，縮短學習時間，提高工作效率。</li><li><strong>Stability Fusion 模型和 NVIDIA GPU：</strong> 借助 NVIDIA GPU 強勁的算力，加速 Stability Fusion 模型的推理速度，實現創意的實時調整，並利用 Confine UI、Laura 和 Mid Journey 等工具拓展設計師的創造空間。</li><li><strong>AI 圖像生成模型：</strong> 通過輸入提示詞，生成高質量汽車內外飾造型圖，幫助設計師在複雜設計任務中實現更直觀、更高效的創意探索。</li><li><strong>AI 在 CAD/CFD 應用：</strong> 利用 AI 技術進行零部件的智能生成和風阻預測，結合 CAS 和設計標準規範等知識數據對大模型進行微調，自動生成 3D 數模，並通過反覆迭代仿真預測，將優化建議自動反饋給大模型。</li><li><strong>AI 項目助理和調研筆記助手：</strong> 開發基於大模型的應用，輔助項目管理和用戶研究，提升工作效率。</li></ul></div><div class="section-block decisions"><h2 class="section-title">決策與共識</h2><ul><li>採用 Nucleus 和 OpenUSD 作為 3D 資產管理的核心方案，實現跨平台協作和數據共享。</li><li>利用 Omniverse 平台進行 3D 資產的可視化和動態演示，提升設計審閱和營銷展示的效果。</li><li>結合 REG 技術和問答模型，提升員工的知識獲取效率和問題解決能力。</li><li>借助 NVIDIA GPU 強勁的算力，加速 AI 圖像生成模型的推理速度，拓展設計師的創造空間。</li><li>利用 AI 技術進行零部件的智能生成和風阻預測，提升設計效率和產品性能。</li><li>開發 AI 項目助理和調研筆記助手，輔助項目管理和用戶研究，提升工作效率。</li></ul></div><div class="section-block timeline"><h2 class="section-title">時間規劃與里程碑</h2><ul><li>持續優化 3D 資產管理平台，提升數據的安全性和可追溯性。</li><li>不斷探索 AI 在汽車設計領域的應用，提升設計效率和創新能力。</li><li>完善 AI 項目助理和調研筆記助手的功能，提升用戶體驗。</li></ul></div><div class="section-block challenges"><h2 class="section-title">未解決的技術挑戰</h2><ul><li>如何進一步提升 AI 圖像生成模型的生成質量和可控性，使其更好地滿足設計師的需求。</li><li>如何將 AI 技術更深入地應用於汽車設計的各個環節，實現全流程的智能化。</li><li>如何解決 AI 模型在實際應用中可能遇到的數據偏差和泛化能力問題。</li></ul></div><div class="section-block action-plan"><h2 class="section-title">後續行動計劃</h2><ul><li>繼續探索和實現更高效、更智能的技術應用，推動汽車工業設計的發展。</li><li>加強與 NVIDIA 等技術供應商的合作，共同推動 AI 技術在汽車設計領域的應用。</li><li>不斷完善 AI 項目助理和調研筆記助手的功能，提升用戶體驗。</li></ul></div>
+                </div>
+            </main>
+            <footer>
+                <img src="https://i.imgur.com/0LXUWvj.png" alt="會議摘要圖示">
+                <p>此摘要由 AI 輔助生成</p>
+                <p>如有任何問題或需要更多詳細資訊，請聯繫 ITR 小組</p>
+            </footer>
+        </body>
+        </html>
+        

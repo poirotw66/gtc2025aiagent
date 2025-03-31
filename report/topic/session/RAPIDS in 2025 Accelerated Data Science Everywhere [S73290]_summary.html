@@ -1,0 +1,230 @@
+
+        <!DOCTYPE html>
+        <html lang="zh-TW">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Rapids In 2025 Accelerated Data Science Everywhere [S73290]</title>
+            <style>
+                body {
+                    font-family: 'Roboto', 'Microsoft JhengHei', sans-serif;
+                    background-color: #f8f9fa;
+                    color: #333;
+                    margin: 0;
+                    padding: 0;
+                    line-height: 1.6;
+                }
+                header {
+                    text-align: center;
+                    padding: 30px 20px;
+                    background: linear-gradient(135deg, #4b6cb7, #182848);
+                    color: #fff;
+                    position: relative;
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                    border-radius: 10px 10px 0 0;
+                }
+                .video-link {
+                    display: inline-block;
+                    margin: 10px 0;
+                    padding: 8px 15px;
+                    background-color: rgba(255, 255, 255, 0.2);
+                    color: #fff;
+                    text-decoration: none;
+                    border-radius: 5px;
+                    font-weight: 500;
+                    transition: all 0.3s ease;
+                    border: 1px solid rgba(255, 255, 255, 0.3);
+                }
+                .video-link:hover {
+                    background-color: rgba(255, 255, 255, 0.3);
+                    transform: translateY(-2px);
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                }
+                .video-link i {
+                    margin-right: 5px;
+                }
+                header h1 {
+                    font-size: 2.2rem;
+                    margin: 0 0 10px 0;
+                    letter-spacing: 0.5px;
+                }
+                header p {
+                    font-size: 1.1rem;
+                    margin: 0;
+                    opacity: 0.9;
+                }
+                header img {
+                    max-width: 35%;
+                    height: auto;
+                    margin-bottom: 15px;
+                }
+                main {
+                    max-width: 900px;
+                    margin: 30px auto;
+                    padding: 0 20px;
+                }
+                .content-container {
+                    background-color: #fff;
+                    border-radius: 10px;
+                    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+                    padding: 30px;
+                    margin-bottom: 30px;
+                }
+                .section-block {
+                    background-color: #fff;
+                    padding: 25px;
+                    border-radius: 8px;
+                    margin-bottom: 25px;
+                    border-left: 5px solid #4b6cb7;
+                    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+                    transition: transform 0.2s ease, box-shadow 0.2s ease;
+                }
+                .section-block:hover {
+                    transform: translateY(-3px);
+                    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                }
+                /* 為不同段落設置不同的邊框顏色和背景 */
+                .section-block.conclusion {
+                    border-left-color: #e74c3c;
+                    background-color: #fff9f9;
+                }
+                .section-block.meeting-topic {
+                    border-left-color: #3498db;
+                    background-color: #f7fbff;
+                }
+                .section-block.tech-points {
+                    border-left-color: #2ecc71;
+                    background-color: #f7fff9;
+                }
+                .section-block.decisions {
+                    border-left-color: #f39c12;
+                    background-color: #fffaf5;
+                }
+                .section-block.timeline {
+                    border-left-color: #9b59b6;
+                    background-color: #faf5ff;
+                }
+                .section-block.challenges {
+                    border-left-color: #e67e22;
+                    background-color: #fff8f2;
+                }
+                .section-block.action-plan {
+                    border-left-color: #1abc9c;
+                    background-color: #f5fffc;
+                }
+                .section-title {
+                    font-size: 1.5rem;
+                    margin-top: 0;
+                    margin-bottom: 20px;
+                    padding-bottom: 10px;
+                    border-bottom: 2px solid #4b6cb7;
+                    display: inline-block;
+                }
+                /* 為不同段落標題設置對應的顏色 */
+                .section-block.conclusion .section-title {
+                    color: #e74c3c;
+                    border-bottom-color: #e74c3c;
+                }
+                .section-block.meeting-topic .section-title {
+                    color: #3498db;
+                    border-bottom-color: #3498db;
+                }
+                .section-block.tech-points .section-title {
+                    color: #2ecc71;
+                    border-bottom-color: #2ecc71;
+                }
+                .section-block.decisions .section-title {
+                    color: #f39c12;
+                    border-bottom-color: #f39c12;
+                }
+                .section-block.timeline .section-title {
+                    color: #9b59b6;
+                    border-bottom-color: #9b59b6;
+                }
+                .section-block.challenges .section-title {
+                    color: #e67e22;
+                    border-bottom-color: #e67e22;
+                }
+                .section-block.action-plan .section-title {
+                    color: #1abc9c;
+                    border-bottom-color: #1abc9c;
+                }
+                .content-container ul {
+                    padding-left: 20px;
+                }
+                .content-container li {
+                    margin-bottom: 10px;
+                    position: relative;
+                    list-style-type: none;
+                    padding-left: 25px;
+                }
+                .content-container li::before {
+                    content: "•";
+                    position: absolute;
+                    left: 0;
+                    color: #4b6cb7;
+                    font-size: 1.2rem;
+                    font-weight: bold;
+                }
+                .section-block.conclusion li::before { color: #e74c3c; }
+                .section-block.meeting-topic li::before { color: #3498db; }
+                .section-block.tech-points li::before { color: #2ecc71; }
+                .section-block.decisions li::before { color: #f39c12; }
+                .section-block.timeline li::before { color: #9b59b6; }
+                .section-block.challenges li::before { color: #e67e22; }
+                .section-block.action-plan li::before { color: #1abc9c; }
+                
+                .content-container p {
+                    margin-bottom: 15px;
+                    line-height: 1.7;
+                }
+                .content-container strong {
+                    color: #2c3e50;
+                    font-weight: bold;
+                }
+                footer {
+                    text-align: center;
+                    padding: 25px 20px;
+                    background-color: #f0f2f5;
+                    color: #666;
+                    border-radius: 0 0 10px 10px;
+                    border-top: 1px solid #e0e0e0;
+                }
+                footer img {
+                    max-width: 35%;
+                    height: auto;
+                    margin-bottom: 15px;
+                }
+                footer p {
+                    margin: 5px 0;
+                    font-size: 0.95rem;
+                }
+                footer a {
+                    color: #4b6cb7;
+                    text-decoration: none;
+                    font-weight: bold;
+                }
+                footer a:hover {
+                    text-decoration: underline;
+                }
+            </style>
+        </head>
+        <body>
+            <header>
+                <img src="https://i.imgur.com/0LXUWvj.png" alt="會議摘要圖示">
+                <h1>Rapids In 2025 Accelerated Data Science Everywhere [S73290]</h1>
+                <a href="https://www.nvidia.com/gtc/session-catalog/?search=RAPIDS%20in%202025%20Accelerated%20Data%20Science%20Everywhere%20%5BS73290%5D&tab.catalogallsessionstab=16566177511100015Kus#/session/1728323939538001F71p" class="video-link" target="_blank"><i>▶</i> 會議影片超連結</a>
+            </header>
+            <main>
+                <div class="content-container">
+                    <div class="section-block default"><h1>RAPIDS 在 2025 年：加速資料科學無所不在 [S73290]</h1></div><div class="section-block conclusion"><h2 class="section-title">Key Takeaways</h2><p>本次會議介紹了 NVIDIA 的 RAPIDS 生態系統在加速資料科學方面的最新進展，涵蓋了資料框架、SQL、機器學習、圖形分析、向量搜尋和大語言模型等領域的開發，以及工具和平台方面的改進，旨在為資料科學家提供更高效、更便捷的加速計算體驗。</p><h3>重點摘要：</h3><ul><li>RAPIDS 生態系統在各個領域的最新進展，包括 pandas、polars、Apache Spark、Scikit-learn、UMAP、HDBSCAN、XGBoost、NetworkX、PyTorch Geometric 等。</li><li>零程式碼變更加速 (Zero Code Change) 的重要性，讓使用者可以在不修改程式碼的情況下，利用 GPU 加速現有的工作流程。</li><li>NVIDIA 在開發者體驗方面的努力，包括改進文件、Project Aether、NV Dashboard、統一深度學習和資料科學容器，以及與 Google Colab 和 Snowflake 的合作。</li></ul><h3>Topic:</h3><p>加速資料科學、GPU 計算、機器學習、圖形分析、向量搜尋、大語言模型、開發者工具</p></div><div class="section-block meeting-topic"><h2 class="section-title">會議主題</h2><p>會議主要探討了 NVIDIA RAPIDS 生態系統如何透過 GPU 加速，提升資料科學工作流程的效能，並介紹了在資料框架、機器學習、圖形分析和向量搜尋等領域的最新技術發展。</p></div><div class="section-block tech-points"><h2 class="section-title">主要技術點</h2><ul><li><strong>GPU 加速資料框架：</strong><ul><li><strong>pandas 和 polars：</strong> 透過 QDF 基礎函式庫，實現零程式碼變更的 GPU 加速，效能提升高達 50 倍和 13 倍。</li><li><strong>Unified Memory：</strong> 允許使用超過 GPU 記憶體限制的資料集，即使在較小的 GPU 上也能處理大型資料。</li><li><strong>Remote I/O 優化：</strong> 針對 Amazon S3 等遠端儲存平台進行優化，提升分散式資料框架分析的效能。</li></ul></li><li><strong>Apache Spark 加速：</strong><ul><li><strong>RAPIDS Accelerator for Apache Spark：</strong> 零程式碼變更加速，降低成本、節省能源，並縮短價值實現時間。</li><li><strong>NVIDIA Decision Support Benchmark：</strong> 顯示在 CPU Spark 上執行 100 個 SQL 查詢需要 6 倍的時間，並可節省高達 80% 的成本。</li></ul></li><li><strong>機器學習加速：</strong><ul><li><strong>QML：</strong> 透過零程式碼變更加速 Scikit-learn、UMAP 和 HDBSCAN，效能提升 5 到 200 倍。</li><li><strong>XGBoost 3.0：</strong> 重新設計的外部記憶體介面，允許在單個 Grace Hopper 系統上訓練高達 1TB 或更大的資料集。</li><li><strong>Forest Inference Library (FIL)：</strong> 加速樹模型的推論，效能提升高達 4 倍，並提供新的 CPU 執行模式和自動優化功能。</li></ul></li><li><strong>圖形分析加速：</strong><ul><li><strong>NetworkX：</strong> 透過 Coup Graph 實現加速，效能提升高達 600 倍。</li><li><strong>PyTorch Geometric：</strong> 透過 KooGraph 和 WholeGraph 實現加速，在大型圖形上進行端到端訓練工作流程時，效能提升高達 3 倍。</li></ul></li><li><strong>向量搜尋和 LLM 工作流程：</strong><ul><li><strong>Nemo Curator：</strong> 可擴展、可配置的工具組，用於處理資料以訓練大型語言模型和 AI 模型。</li><li><strong>KUVS：</strong> 加速向量搜尋索引建立和實際搜尋，與 Milvus、Weviate 和 OpenSearch 等向量資料庫合作。</li></ul></li></ul></div><div class="section-block decisions"><h2 class="section-title">決策與共識</h2><ul><li>強調零程式碼變更加速的重要性，讓使用者可以輕鬆地利用 GPU 加速現有的工作流程。</li><li>強調 RAPIDS 生態系統與其他工具和平台的整合，例如 Apache Spark、Scikit-learn、PyTorch Geometric、Google Colab 和 Snowflake。</li><li>強調 NVIDIA 在開發者體驗方面的努力，包括改進文件、Project Aether 和 NV Dashboard。</li></ul></div><div class="section-block timeline"><h2 class="section-title">時間規劃與里程碑</h2><ul><li>XGBoost 3.0 的發布候選版本現已可用，正式版本即將發布。</li><li>新的 Forest Inference Library (FIL) 的實驗性版本可在 nightly packages 中使用，穩定版本即將發布。</li><li>Project Aether 已宣布，NVIDIA 正在尋找有興趣早期訪問的使用者。</li><li>Snowflake Notebooks 中加速資料科學現已公開預覽。</li></ul></div><div class="section-block challenges"><h2 class="section-title">未解決的技術挑戰</h2><ul><li>如何進一步優化 GPU 加速的效能，特別是在處理大型資料集和複雜模型時。</li><li>如何簡化 GPU 加速的部署和管理，讓更多使用者可以輕鬆地利用 GPU 的強大功能。</li><li>如何擴展 RAPIDS 生態系統，以支援更多領域和應用，例如自然語言處理、電腦視覺和科學計算。</li></ul></div><div class="section-block action-plan"><h2 class="section-title">後續行動計劃</h2><ul><li>繼續開發和優化 RAPIDS 生態系統中的各個函式庫和工具。</li><li>與社群合作，擴展 RAPIDS 生態系統，並支援更多領域和應用。</li><li>提供更多資源和支援，幫助使用者學習和使用 RAPIDS 生態系統。</li><li>與 Google Colab 和 Snowflake 等平台合作，將加速資料科學帶給更多使用者。</li></ul></div>
+                </div>
+            </main>
+            <footer>
+                <img src="https://i.imgur.com/0LXUWvj.png" alt="會議摘要圖示">
+                <p>此摘要由 AI 輔助生成</p>
+                <p>如有任何問題或需要更多詳細資訊，請聯繫 ITR 小組</p>
+            </footer>
+        </body>
+        </html>
+        

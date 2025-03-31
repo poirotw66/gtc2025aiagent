@@ -1,0 +1,230 @@
+
+        <!DOCTYPE html>
+        <html lang="zh-TW">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Get Ready For Nvidia Certification</title>
+            <style>
+                body {
+                    font-family: 'Roboto', 'Microsoft JhengHei', sans-serif;
+                    background-color: #f8f9fa;
+                    color: #333;
+                    margin: 0;
+                    padding: 0;
+                    line-height: 1.6;
+                }
+                header {
+                    text-align: center;
+                    padding: 30px 20px;
+                    background: linear-gradient(135deg, #4b6cb7, #182848);
+                    color: #fff;
+                    position: relative;
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                    border-radius: 10px 10px 0 0;
+                }
+                .video-link {
+                    display: inline-block;
+                    margin: 10px 0;
+                    padding: 8px 15px;
+                    background-color: rgba(255, 255, 255, 0.2);
+                    color: #fff;
+                    text-decoration: none;
+                    border-radius: 5px;
+                    font-weight: 500;
+                    transition: all 0.3s ease;
+                    border: 1px solid rgba(255, 255, 255, 0.3);
+                }
+                .video-link:hover {
+                    background-color: rgba(255, 255, 255, 0.3);
+                    transform: translateY(-2px);
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                }
+                .video-link i {
+                    margin-right: 5px;
+                }
+                header h1 {
+                    font-size: 2.2rem;
+                    margin: 0 0 10px 0;
+                    letter-spacing: 0.5px;
+                }
+                header p {
+                    font-size: 1.1rem;
+                    margin: 0;
+                    opacity: 0.9;
+                }
+                header img {
+                    max-width: 35%;
+                    height: auto;
+                    margin-bottom: 15px;
+                }
+                main {
+                    max-width: 900px;
+                    margin: 30px auto;
+                    padding: 0 20px;
+                }
+                .content-container {
+                    background-color: #fff;
+                    border-radius: 10px;
+                    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+                    padding: 30px;
+                    margin-bottom: 30px;
+                }
+                .section-block {
+                    background-color: #fff;
+                    padding: 25px;
+                    border-radius: 8px;
+                    margin-bottom: 25px;
+                    border-left: 5px solid #4b6cb7;
+                    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+                    transition: transform 0.2s ease, box-shadow 0.2s ease;
+                }
+                .section-block:hover {
+                    transform: translateY(-3px);
+                    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                }
+                /* 為不同段落設置不同的邊框顏色和背景 */
+                .section-block.conclusion {
+                    border-left-color: #e74c3c;
+                    background-color: #fff9f9;
+                }
+                .section-block.meeting-topic {
+                    border-left-color: #3498db;
+                    background-color: #f7fbff;
+                }
+                .section-block.tech-points {
+                    border-left-color: #2ecc71;
+                    background-color: #f7fff9;
+                }
+                .section-block.decisions {
+                    border-left-color: #f39c12;
+                    background-color: #fffaf5;
+                }
+                .section-block.timeline {
+                    border-left-color: #9b59b6;
+                    background-color: #faf5ff;
+                }
+                .section-block.challenges {
+                    border-left-color: #e67e22;
+                    background-color: #fff8f2;
+                }
+                .section-block.action-plan {
+                    border-left-color: #1abc9c;
+                    background-color: #f5fffc;
+                }
+                .section-title {
+                    font-size: 1.5rem;
+                    margin-top: 0;
+                    margin-bottom: 20px;
+                    padding-bottom: 10px;
+                    border-bottom: 2px solid #4b6cb7;
+                    display: inline-block;
+                }
+                /* 為不同段落標題設置對應的顏色 */
+                .section-block.conclusion .section-title {
+                    color: #e74c3c;
+                    border-bottom-color: #e74c3c;
+                }
+                .section-block.meeting-topic .section-title {
+                    color: #3498db;
+                    border-bottom-color: #3498db;
+                }
+                .section-block.tech-points .section-title {
+                    color: #2ecc71;
+                    border-bottom-color: #2ecc71;
+                }
+                .section-block.decisions .section-title {
+                    color: #f39c12;
+                    border-bottom-color: #f39c12;
+                }
+                .section-block.timeline .section-title {
+                    color: #9b59b6;
+                    border-bottom-color: #9b59b6;
+                }
+                .section-block.challenges .section-title {
+                    color: #e67e22;
+                    border-bottom-color: #e67e22;
+                }
+                .section-block.action-plan .section-title {
+                    color: #1abc9c;
+                    border-bottom-color: #1abc9c;
+                }
+                .content-container ul {
+                    padding-left: 20px;
+                }
+                .content-container li {
+                    margin-bottom: 10px;
+                    position: relative;
+                    list-style-type: none;
+                    padding-left: 25px;
+                }
+                .content-container li::before {
+                    content: "•";
+                    position: absolute;
+                    left: 0;
+                    color: #4b6cb7;
+                    font-size: 1.2rem;
+                    font-weight: bold;
+                }
+                .section-block.conclusion li::before { color: #e74c3c; }
+                .section-block.meeting-topic li::before { color: #3498db; }
+                .section-block.tech-points li::before { color: #2ecc71; }
+                .section-block.decisions li::before { color: #f39c12; }
+                .section-block.timeline li::before { color: #9b59b6; }
+                .section-block.challenges li::before { color: #e67e22; }
+                .section-block.action-plan li::before { color: #1abc9c; }
+                
+                .content-container p {
+                    margin-bottom: 15px;
+                    line-height: 1.7;
+                }
+                .content-container strong {
+                    color: #2c3e50;
+                    font-weight: bold;
+                }
+                footer {
+                    text-align: center;
+                    padding: 25px 20px;
+                    background-color: #f0f2f5;
+                    color: #666;
+                    border-radius: 0 0 10px 10px;
+                    border-top: 1px solid #e0e0e0;
+                }
+                footer img {
+                    max-width: 35%;
+                    height: auto;
+                    margin-bottom: 15px;
+                }
+                footer p {
+                    margin: 5px 0;
+                    font-size: 0.95rem;
+                }
+                footer a {
+                    color: #4b6cb7;
+                    text-decoration: none;
+                    font-weight: bold;
+                }
+                footer a:hover {
+                    text-decoration: underline;
+                }
+            </style>
+        </head>
+        <body>
+            <header>
+                <img src="https://i.imgur.com/0LXUWvj.png" alt="會議摘要圖示">
+                <h1>Get Ready For Nvidia Certification</h1>
+                <a href="https://www.nvidia.com/gtc/session-catalog/?search=Get%20Ready%20for%20NVIDIA%20Certification&tab.catalogallsessionstab=16566177511100015Kus#/session/1732884459711001uRdi" class="video-link" target="_blank"><i>▶</i> 會議影片超連結</a>
+            </header>
+            <main>
+                <div class="content-container">
+                    <div class="section-block default"><h1>準備好 NVIDIA 認證</h1></div><div class="section-block conclusion"><h2 class="section-title">Key Takeaways</h2><p>概述 NVIDIA 認證計畫，強調其在職業發展中的重要性，並介紹了針對 AI 開發者和基礎設施專業人員的不同認證。</p><h3>重點摘要：</h3><ul><li>NVIDIA 認證的重要性：驗證技能、展示知識、提升競爭力、促進職業發展。</li><li>認證種類：針對 AI 開發者（生成式 AI LLM、生成式 AI 多模態）和基礎設施專業人員（AI 基礎設施與運營、AI 基礎設施、AI 運營）的不同層級認證。</li><li>考試準備：提供學習指南和 NVIDIA 深度學習學院 (DLI) 的相關課程。</li><li>GTC 折扣碼：提供 GTC 期間可使用的折扣碼，用於報名 NVIDIA 認證考試。</li></ul><h3>Topic: Certification Program</h3></div><div class="section-block meeting-topic"><h2 class="section-title">會議主題</h2><p>會議主要介紹 NVIDIA 認證計畫，包括針對 AI 開發者和基礎設施專業人員的不同認證，以及如何準備這些認證考試。</p></div><div class="section-block tech-points"><h2 class="section-title">主要技術點</h2><ul><li><strong>認證層級：</strong> 分為助理級 (Associate)、專業級 (Professional) 和專家級 (Expert) 三個層級，分別針對不同經驗水平的專業人員。</li><li><strong>認證有效期：</strong> NVIDIA 認證有效期為兩年，過期後需要重新考試以獲得認證。</li><li><strong>考試準備：</strong> NVIDIA 提供學習指南和 DLI 課程，幫助考生準備認證考試。</li><li><strong>生成式 AI 認證：</strong><ul><li><strong>LLM 認證：</strong> 驗證開發、整合和維護基於 LLM 的 AI 應用程式的基礎知識。</li><li><strong>多模態認證：</strong> 驗證實作、管理和開發基於生成式 AI 並整合不同資料模態（文字、音訊、視訊、圖像）的 AI 系統的基礎技能。</li></ul></li><li><strong>基礎設施認證：</strong><ul><li><strong>AI 基礎設施與運營認證：</strong> 驗證與基礎設施和運營相關的 AI 計算的基本概念。</li><li><strong>AI 基礎設施認證：</strong> 驗證管理和維護由 NVIDIA 技術驅動的 AI 基礎設施的能力。</li><li><strong>AI 運營認證：</strong> 驗證監控、排除故障和優化基於 NVIDIA 技術的 AI 基礎設施的能力。</li></ul></li><li><strong>考試形式：</strong> 助理級認證為線上選擇題考試，專業級認證包含更多題目，考試時間更長，並有監考人員透過網路攝影機監考。</li></ul></div><div class="section-block decisions"><h2 class="section-title">決策與共識</h2><ul><li>鼓勵 AI 開發者和基礎設施專業人員參與 NVIDIA 認證計畫，以驗證技能、提升競爭力並促進職業發展。</li><li>利用 NVIDIA 提供的學習指南和 DLI 課程，充分準備認證考試。</li><li>根據自身經驗水平和職業目標，選擇適合的認證層級和種類。</li></ul></div><div class="section-block timeline"><h2 class="section-title">時間規劃與里程碑</h2><ul><li>立即註冊並參加已上線的認證考試。</li><li>關注 NVIDIA 認證計畫的最新動態，及時報名即將推出的認證考試。</li><li>利用 GTC 折扣碼，節省認證考試費用。</li></ul></div><div class="section-block challenges"><h2 class="section-title">未解決的技術挑戰</h2><ul><li>目前尚未提及專家級認證的具體內容和推出時間。</li><li>需要持續更新認證內容，以反映 AI 技術的最新發展。</li></ul></div><div class="section-block action-plan"><h2 class="section-title">後續行動計劃</h2><ul><li>下載 NVIDIA 認證的學習指南。</li><li>報名參加 NVIDIA DLI 的相關課程。</li><li>註冊並參加 NVIDIA 認證考試。</li><li>在 LinkedIn 等社交媒體上分享獲得的 NVIDIA 認證。</li></ul></div>
+                </div>
+            </main>
+            <footer>
+                <img src="https://i.imgur.com/0LXUWvj.png" alt="會議摘要圖示">
+                <p>此摘要由 AI 輔助生成</p>
+                <p>如有任何問題或需要更多詳細資訊，請聯繫 ITR 小組</p>
+            </footer>
+        </body>
+        </html>
+        
