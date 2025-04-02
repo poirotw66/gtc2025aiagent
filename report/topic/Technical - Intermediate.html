@@ -167,201 +167,274 @@
                 <h1>Technical - Intermediate</h1>
 <div class="meeting-item"><h2><a href="./session/Accelerate Reservoir Modeling for the Energy Transition With Physics-Informed AI Techniques_summary.html" style="text-decoration: none; color: inherit;">Accelerate Reservoir Modeling for the Energy Transition With Physics-Informed AI Techniques</a></h2>
 <h3>Key Takeaways</h3><div class="key-content">
-<p>本次會議介紹了如何整合人工智慧來加速地下油藏的建模、優化和管理，這是能源轉型中的一個關鍵挑戰。會議重點介紹了使用序列傅立葉神經算子（Sequential Fourier Neural Operators, SFNO）進行二氧化碳儲存建模，以及使用序列物理資訊神經算子（Sequential Physics-Informed Neural Operators, SPINO）和變分卷積自編碼器（Variational Convolutional Autoencoder, VCAE）進行歷史擬合。</p>
+<p>本次會議重點在於探討如何利用人工智慧加速油藏的建模、最佳化和管理，這是在能源轉型中的一個關鍵挑戰。會議介紹了使用序列傅立葉神經網路運算元（Sequential Fourier Neural Operators）進行二氧化碳儲存建模，以及使用序列物理資訊神經網路運算元（Sequential Physics-Informed Neural Operators）和變分卷積自編碼器（Variational Convolutional Autoencoder）進行歷史擬合的方法。</p>
 <h3>重點摘要：</h3>
 <ul>
-<li>利用AI加速油藏建模，應對能源轉型挑戰。</li>
-<li>使用SFNO模型預測二氧化碳儲存，SPINO和VCAE模型進行歷史擬合。</li>
-<li>強調了氣候緊急性、數據可用性和AI技術進步是推動該領域發展的三個關鍵因素。</li>
+<li>利用AI加速油藏建模，以應對能源轉型的挑戰。</li>
+<li>使用序列傅立葉神經網路運算元建模二氧化碳儲存。</li>
+<li>使用序列物理資訊神經網路運算元和變分卷積自編碼器進行歷史擬合。</li>
+<li>展示了AI模型在預測壓力和飽和度方面的準確性和效率。</li>
 </ul>
 <h3>Topic:</h3>
 <ul>
-<li>AI在能源領域的應用</li>
-<li>物理資訊機器學習</li>
-<li>油藏建模與模擬</li>
+<li>AI在油藏建模中的應用</li>
+<li>二氧化碳儲存</li>
+<li>歷史擬合</li>
+<li>物理資訊神經網路</li>
 </ul>
 </div></div>
 <div class="meeting-item"><h2><a href="./session/Profile Large Language Model Trainings on the Grace Hopper Superchip [S72967]_summary.html" style="text-decoration: none; color: inherit;">Profile Large Language Model Trainings on the Grace Hopper Superchip [S72967]</a></h2>
 <h3>Key Takeaways</h3><div class="key-content">
-<p>本次會議介紹了 NVIDIA Grace Hopper Superchip 在大型語言模型訓練中的應用，重點介紹了使用 NVIDIA Nsight Systems Profiler 進行性能分析和優化的方法。</p>
+<p>本次會議介紹了Grace Hopper Superchip，以及如何使用NVIDIA Insight Systems Profiler來分析和優化大型語言模型的訓練。會議涵蓋了CPU和GPU協同工作的重要性，以及Grace Hopper Superchip如何通過NVLink技術解決傳統CPU-GPU通信瓶頸。此外，還介紹了NEMO框架，用於簡化大型語言模型的訓練流程。</p>
 <h3>重點摘要：</h3>
 <ul>
-<li>Grace Hopper Superchip 的架構及其在加速計算和生成式 AI 方面的優勢。</li>
-<li>NVIDIA Nsight Systems Profiler 的使用，用於識別程式碼中的瓶頸和優化機會。</li>
-<li>LoRa (Low-Rank Adaptation) 微調大型模型，並使用 Nsight Systems 進行性能分析。</li>
-<li>通過調整 NumWorkers 參數和使用混合精度訓練等技術來優化訓練工作流程。</li>
+<li>Grace Hopper Superchip的架構和優勢，包括高速NVLink互連。</li>
+<li>NVIDIA Insight Systems Profiler的使用方法，用於識別性能瓶頸。</li>
+<li>NEMO框架的概述，用於數據處理、模型訓練和部署。</li>
+<li>LoRa微調實驗，以及如何使用NumWorkers和統一記憶體來優化性能。</li>
+<li>混合精度訓練和FP8訓練的優勢。</li>
 </ul>
 <h3>Topic:</h3>
 <ul>
 <li>大型語言模型訓練</li>
-<li>性能分析與優化</li>
+<li>性能分析</li>
 <li>Grace Hopper Superchip</li>
-<li>NVIDIA Nsight Systems</li>
 </ul>
 </div></div>
 <div class="meeting-item"><h2><a href="./session/构建以 Megatron-Core 为核心的大语言模型训练加速生态_summary.html" style="text-decoration: none; color: inherit;">构建以 Megatron-Core 为核心的大语言模型训练加速生态</a></h2>
 <h3>Key Takeaways</h3><div class="key-content">
-<p>本次會議主要介紹了阿里云人工智能平台PAI團隊與英偉達Megatron Core團隊在大語言模型及多模態大模型訓練方面的合作與優化工作。重點介紹了PiMagatron Patch的核心定位與功能，以及在性能優化、功能擴展方面的更新，包括分布式優化器卸載、多模態大模型分布式訓練支持、以及DeepSeek V3相關的訓練實踐。</p>
+<p>本次會議主要介紹了阿里云人工智能平台派團隊與英偉達 Magatron Core 團隊在大語言模型及多模態大模型方面的訓練實踐和訓練優化合作。重點介紹了 PiMagatron Patch 的核心定位和功能，以及在性能優化和功能擴展方面的更新，包括分布式優化器卸載、多模態大模型分布式訓練的支持，以及 DeepSeek V3 相關的訓練實踐。</p>
+<h3>重點摘要：</h3>
+<ul>
+<li>PiMagatron Patch 的核心定位是幫助用戶更方便地使用 Magatron Core 框架，提供了豐富的 Hugging Face 到 Magatron 的雙向模型權重轉換工具，並支持多種開源大模型和不同類型的大模型訓練。</li>
+<li>在顯存優化方面，主要介紹了分布式優化器 CPU 卸載方案，通過將訓練過程中的部分參數計算從 GPU 轉移到 CPU 上進行，以實現降顯存的目的。</li>
+<li>在多模態大模型的支持方面，以千問 2 VL 多模態大模型為例，介紹了在並行的模型權重轉換、多模態數據的高效加載和動態分辨率的支持、視覺編碼器和大語言模型解碼器的計算負載均衡，以及長序列情況下的顯存消耗等方面的解決方案。</li>
+<li>在 DeepSeek V3 的訓練實踐方面，介紹了在模型、MOE 的負載均衡、算法功能和 AI Infra 方面與 V3 進行對齊的工作。</li>
+</ul>
 <h3>Topic:</h3>
 <ul>
 <li>大語言模型訓練</li>
-<li>多模態大模型訓練</li>
-<li>性能優化</li>
 <li>分布式訓練</li>
+<li>顯存優化</li>
+<li>多模態大模型</li>
 </ul>
 </div></div>
 <div class="meeting-item"><h2><a href="./session/大規模言語モデル学習スケールのためのテレコムユースケース [S71554]_summary.html" style="text-decoration: none; color: inherit;">大規模言語モデル学習スケールのためのテレコムユースケース [S71554]</a></h2>
 <h3>Key Takeaways</h3><div class="key-content">
-<p>本次發表介紹了 NTT Communications 如何利用 GPU over APN 的方法，解決大規模語言模型學習時 GPU 資源不足的問題。透過 NVIDIA 的 NEMO 框架和 Megatron 分散式框架，實現跨數據中心 GPU 資源的有效利用，並透過實證實驗驗證了該方法的可行性。</p>
+<p>本次發表介紹了 NTT Communications 如何利用 GPU over APN 的概念，結合 NVIDIA 的 Nemo 框架和 Megatron 分散式框架，來有效利用現有 GPU 資源，解決生成 AI 對於 GPU 需求不斷增長的問題。透過實證實驗，展示了 GPU over APN 在分散式學習中的可行性和效率。</p>
 <h3>重點摘要：</h3>
 <ul>
-<li>介紹了 GPU over APN 的概念，即透過 APN 網路連接分散的 GPU 資源，以滿足生成 AI 對 GPU 的大量需求。</li>
-<li>探討了 NVIDIA 的 NEMO 框架和 Megatron 分散式框架，以及它們在分散式學習中的應用。</li>
-<li>展示了 GPU over APN 的實證實驗結果，驗證了該方法在分散式學習中的有效性。</li>
-</ul>
-<h3>Topic: 分散式學習、GPU 資源管理、生成 AI</h3>
-</div></div>
-<div class="meeting-item"><h2><a href="./session/AI Agents Shaping the Future of Cybersecurity [S72441]_summary.html" style="text-decoration: none; color: inherit;">AI Agents Shaping the Future of Cybersecurity [S72441]</a></h2>
-<h3>Key Takeaways</h3><div class="key-content">
-<p>本次會議重點討論了 AI Agent 如何重塑網路安全的未來，涵蓋了從 AI 解決方案到 AI 基礎設施，以及勞動力如何採用 AI 的廣泛視角。講者們分享了各自公司在 AI 應用和網路安全方面的經驗和見解，強調了 AI 在提高效率、檢測威脅和保護數據方面的潛力，同時也指出了與 AI 相關的風險和挑戰。</p>
-<h3>重點摘要：</h3>
-<ul>
-<li>AI 在醫療、金融、交通運輸和聯邦政府等行業的應用日益普及。</li>
-<li>AI Agent 技術在網路安全領域的應用，例如威脅檢測、漏洞分析和安全自動化。</li>
-<li>雲安全和 AI 安全之間的相似之處，以及從雲安全中汲取的經驗教訓。</li>
-<li>數位分身 (Digital Twin) 技術在電網安全中的應用，以及如何利用 AI 增強數位分身的安全性。</li>
-<li>主權 AI 的概念，以及在資料安全和合規性方面的重要性。</li>
-</ul>
-<h3>Topic: AI 安全、網路安全、AI Agent</h3>
-</div></div>
-<div class="meeting-item"><h2><a href="./session/UFO-Lite：基于自推测解码的低延迟多模态大模型_summary.html" style="text-decoration: none; color: inherit;">UFO-Lite：基于自推测解码的低延迟多模态大模型</a></h2>
-<h3>Key Takeaways</h3><div class="key-content">
-<p>本次會議主要介紹了百度提出的 UFO Lite，一種針對多模態大模型推理成本和性能的優化方法。該方法基於投機解碼，通過大小模型協同工作，在保證精度的前提下，顯著降低推理延遲。</p>
-<h3>重點摘要：</h3>
-<ul>
-<li>UFO Lite 是業界首個多模態投機解碼工作，解決了多模態投機採樣引入的新挑戰。</li>
-<li>UFO Lite 適用於任意多模態大模型，可通過自協同進行加速，無需 tokenizer 限制。</li>
-<li>UFO Lite 基於 Tokenizer 的 LM 進行研發，與緩存機制深度優化，可在 Llama 2 上實現極致推理速度。</li>
-<li>UFO Lite 通過在線量化和蒸餾等技術，進一步提升加速比和精度。</li>
-</ul>
-<h3>Topic: 多模態大模型推理優化、投機解碼、模型加速</h3>
-</div></div>
-<div class="meeting-item"><h2><a href="./session/高速・高精度・絶対シミュレーシ_summary.html" style="text-decoration: none; color: inherit;">高速・高精度・絶対シミュレーシ</a></h2>
-<h3>Key Takeaways</h3><div class="key-content">
-<p>本次會議主要介紹了利用高速、高精度、絕對模擬技術，結合合成數據，在AI藥物發現領域的應用與未來發展。重點在於介紹了アリベクシス公司（Arribexes）的ModBind演算法，以及如何利用該演算法加速和優化藥物發現過程。</p>
-<h3>重點摘要：</h3>
-<ul>
-<li>低分子藥物發現的演進歷程，從偶然發現到基於計算和AI的設計。</li>
-<li>アリベクシス公司的業務模式：利用模擬和AI技術進行低分子藥物發現，並在臨床前階段授權給製藥公司。</li>
-<li>ModBind演算法的技術特點：高速、高精度、絕對預測，無需參考化合物。</li>
-<li>利用ModBind生成的合成數據訓練AI模型，提高AI藥物發現的效率和準確性。</li>
-</ul>
-<h3>Topic: AI 藥物發現、分子模擬、合成數據</h3>
-</div></div>
-<div class="meeting-item"><h2><a href="./session/NVIDIA GPU クラウドを使った API アクセスによる高速アプリ開発 [S73913]_summary.html" style="text-decoration: none; color: inherit;">NVIDIA GPU クラウドを使った API アクセスによる高速アプリ開発 [S73913]</a></h2>
-<h3>Key Takeaways</h3><div class="key-content">
-<p>本次會議主要介紹 FPT (FPT Software) 的 AI Platform，特別是 FPT AI Factory，以及如何利用 NVIDIA GPU Cloud 加速 AI 應用開發。會議涵蓋了 FPT 的公司概況、AI 戰略、GPU Cloud 服務、AI Studio、推論服務，以及一系列 AI 產品和解決方案的案例研究。</p>
-<h3>重點摘要：</h3>
-<ul>
-<li>FPT 作為越南最大的數位集團，在全球 30 個國家和地區擁有超過 3 萬名員工。</li>
-<li>FPT AI Platform 提供 GPU Cloud、AI Studio 和推論服務，支援 AI 模型開發、訓練、部署和應用。</li>
-<li>FPT AI Factory 提供多種 GPU 資源，包括裸機伺服器、託管 Kubernetes 叢集和 GPU 容器，並提供彈性定價選項。</li>
-<li>FPT AI Studio 提供 AI 模型微調、模型目錄和 AI Notebook 等功能，簡化 AI 開發流程。</li>
-<li>FPT 提供一系列 AI 產品和解決方案，包括 IB Chat (企業級生成式 AI 平台) 和 CodeWista (AI 輔助程式碼開發工具)。</li>
-<li>伊藤忠商事利用 FPT 的 IB Chat 和 CodeWista 實現業務流程轉型，提高生產力和程式碼品質。</li>
+<li>生成 AI 對 GPU 需求的快速增長，以及單一資料中心難以滿足需求的問題。</li>
+<li>GPU over APN 的概念：透過 APN 網路連接分散的 GPU 資源，實現 GPU 資源的有效利用。</li>
+<li>NVIDIA Nemo 框架和 Megatron 分散式框架在分散式學習中的應用。</li>
+<li>透過實證實驗驗證 GPU over APN 的可行性和效率。</li>
 </ul>
 <h3>Topic:</h3>
 <ul>
-<li>AI Infrastructure</li>
-<li>AI Development Platform</li>
-<li>AI Applications and Solutions</li>
+<li>分散式學習</li>
+<li>GPU 資源管理</li>
+<li>生成 AI</li>
+</ul>
+</div></div>
+<div class="meeting-item"><h2><a href="./session/AI Agents Shaping the Future of Cybersecurity [S72441]_summary.html" style="text-decoration: none; color: inherit;">AI Agents Shaping the Future of Cybersecurity [S72441]</a></h2>
+<h3>Key Takeaways</h3><div class="key-content">
+<p>本次會議重點在於探討 AI Agent 如何重塑網路安全的未來，並邀請了來自 Trend Micro、Wiz 和 Siemens Energy 的專家分享他們在 AI 解決方案、AI 基礎設施以及員工如何採用 AI 等方面的見解。會議強調了 AI 在各行業的應用，以及隨之而來的安全風險和應對策略。</p>
+<h3>重點摘要：</h3>
+<ul>
+<li>AI 在醫療、金融、交通運輸和聯邦政府等行業的廣泛應用。</li>
+<li>AI Agent 技術在提高企業軟體應用程式的安全性方面的潛力。</li>
+<li>AI 驅動的自動化如何改變與客戶的互動方式。</li>
+<li>網路安全公司如何利用 AI 來應對不斷變化的威脅。</li>
+</ul>
+<h3>Topic:</h3>
+<ul>
+<li>AI Agents</li>
+<li>Cybersecurity</li>
+<li>AI Adoption</li>
+</ul>
+</div></div>
+<div class="meeting-item"><h2><a href="./session/UFO-Lite：基于自推测解码的低延迟多模态大模型_summary.html" style="text-decoration: none; color: inherit;">UFO-Lite：基于自推测解码的低延迟多模态大模型</a></h2>
+<h3>Key Takeaways</h3><div class="key-content">
+<p>本次會議主要介紹了百度提出的 UFO Lite，一種針對多模態大模型推理成本和性能的優化方法，並延伸討論了多模態大模型訓練成本的優化。UFO Lite 是業界首個多模態投機解碼工作，解決了多模態投機採樣引入的新挑戰，並適用於任意多模態大模型，可通過自協同進行加速。
+*   <strong>重點摘要：</strong>
+    *   多模態大模型推理成本高、速度慢的問題。
+    *   UFO Lite 的技術原理：利用小模型快速生成 Draft 序列，大模型並行驗證，實現加速。
+    *   UFO Lite 的優勢：適用於任意多模態大模型，可通過自協同加速，並與現有加速方法（如 MTP）正交。
+    *   UFO Lite 的實驗結果：在訓練數據可比的情況下，可達到與 2B 模型左右可比的速度，以及與 7、8B 模型可比的精度。
+    *   UFO Lite 的應用：可修正小模型的錯誤和幻覺，提高推理準確性和效率。
+*   <strong>Topic:</strong>
+    *   多模態大模型
+    *   推理優化
+    *   投機解碼
+    *   自協同</p>
+</div></div>
+<div class="meeting-item"><h2><a href="./session/高速・高精度・絶対シミュレーシ_summary.html" style="text-decoration: none; color: inherit;">高速・高精度・絶対シミュレーシ</a></h2>
+<h3>Key Takeaways</h3><div class="key-content">
+<p>本次會議主要介紹了Aribeuxis公司利用高速、高精度、絕對模擬技術，結合合成數據，在AI新藥開發領域的應用與未來展望。重點在於其獨特的ModBind演算法，以及如何利用NVIDIA GPU超級電腦加速新藥開發流程。</p>
+<h3>重點摘要：</h3>
+<ul>
+<li>Aribeuxis公司利用ModBind演算法進行高速、高精度的分子動力學模擬，加速新藥開發。</li>
+<li>ModBind演算法的獨特性在於其絕對預測能力，無需參考化合物即可進行準確的活性預測。</li>
+<li>結合合成數據訓練AI模型，進一步提升新藥開發的效率和準確性。</li>
+<li>Aribeuxis公司已有多個臨床候選藥物，並與多家製藥公司和研究機構建立了合作關係。</li>
+</ul>
+<h3>Topic:</h3>
+<ul>
+<li>AI新藥開發</li>
+<li>分子動力學模擬</li>
+<li>合成數據</li>
+<li>GPU加速</li>
+</ul>
+</div></div>
+<div class="meeting-item"><h2><a href="./session/NVIDIA GPU クラウドを使った API アクセスによる高速アプリ開発 [S73913]_summary.html" style="text-decoration: none; color: inherit;">NVIDIA GPU クラウドを使った API アクセスによる高速アプリ開発 [S73913]</a></h2>
+<h3>Key Takeaways</h3><div class="key-content">
+<p>本次會議主要介紹 FPT Software 如何利用 NVIDIA GPU Cloud 和 FPT AI Platform，提供客戶更具彈性的 AI 開發解決方案，並展示相關產品與服務，如 IBChat 和 CodeVista。</p>
+<h3>重點摘要：</h3>
+<ul>
+<li>介紹 FPT Software 及其 AI Platform 的整體概況，包括其在全球的業務範圍、合作夥伴關係和 AI 技術能力。</li>
+<li>闡述 FPT AI Factory 的核心服務，包括 GPU Cloud 基礎設施、AI Studio、推論服務和 AI 應用程式。</li>
+<li>展示 FPT AI Factory 的各項功能，如 GPU 虛擬機器、Kubernetes 叢集管理、模型微調、模型部署和 API 服務。</li>
+<li>介紹 FPT AI 的產品解決方案，如 IBChat（企業級生成式 AI 平台）和 CodeVista（AI 輔助程式碼開發工具）。</li>
+<li>分享伊藤忠商事如何利用 FPT AI 的解決方案，實現業務流程的轉型和效率提升。</li>
+</ul>
+<h3>Topic:</h3>
+<ul>
+<li>AI 開發平台</li>
+<li>GPU 雲端服務</li>
+<li>AI 應用程式開發</li>
 </ul>
 </div></div>
 <div class="meeting-item"><h2><a href="./session/Isaac PerceptorとAutowareを組み合わせたNova Carterの自動運転 [S73870]_summary.html" style="text-decoration: none; color: inherit;">Isaac PerceptorとAutowareを組み合わせたNova Carterの自動運転 [S73870]</a></h2>
 <h3>Key Takeaways</h3><div class="key-content">
-<p>本次會議介紹了Tier4公司如何將NVIDIA Isaac Perceptor與Autoware自動駕駛軟體整合到NVIDIA Nova Carter自立移動機器人平台上，並展示了在實際場景中的應用。</p>
+<p>本次會議介紹了Tier4公司如何將NVIDIA Isaac Perceptor與Autoware自動駕駛軟體整合到NVIDIA Nova Carter自立移動機器人平台上。展示了在品川辦公室咖啡區，Nova Carter透過Autoware自主導航的成果，並強調了Autoware在斜線上移動的特性。同時，利用立體相機資訊建立佔用網格地圖，實現動態障礙物識別。</p>
 <h3>重點摘要：</h3>
 <ul>
-<li>Tier4公司介紹及其在自動駕駛領域的貢獻，包括開源自動駕駛軟體Autoware。</li>
-<li>NVIDIA Isaac Perceptor的介紹，特別是其在感知方面的能力，以及如何應用於自立移動機器人。</li>
-<li>NVIDIA Nova Carter自立移動機器人平台的介紹，包括其硬體配置和軟體支援。</li>
-<li>Autoware與Nova Carter的整合，展示了在室內環境中，Nova Carter如何使用Autoware進行自主導航和避障。</li>
+<li>展示了NVIDIA Nova Carter與Autoware整合後的自主導航能力。</li>
+<li>強調了Autoware在斜線上移動的特性，並展示了避障功能。</li>
+<li>利用立體相機資訊建立佔用網格地圖，實現動態障礙物識別。</li>
+<li>介紹了開發團隊及各自的貢獻。</li>
 </ul>
-<h3>Topic: 自動駕駛、機器人、感知、Autoware、Isaac Perceptor、Nova Carter</h3>
+<h3>Topic:</h3>
+<ul>
+<li>自動駕駛</li>
+<li>機器人</li>
+<li>NVIDIA Isaac Perceptor</li>
+<li>Autoware</li>
+<li>NVIDIA Nova Carter</li>
+</ul>
 </div></div>
 <div class="meeting-item"><h2><a href="./session/使用 NVIDIA 技术为你的母語构建 LLM_summary.html" style="text-decoration: none; color: inherit;">使用 NVIDIA 技术为你的母語构建 LLM</a></h2>
 <h3>Key Takeaways</h3><div class="key-content">
 <p>本次演講主要探討了如何使用 NVIDIA 技術為資源稀缺語言構建大型語言模型（LLM），重點介紹了使用 NVIDIA Nemo Curator 進行高效數據準備，以及使用 NVIDIA Nemo Framework 進行模型訓練的方法。</p>
 <h3>重點摘要：</h3>
 <ul>
-<li>現有大型語言模型可能不支持某些母語的原因，以及資源稀缺語言構建 LLM 所面臨的挑戰。</li>
-<li>使用 NVIDIA Nemo Curator 進行高效數據準備的流程，包括數據清洗、詞彙表構建和指令調整數據集創建。</li>
-<li>使用 NVIDIA Nemo Framework 進行模型訓練的步驟，包括模型選擇、配置、訓練和微調。</li>
-<li>資源稀缺語言 LLM 的應用案例，例如客服、疫情監控、翻譯和教育等。</li>
-<li>展望社區合作與未來發展方向，包括支持更多稀缺語言和構建企業級 LLM 訓練平台 VotiMagic。</li>
+<li>現有大型語言模型可能不支持你的母語的原因，以及資源稀缺語言構建 LLM 所面臨的挑戰。</li>
+<li>如何使用 NVIDIA LEMO Curator 進行高效的數據準備，包括數據清洗、詞彙表構建和指令調整數據集創建。</li>
+<li>如何使用 NVIDIA LEMO Framework 進行模型訓練，包括 Megatron LM 的使用、模型評估與微調，以及 Auto Configurator 的使用。</li>
+<li>資源稀缺語言 LLM 的應用案例，以及社區合作與未來的發展方向。</li>
 </ul>
-<h3>Topic: 語言模型、自然語言處理、NVIDIA Nemo Framework、資源稀缺語言</h3>
+<h3>Topic:</h3>
+<ul>
+<li>大型語言模型</li>
+<li>資源稀缺語言</li>
+<li>NVIDIA Nemo Framework</li>
+<li>數據準備</li>
+<li>模型訓練</li>
+<li>模型評估與微調</li>
+</ul>
 </div></div>
 <div class="meeting-item"><h2><a href="./session/Agentic AI at the Edge Real-Time Sentiment_summary.html" style="text-decoration: none; color: inherit;">Agentic AI at the Edge Real-Time Sentiment</a></h2>
 <h3>Key Takeaways</h3><div class="key-content">
-<p>本次會議主要探討了如何利用代理式AI在邊緣端進行即時情感分析，以提升顧客體驗，特別是在零售環境中。會議展示了Eviden和Infuse合作開發的解決方案，該方案利用現有基礎設施（如監控攝影機）和邊緣運算設備（如NVIDIA Jetson），在保護隱私的前提下，為顧客提供更個性化的服務。</p>
+<p>本次會議主要探討了如何利用代理式AI在邊緣端進行即時情感分析，以提升顧客體驗，特別是在零售環境中。會議展示了Eviden和Infuse合作開發的解決方案，該方案利用現有基礎設施（如安全攝影機）和邊緣運算設備（如Jetson），在保護隱私的前提下，為顧客提供更個人化和情境化的服務。</p>
 <h3>重點摘要：</h3>
 <ul>
-<li>代理式AI在零售業的應用，重點在於提升顧客體驗和營收。</li>
-<li>利用現有基礎設施和邊緣運算，降低部署成本和複雜性。</li>
-<li>強調隱私保護技術的重要性，確保顧客數據安全。</li>
-<li>展示了基於NVIDIA Jetson的實時情感分析和廣告投放系統。</li>
+<li>代理式AI在零售業的應用，特別是提升顧客體驗和營收。</li>
+<li>利用現有基礎設施和邊緣運算設備，降低部署成本和複雜性。</li>
+<li>強調隱私保護技術的重要性，確保符合法規要求。</li>
+<li>展示了基於Jetson的數位分身應用，可模擬真實商店環境，方便營運商進行測試和優化。</li>
 </ul>
-<h3>Topic: AI at the Edge, Retail, Customer Experience</h3>
+<h3>Topic:</h3>
+<ul>
+<li>代理式AI</li>
+<li>邊緣運算</li>
+<li>零售業應用</li>
+<li>隱私保護</li>
+</ul>
 </div></div>
 <div class="meeting-item"><h2><a href="./session/使用 GPU 加速图像视频处理方法的演进_summary.html" style="text-decoration: none; color: inherit;">使用 GPU 加速图像视频处理方法的演进</a></h2>
 <h3>Key Takeaways</h3><div class="key-content">
-<p>本次會議主要介紹了火山引擎視頻雲如何使用 NVIDIA GPU 加速圖像和視頻處理，涵蓋了 CUDA 加速傳統算法、TensorRT 加速 CNN 模型、GPU 利用率最大化、調度器執行模式以及視覺大模型優化等方面。</p>
+<p>本次會議主要介紹了火山引擎視頻雲如何使用 GPU 加速圖像和視頻處理，涵蓋了 CUDA 加速傳統算法、TensorRT 加速 CNN 模型、GPU 利用率最大化、調度器執行模式以及視覺大模型的優化。</p>
 <h3>重點摘要：</h3>
 <ul>
-<li>使用 CUDA 加速傳統圖像處理算法，性能提升顯著。</li>
-<li>使用 TensorRT 加速 CNN 模型，並通過模型拆分和算子融合等方式優化顯存佔用和性能。</li>
-<li>通過異步調度提高 GPU 利用率，解決 CPU 前後處理導致的 GPU 閒置問題。</li>
-<li>採用 GPU 執行器調動模式，解決算法模板數量過多導致的顯存開銷和維護困難問題。</li>
-<li>針對 LAVA 等視覺大模型進行優化，提升推理速度。</li>
+<li>使用 CUDA 加速傳統算法，例如色彩空間轉換、圖像縮放等，性能提升顯著。</li>
+<li>使用 TensorRT 加速 CNN 模型，通過模型拆分、共享顯存等方式降低顯存開銷。</li>
+<li>通過異步調度提高 GPU 利用率，避免 CPU 單線程同步調度導致的 GPU 閒置。</li>
+<li>引入 GPU 執行器調度模式，解決算法模板過多、顯存開銷大等問題。</li>
+<li>針對 LAVA 等視覺大模型進行優化，使用 TensorRT 加速，並使用 C++ 重寫流程以減少 GPU 空閒時間。</li>
 </ul>
-<h3>Topic: GPU 加速、圖像處理、視頻處理、深度學習、TensorRT、CUDA、異步調度、模型優化</h3>
+<h3>Topic:</h3>
+<ul>
+<li>GPU 加速</li>
+<li>圖像處理</li>
+<li>視頻處理</li>
+<li>深度學習</li>
+<li>TensorRT</li>
+<li>CUDA</li>
+<li>視覺大模型</li>
+</ul>
 </div></div>
 <div class="meeting-item"><h2><a href="./session/RAPIDS in 2025 Accelerated Data Science Everywhere [S73290]_summary.html" style="text-decoration: none; color: inherit;">RAPIDS in 2025 Accelerated Data Science Everywhere [S73290]</a></h2>
 <h3>Key Takeaways</h3><div class="key-content">
-<p>本次會議介紹了 NVIDIA 的 RAPIDS 生態系統在加速資料科學方面的最新進展，涵蓋了資料框架、SQL、機器學習、圖形分析、向量搜尋和大語言模型等領域的開發，以及工具和平台方面的改進，旨在為資料科學家提供更高效、更便捷的加速計算體驗。</p>
+<p>本次會議介紹了 NVIDIA 的 RAPIDS 生態系統，以及其在加速資料科學方面的最新進展。重點涵蓋了資料框架、SQL、機器學習、圖形分析、向量搜尋和大語言模型等領域的開發，以及開發者體驗的提升。</p>
 <h3>重點摘要：</h3>
 <ul>
-<li>RAPIDS 生態系統在各個領域的最新進展，包括 pandas、polars、Apache Spark、Scikit-learn、UMAP、HDBSCAN、XGBoost、NetworkX、PyTorch Geometric 等。</li>
-<li>零程式碼變更加速 (Zero Code Change) 的重要性，讓使用者可以在不修改程式碼的情況下，利用 GPU 加速現有的工作流程。</li>
-<li>NVIDIA 在開發者體驗方面的努力，包括改進文件、Project Aether、NV Dashboard、統一深度學習和資料科學容器，以及與 Google Colab 和 Snowflake 的合作。</li>
+<li>RAPIDS 生態系統的概述，包括其目標、組成部分和與其他生態系統的整合。</li>
+<li>RAPIDS 在資料框架和 SQL 方面的最新進展，包括對 Pandas、Polars 和 Apache Spark 的加速支援。</li>
+<li>RAPIDS 在機器學習和圖形分析方面的最新進展，包括對 Scikit-learn、UMAP、HDBSCAN、XGBoost、Forest Inference Library (FIL)、NetworkX 和 PyTorch Geometric 的加速支援。</li>
+<li>RAPIDS 在向量搜尋和大語言模型方面的最新進展，包括 Nemo Curator 和 KUVS (CUDA Accelerated Vector Search)。</li>
+<li>RAPIDS 在開發者體驗方面的最新進展，包括改進的文檔、Project Aether (用於自動優化 Apache Spark 工作流程)、NV Dashboard (用於監控 GPU 使用情況) 以及與 Google Colab 和 Snowflake 的整合。</li>
 </ul>
 <h3>Topic:</h3>
-<p>加速資料科學、GPU 計算、機器學習、圖形分析、向量搜尋、大語言模型、開發者工具</p>
+<ul>
+<li>加速資料科學</li>
+<li>GPU 加速</li>
+<li>開源生態系統</li>
+</ul>
 </div></div>
 <div class="meeting-item"><h2><a href="./session/Spectrum-X &amp; H200で構築したGPUクラウドサービス開発の最前線_summary.html" style="text-decoration: none; color: inherit;">Spectrum-X &amp; H200で構築したGPUクラウドサービス開発の最前線</a></h2>
 <h3>Key Takeaways</h3><div class="key-content">
-<p>本次會議介紹了 GMO Internet 開發的 GMO GPU Cloud 服務，該服務基於 NVIDIA 的參考架構，專為 AI 模型訓練和機器學習優化。重點介紹了該服務的系統架構、網路配置，以及使用 Spectrum X 實現高效能互連網路的細節。</p>
+<p>本次會議介紹了 GMO Internet 基於 NVIDIA 的參考架構，利用 Spectrum-X 和 H200 GPU 構建的 GPU 雲服務。該服務在 2024 年 11 月公開的超級電腦性能世界排名 TOP500 中名列前茅。</p>
 <h3>重點摘要：</h3>
 <ul>
-<li>GMO GPU Cloud 服務的介紹，包括其優勢和應用場景。</li>
-<li>系統架構的詳細說明，包括網路配置、GPU 節點和儲存系統。</li>
-<li>互連網路的深入探討，重點是 Rail Optimized Topology 和複數控制。</li>
-<li>構建過程中的經驗分享，包括時間限制、合作夥伴關係和 NVIDIA 的支援。</li>
-<li>服務的效能指標，包括在 Top500 超級電腦排行榜上的排名。</li>
+<li>GMO GPU Cloud 服務的介紹，該服務針對 AI 模型學習和機器學習進行了最佳化。</li>
+<li>系統架構，包括獨立的網路和伺服器群，以及使用 Spectrum X 的互連網路。</li>
+<li>採用 Rail Optimized Topology Full By Section 實現無損網路，並討論了擁塞控制。</li>
+<li>分享了構建過程中的經驗，包括時間限制、與 NVIDIA 的合作以及物理佈線的挑戰。</li>
 </ul>
-<h3>Topic: GPU 雲服務、高效能網路、AI 基礎設施</h3>
+<h3>Topic:</h3>
+<ul>
+<li>GPU 雲服務</li>
+<li>NVIDIA Spectrum-X</li>
+<li>H200 GPU</li>
+<li>RDMA 網路</li>
+<li>無損網路</li>
+</ul>
 </div></div>
 <div class="meeting-item"><h2><a href="./session/Diffusion Models The Swiss Army Knife for Generative AI in Science_summary.html" style="text-decoration: none; color: inherit;">Diffusion Models The Swiss Army Knife for Generative AI in Science</a></h2>
 <h3>Key Takeaways</h3><div class="key-content">
-<p>本次會議主要介紹了擴散模型在科學領域的應用，包括天氣預測、蛋白質和小型分子生成等。講者分享了團隊在過去一年中構建的四個用例，並總結了在科學應用中構建生成模型時的經驗教訓和解決方案。</p>
+<p>概述了擴散模型在科學領域作為強大生成式AI框架的應用。重點介紹了團隊在過去一年中構建的四個用例，並分享了在科學應用中構建生成模型時的經驗教訓，包括失敗案例和解決方案。</p>
 <h3>重點摘要：</h3>
 <ul>
-<li>擴散模型和流模型的基本原理和數學描述。</li>
-<li>擴散模型在天氣預測、重尾數據生成、蛋白質和小型分子生成等科學領域的應用案例。</li>
-<li>構建科學領域生成模型時的關鍵設計決策，包括訓練數據品質、數據表示、網路架構、損失函數、採樣方法和評估指標。</li>
+<li>擴散模型和流模型的高階介紹。</li>
+<li>四個實際用例，展示了擴散模型在天氣預報、蛋白質生成和小分子生成方面的應用。</li>
+<li>在科學應用中構建生成模型時的經驗教訓，包括資料品質、模型架構和評估指標的重要性。</li>
 </ul>
-<h3>Topic: 生成式AI、擴散模型、科學應用</h3>
+<h3>Topic:</h3>
+<ul>
+<li>擴散模型</li>
+<li>生成式AI</li>
+<li>科學應用</li>
+</ul>
 </div></div>
             </div>
         </main>

@@ -97,7 +97,6 @@ def process_directory(input_dir, output_dir, output_format="json", delay=1):
     print(f"批量處理完成。總結文件保存在: {output_dir}")
     
     
-
 def main():
     parser = argparse.ArgumentParser(description="批量處理會議逐字稿並生成總結")
     parser.add_argument("-i", "--input", default="/Users/cfh00896102/Github/gtc2025aiagent/transcript", 

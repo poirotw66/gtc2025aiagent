@@ -37,7 +37,6 @@ class TranscriptSummarizer:
         if len(transcript_text) > MAX_TRANSCRIPT_LENGTH:
             print(f"警告: 文本長度超過{MAX_TRANSCRIPT_LENGTH}字符，可能需要分段處理")
         url = meeting_list.get_url_by_meeting_name(meeting_title)
-        print(url)
         prompt = f"""
         請遵循以下步驟處理提供的會議逐字稿：
 
@@ -45,6 +44,7 @@ class TranscriptSummarizer:
             *   仔細閱讀下方提供的「會議逐字稿」。
             *   在內部處理中，找出並修正逐字稿裡最明顯的錯字或口誤（例如：同音異字、打字錯誤、常見用詞錯誤）。
             *   使用建議的正確詞彙替換錯誤詞彙。
+            *   將簡體中文翻譯成繁體中文。
             *   重要限制：校正時必須保持句子原有語氣，忠於原文意涵，僅修正明顯錯誤，避免過度詮釋或修改。
             *   此校對結果不需輸出。
 
