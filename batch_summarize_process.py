@@ -80,7 +80,7 @@ def process_file(file_info):
     summarizer = TranscriptSummarizer()
     
     start_time = time.time()
-    safe_print(f"處理 ({file_index+1}/{total_files}): {file_path.name}")
+    safe_print(f"處理 ({file_index + 1}/{total_files}): {file_path.name}")
     
     # 讀取逐字稿
     try:
@@ -128,7 +128,7 @@ def process_file(file_info):
                 # 其他錯誤也嘗試重試，但等待時間較短
                 time.sleep(5 * retry_count)
             else:
-                safe_print(f"達到最大重試次數，放棄處理此文件")
+                safe_print("達到最大重試次數，放棄處理此文件")
                 return False
     
     # 如果所有重試都失敗
@@ -158,7 +158,7 @@ def process_file(file_info):
             safe_print(f"總結已保存到: {output_path}")
             
             # 為HTML格式創建子資料夾
-            html_dir = os.path.join(output_dir, "html")
+            html_dir = os.path.join(output_dir, "session")
             with print_lock:  # 使用鎖來確保目錄創建是線程安全的
                 os.makedirs(html_dir, exist_ok=True)
             
@@ -252,7 +252,7 @@ def process_directory(input_dir, output_dir, output_format="json", max_workers=4
                     elapsed = current_time - start_time
                     progress = (completed + failed) / total_files * 100
                     safe_print(f"進度: {progress:.1f}% ({completed + failed}/{total_files}), "
-                              f"已完成: {completed}, 失敗: {failed}, 已用時間: {elapsed:.1f}秒")
+                            f"已完成: {completed}, 失敗: {failed}, 已用時間: {elapsed:.1f}秒")
                     last_progress_time = current_time
     except KeyboardInterrupt:
         print("\n程序被用戶中斷。正在等待當前任務完成...")
@@ -267,7 +267,7 @@ def process_directory(input_dir, output_dir, output_format="json", max_workers=4
     
 def main():
     parser = argparse.ArgumentParser(description="批量處理會議逐字稿並生成總結 (多線程版本)")
-    parser.add_argument("-i", "--input", default="/Users/cfh00896102/Github/gtc2025aiagent/transcript", 
+    parser.add_argument("-i", "--input", default="/Users/cfh00896102/Github/gtc2025aiagent/data/transcript", 
                         help="包含逐字稿文件的輸入目錄 (預設: ./transcript)")
     parser.add_argument("-o", "--output", default="/Users/cfh00896102/Github/gtc2025aiagent/summaries", 
                         help="保存總結的輸出目錄 (預設: ./summaries)")

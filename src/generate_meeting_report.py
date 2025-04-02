@@ -23,7 +23,7 @@ def generate_markdown(topic, meetings):
     for meeting, key in meetings:
         # 使用純 Markdown 格式，避免混合 HTML 標籤
         md_content += f"## {meeting}\n\n"
-        md_content += f"### Key Takeaways\n\n"
+        md_content += "### Key Takeaways\n\n"
         md_content += f"{key}\n\n"
         md_content += "---\n\n"  # 使用 Markdown 分隔線區分不同會議
     
@@ -254,23 +254,37 @@ def markdown_to_email_html(md_content):
     """
     return email_html
 
-def ensure_directories():
-    os.makedirs("../report/md", exist_ok=True)
-    os.makedirs("../report/html", exist_ok=True)
+def ensure_directories(output_dir):
+    """確保輸出目錄存在"""
+    os.makedirs(f"{output_dir}/md", exist_ok=True)
+    os.makedirs(f"{output_dir}/session", exist_ok=True)
 
-def main(file_path):
+def main(file_path, output_dir="../report"):
+    """
+    主函數 - 處理Excel文件並生成報告
+    
+    Args:
+        file_path (str): Excel文件路徑
+        output_dir (str): 輸出目錄路徑
+    """
     df = read_excel(file_path)
     selected_data = select_meetings_by_topic(df)
     
-    ensure_directories()
+    ensure_directories(output_dir)
     
     for topic, meetings in selected_data.items():
         md_content = generate_markdown(topic, meetings)
         html_content = markdown_to_email_html(md_content)
+        
+        # 處理特殊字符，避免文件名問題
+        safe_topic = topic
         if topic == "Business / Executive":
-            topic = "Business_Executive"
-        md_filename = f"../report/md/{topic}.md"
-        html_filename = f"../report/html/{topic}.html"
+            safe_topic = "Business_Executive"
+        elif "/" in topic:
+            safe_topic = topic.replace("/", "_")
+        
+        md_filename = f"{output_dir}/md/{safe_topic}.md"
+        html_filename = f"{output_dir}/{safe_topic}.html"
         
         with open(md_filename, "w", encoding="utf-8") as md_file:
             md_file.write(md_content)
@@ -278,10 +292,18 @@ def main(file_path):
         with open(html_filename, "w", encoding="utf-8") as html_file:
             html_file.write(html_content)
     
-    print("Markdown and HTML files generated successfully.")
+    print(f"Markdown 和 HTML 文件已成功生成於 {output_dir} 目錄。")
 
-
-# 使用時調用 main("研討會會議清單.xlsx")
-
-
-main("../研討會會議清單.xlsx")
+if __name__ == "__main__":
+    import argparse
+    
+    # 創建命令行參數解析器
+    parser = argparse.ArgumentParser(description="生成會議報告的 Markdown 和 HTML 文件")
+    parser.add_argument("-i", "--input", required=True, help="輸入的 Excel 文件路徑")
+    parser.add_argument("-o", "--output", default="./report/topic", help="輸出目錄路徑 (預設: ./report)")
+    
+    # 解析命令行參數
+    args = parser.parse_args()
+    
+    # 執行主函數
+    main(args.input, args.output)

@@ -22,3 +22,25 @@
 
 ```bash
 pip install -r requirements.txt
+```
+## Usage
+### 一鍵執行所有處理步驟
+使用排程腳本一次性執行所有處理步驟：
+```bash
+python run_all.py
+# 您也可以自定義參數：
+python run_all.py --transcript-dir "./data/transcript/" --keynote-dir "./data/keynote/" --excel-file "./研討會會議清單.xlsx" --output-dir "./report/" --topic-dir "./report/topic/"
+```
+### 個別執行處理步驟
+您也可以個別執行處理步驟：
+```bash
+# 處理會議逐字稿
+python batch_summarize_process.py -i "./data/transcript/" -o "./report/topic/"
+# 處理主題演講逐字稿
+python batch_summarize_process.py -i "./data/keynote/" -o "./report/topic/"
+# 生成會議報告
+python src/generate_meeting_report.py -i "./研討會會議清單.xlsx" -o "./report/topic/"
+# 生成首頁
+python src/generate_homepage.py -i "./研討會會議清單.xlsx" -o "./report/"
+
+```

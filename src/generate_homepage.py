@@ -58,8 +58,8 @@ def markdown_to_email_html(md_content):
     # 創建類別到超連結的映射
     category_links = {
         "開發人員人工智慧大會|NVIDIA GTC 2025": "https://www.nvidia.com/zh-tw/gtc/",
-        "Keynote": "./topic/GTC 2025 Keynote with nvidia ceo jensen huang_summary.html",
-        "Quantum Computing": "./topic/Quantum Computing Where We Are and Where We're Headed [S74495]_summary.html",
+        "Keynote": "./topic/Keynote.html",
+        "Quantum Computing": "./topic/Quantum Computing.html",
         "Business / Executive": "./topic/Business_Executive.html",
         "General Interest": "./topic/General Interest.html",
         "Technical - Beginner": "./topic/Technical - Beginner.html",
@@ -455,8 +455,8 @@ def markdown_to_email_html(md_content):
         <main>
             <div class="content-container">
                 <div class="category-links">
-                    <a href="./topic/GTC 2025 Keynote with nvidia ceo jensen huang_summary.html" class="category-link">Keynote</a>
-                    <a href="./topic/Quantum Computing Where We Are and Where We're Headed [S74495]_summary.html" class="category-link">Quantum Computing</a>
+                    <a href="./topic/Keynote.html" class="category-link">Keynote</a>
+                    <a href="./topic/Quantum Computing.html" class="category-link">Quantum Computing</a>
                     <a href="./topic/Business_Executive.html" class="category-link">Business / Executive</a>
                     <a href="./topic/General Interest.html" class="category-link">General Interest</a>
                     <a href="./topic/Technical - Beginner.html" class="category-link">Technical - Beginner</a>
@@ -477,18 +477,25 @@ def markdown_to_email_html(md_content):
     """
     return email_html
 
-def ensure_directories():
-    os.makedirs("../report/md", exist_ok=True)
-    os.makedirs("../report/topic", exist_ok=True)
+def ensure_directories(output_dir):
+    """確保輸出目錄存在"""
+    os.makedirs(f"{output_dir}/topic/md", exist_ok=True)
+    os.makedirs(f"{output_dir}/topic", exist_ok=True)
 
-def main():
-    file_path = "../研討會會議清單.xlsx"  # 修改為你的 Excel 檔案路徑
+def main(file_path, output_dir="../report"):
+    """
+    主函數 - 處理Excel文件並生成首頁報告
+    
+    Args:
+        file_path (str): Excel文件路徑
+        output_dir (str): 輸出目錄路徑
+    """
     categories = [
         "Keynote", "Quantum Computing", "Business / Executive", "Technical - Beginner", 
         "General Interest", "Technical - Intermediate", "Technical - Advanced"
     ]
     
-    ensure_directories()
+    ensure_directories(output_dir)
     
     meetings = load_meetings(file_path)
     selected_meetings = select_random_meetings(meetings, categories)
@@ -496,14 +503,28 @@ def main():
     html_output = markdown_to_email_html(markdown_output)
     
     # 保存 Markdown 文件
-    with open("../report/md/homepage.md", "w", encoding="utf-8") as md_file:
+    md_path = f"{output_dir}/topic/md/homepage.md"
+    with open(md_path, "w", encoding="utf-8") as md_file:
         md_file.write(markdown_output)
     
     # 保存 HTML 文件
-    with open("../report/homepage.html", "w", encoding="utf-8") as html_file:
+    html_path = f"{output_dir}/homepage.html"
+    with open(html_path, "w", encoding="utf-8") as html_file:
         html_file.write(html_output)
     
-    print("首頁 Markdown 和 HTML 文件已成功生成。")
+    print(f"首頁 Markdown 文件已保存至: {md_path}")
+    print(f"首頁 HTML 文件已保存至: {html_path}")
 
 if __name__ == "__main__":
-    main()
+    import argparse
+    
+    # 創建命令行參數解析器
+    parser = argparse.ArgumentParser(description="生成 GTC 2025 首頁報告")
+    parser.add_argument("-i", "--input", required=True, help="輸入的 Excel 文件路徑")
+    parser.add_argument("-o", "--output", default="./report", help="輸出目錄路徑 (預設: ./report)")
+    
+    # 解析命令行參數
+    args = parser.parse_args()
+    
+    # 執行主函數
+    main(args.input, args.output)
